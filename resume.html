@@ -4,41 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resume | Nazeem Dickey</title>
+  <meta name="description" content="Resume page for Nazeem Dickey, IT and cybersecurity candidate.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <header class="nav">
-    <a href="index.html" class="brand">ND</a>
+    <a href="index.html" class="brand" aria-label="Nazeem Dickey home">ND</a>
 
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="index.html">Home</a>
       <a href="index.html#projects">Projects</a>
       <a href="index.html#skills">Skills</a>
-      <a href="resume.html">Resume</a>
+      <a href="resume.html" aria-current="page">Resume</a>
       <a href="index.html#contact">Contact</a>
     </nav>
   </header>
 
   <main class="page">
 
-    <section class="hero card">
-      <p class="tagline">Resume</p>
+    <section class="page-hero">
+      <p class="eyebrow">Resume</p>
 
       <h1>Nazeem Dickey</h1>
-      <h2>IT &amp; Cybersecurity Professional</h2>
+      <h2>IT &amp; Cybersecurity candidate with real homelab infrastructure experience.</h2>
 
-      <p class="hero-text">
-        Highly motivated IT professional and homelab engineer with hands-on experience
-        in virtualization, network security, physical infrastructure, subnetting, and
-        system administration.
+      <p class="lead">
+        High school student at SouthTech Academy with CompTIA, Cisco, and Microsoft
+        certifications, SkillsUSA state-level networking achievement, freelance support
+        experience, and a documented enterprise-style homelab.
       </p>
 
-      <div class="buttons">
+      <div class="hero-actions">
         <a href="resume.pdf" class="button">Download Resume PDF</a>
         <button type="button" class="button secondary" onclick="copyEmail()">Copy Email</button>
+        <a href="index.html#projects" class="button secondary">Projects</a>
         <a href="https://www.linkedin.com/in/nazeemdickey/" class="button secondary" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="https://github.com/nazz-d" class="button secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
 
       <p class="contact-line" id="emailText" aria-live="polite">
@@ -47,17 +48,16 @@
     </section>
 
     <section class="section two-column">
-
       <div class="card">
         <h2>Target Roles</h2>
 
         <ul class="list-clean">
           <li>Junior Network Administrator</li>
           <li>SOC Analyst / SOC Intern</li>
-          <li>Network Technician</li>
           <li>NOC Technician</li>
-          <li>IT Support / Help Desk Technician</li>
           <li>MSP Technician</li>
+          <li>IT Support / Help Desk Technician</li>
+          <li>Cybersecurity Internship</li>
         </ul>
       </div>
 
@@ -65,18 +65,20 @@
         <h2>Professional Summary</h2>
 
         <p>
-          I bring practical expertise in bare-metal deployments, subnetting, virtualization,
-          and support communication, with a portfolio centered on turning lab work into
-          job-ready infrastructure skills.
+          I bring a strong mix of certifications, support communication, and hands-on
+          infrastructure work. My portfolio is built to show real troubleshooting
+          thinking: networks, systems, identity, remote access, security monitoring,
+          and documentation.
         </p>
       </div>
-
     </section>
 
     <section class="section achievements">
       <div class="section-header">
-        <h2>Achievements</h2>
-        <p>Competitive and certification milestones from the resume.</p>
+        <div>
+          <h2>High-Impact Proof</h2>
+          <p>Resume signals that should stand out quickly.</p>
+        </div>
       </div>
 
       <div class="achievement-grid">
@@ -93,50 +95,40 @@
         </article>
 
         <article class="achievement-card">
-          <span>2026</span>
-          <strong>CyberLaunch State Competition</strong>
-          <p>Cybersecurity competition experience.</p>
+          <span>School Leadership</span>
+          <strong>SouthTech Academy</strong>
+          <p>3.5 GPA, Honor Roll, honors classes, and Esports Team Captain.</p>
         </article>
       </div>
     </section>
 
     <section class="section">
       <div class="section-header">
-        <h2>Technical Skills</h2>
-        <p>Grouped by the areas most relevant to junior network, support, and SOC roles.</p>
+        <div>
+          <h2>Technical Skills</h2>
+          <p>Grouped around the roles I am targeting.</p>
+        </div>
       </div>
 
       <div class="skill-grid four">
         <div class="skill-box">
           <h3>Networking &amp; Security</h3>
-          <p>
-            TCP/IP routing, subnetting, DHCP, DNS, OPNsense, firewall configuration,
-            remote access, Headscale, Netbird, and network security fundamentals.
-          </p>
+          <p>TCP/IP, subnetting, DHCP, DNS, OPNsense, firewall configuration, secure remote access, VPN concepts, and IDS awareness.</p>
         </div>
 
         <div class="skill-box">
           <h3>Systems &amp; Infrastructure</h3>
-          <p>
-            Proxmox VE, Linux, Windows, LXC containers, Docker, hardware troubleshooting,
-            PC builds, local AI frameworks, NAS storage, and backups.
-          </p>
+          <p>Proxmox VE, Linux, Windows, LXC containers, Docker, NAS storage, backups, hardware troubleshooting, and PC builds.</p>
         </div>
 
         <div class="skill-box">
           <h3>Cloud &amp; Identity</h3>
-          <p>
-            Microsoft Azure fundamentals, Google Workspace, access control, Authentik,
-            identity concepts, data, AI, and security compliance basics.
-          </p>
+          <p>Microsoft Azure fundamentals, Google Workspace, Authentik, SSO concepts, access control, and security compliance basics.</p>
         </div>
 
         <div class="skill-box">
-          <h3>General IT</h3>
-          <p>
-            Help desk support, RustDesk remote assistance, active listening,
-            clear technical communication, documentation, and rapid problem solving.
-          </p>
+          <h3>Support &amp; Documentation</h3>
+          <p>RustDesk remote assistance, customer communication, escalation notes, inventory tracking, and clear technical writing.</p>
         </div>
       </div>
     </section>
@@ -152,7 +144,7 @@
             <li>CompTIA Network+</li>
             <li>CompTIA Security+</li>
             <li>CompTIA CySA+</li>
-            <li>CompTIA CIOS, CSIS, and CSAP stackable certifications</li>
+            <li>CIOS, CSIS, and CSAP stackable certifications</li>
           </ul>
         </div>
 
@@ -186,7 +178,7 @@
         <h2>Experience</h2>
 
         <div class="timeline-list">
-          <article>
+          <article class="timeline-item">
             <span>June 2024 - Present</span>
             <h3>Freelance Work - Self Employed</h3>
             <p>
@@ -195,12 +187,12 @@
             </p>
           </article>
 
-          <article>
+          <article class="timeline-item">
             <span>June 2024 - January 2026</span>
             <h3>Center for Child Counseling - Volunteer</h3>
             <p>
               Supported event setup, inventory, supplies, activity supervision, and
-              friendly customer service for community programs.
+              customer service for community programs.
             </p>
           </article>
         </div>
@@ -210,7 +202,7 @@
         <h2>Education</h2>
 
         <div class="timeline-list">
-          <article>
+          <article class="timeline-item">
             <span>January 2025 - Present</span>
             <h3>SouthTech Academy</h3>
             <p>
@@ -223,8 +215,10 @@
 
     <section class="section">
       <div class="section-header">
-        <h2>Portfolio Projects</h2>
-        <p>Project pages that expand the resume into concrete implementation details.</p>
+        <div>
+          <h2>Portfolio Projects</h2>
+          <p>Project pages that make the resume easier to believe.</p>
+        </div>
       </div>
 
       <div class="project-grid">
@@ -233,35 +227,25 @@
             <span class="project-icon">01</span>
             <span class="project-type">Infrastructure</span>
           </div>
-
           <h3>Enterprise Homelab Architecture</h3>
-          <p>
-            Proxmox, OPNsense, rackmount servers, subnetting, switching, secure access,
-            Docker, LXC containers, and infrastructure documentation.
-          </p>
-
-          <span class="card-link">View project &rarr;</span>
+          <p>Proxmox, OPNsense, switching, secure access, documentation, and service mapping.</p>
+          <span class="card-link">View project -&gt;</span>
         </a>
 
         <a href="wazuh.html" class="project-card">
           <div class="project-top">
-            <span class="project-icon">02</span>
+            <span class="project-icon">06</span>
             <span class="project-type">Security</span>
           </div>
-
           <h3>Wazuh Monitoring Lab</h3>
-          <p>
-            Security monitoring, log review, authentication events, alert triage,
-            endpoint visibility, and SOC-style documentation.
-          </p>
-
-          <span class="card-link">View project &rarr;</span>
+          <p>Alert triage, log review, endpoint visibility, and investigation workflow practice.</p>
+          <span class="card-link">View project -&gt;</span>
         </a>
       </div>
     </section>
 
     <div class="back-link">
-      <a href="index.html">&larr; Back to homepage</a>
+      <a href="index.html">&lt;- Back to homepage</a>
     </div>
 
   </main>
@@ -270,23 +254,6 @@
     <p>Resume page for Nazeem Dickey.</p>
   </footer>
 
-  <script>
-    async function copyEmail() {
-      const email = "NazeemDickey@gmail.com";
-      const text = document.getElementById("emailText");
-
-      try {
-        await navigator.clipboard.writeText(email);
-        text.textContent = "Email: " + email + " - copied";
-
-        setTimeout(() => {
-          text.textContent = "Email: " + email + " | Boynton Beach, FL";
-        }, 2000);
-      } catch (error) {
-        text.textContent = "Email: " + email + " - copy manually";
-      }
-    }
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>

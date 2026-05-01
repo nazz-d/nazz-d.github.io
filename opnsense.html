@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OPNsense Edge Firewall Project | Nazeem Dickey</title>
+  <meta name="description" content="Public-safe OPNsense firewall project by Nazeem Dickey.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="nav">
+    <a href="index.html" class="brand" aria-label="Nazeem Dickey home">ND</a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="resume.html">Resume</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="page-hero">
+      <p class="eyebrow">Project | Network Security</p>
+      <h1>OPNsense Edge Firewall</h1>
+      <p class="lead">
+        Bare-metal firewall and routing project focused on the fundamentals that matter:
+        traffic flow, DNS, DHCP, NAT, secure remote access, IDS concepts, and careful
+        documentation of what is exposed and what stays internal.
+      </p>
+      <div class="chip-row">
+        <span class="chip">OPNsense</span>
+        <span class="chip">Firewall Rules</span>
+        <span class="chip">DNS / DHCP</span>
+        <span class="chip">NAT Review</span>
+        <span class="chip">Suricata Concepts</span>
+      </div>
+    </section>
+
+    <section class="section two-column">
+      <div class="card">
+        <h2>What I Built</h2>
+        <ul class="list-clean">
+          <li>Deployed OPNsense on dedicated hardware as the edge router and firewall.</li>
+          <li>Configured LAN routing, DHCP, DNS, and service access patterns.</li>
+          <li>Used Cloudflare DNS-01 and wildcard certificate workflows for services.</li>
+          <li>Reviewed WAN NAT forwards and documented which services are intentionally reachable.</li>
+          <li>Mapped firewall behavior into public-safe documentation without exposing private config.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Skills Demonstrated</h2>
+        <ul class="list-clean">
+          <li>Network segmentation and routing fundamentals</li>
+          <li>Firewall rule review and change tracking</li>
+          <li>DNS resolver and filtering concepts</li>
+          <li>Public/private service boundary thinking</li>
+          <li>Security documentation and operational judgment</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section three-column">
+      <article class="detail-card">
+        <span class="mini-label">DNS</span>
+        <h2>Filtering and Resolution</h2>
+        <p>Documented the move toward DNS filtering and upstream encrypted resolver concepts, with notes on enforcement that still need live verification.</p>
+      </article>
+
+      <article class="detail-card">
+        <span class="mini-label">Ingress</span>
+        <h2>Controlled Exposure</h2>
+        <p>Separated public-facing service access from private management access and marked uncertain paths for verification instead of guessing.</p>
+      </article>
+
+      <article class="detail-card">
+        <span class="mini-label">Security</span>
+        <h2>IDS Awareness</h2>
+        <p>Included Suricata/IDS concepts as part of the edge design and kept the public portfolio focused on architecture rather than sensitive rules.</p>
+      </article>
+    </section>
+
+    <section class="section card callout">
+      <h2>What This Shows Employers</h2>
+      <p>
+        I can think like a technician responsible for a live edge device: understand
+        traffic direction, avoid exposing management services casually, document
+        firewall state, and keep sensitive configuration out of public materials.
+      </p>
+    </section>
+
+    <div class="back-link">
+      <a href="index.html#projects">&lt;- Back to projects</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>OPNsense project by Nazeem Dickey.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

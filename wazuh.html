@@ -4,12 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wazuh Monitoring Lab | Nazeem Dickey</title>
+  <meta name="description" content="Wazuh monitoring and SOC-style investigation workflow project by Nazeem Dickey.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <header class="nav">
-    <a href="index.html" class="brand">ND</a>
+    <a href="index.html" class="brand" aria-label="Nazeem Dickey home">ND</a>
 
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="index.html">Home</a>
@@ -22,36 +23,36 @@
 
   <main class="page">
 
-    <section class="hero card">
-      <p class="tagline">Security Project | Monitoring</p>
+    <section class="page-hero">
+      <p class="eyebrow">Project | SOC Workflow</p>
 
       <h1>Wazuh Monitoring Lab</h1>
 
-      <p class="hero-text">
-        Built a Wazuh-based monitoring lab to practice endpoint visibility, log collection,
-        authentication monitoring, alert review, and incident-style documentation across
-        Windows and Linux systems.
+      <p class="lead">
+        Monitoring and investigation practice focused on endpoint visibility, authentication
+        events, alert context, triage notes, and the kind of documentation a SOC or help desk
+        team can use during follow-up.
       </p>
 
       <div class="chip-row">
         <span class="chip">Wazuh</span>
-        <span class="chip">SIEM Concepts</span>
-        <span class="chip">Windows Logs</span>
-        <span class="chip">Linux Logs</span>
-        <span class="chip">Alert Review</span>
+        <span class="chip">Log Review</span>
+        <span class="chip">Alert Triage</span>
+        <span class="chip">Windows Events</span>
+        <span class="chip">Linux Events</span>
       </div>
     </section>
 
     <section class="section two-column">
-
       <div class="card">
         <h2>Lab Goals</h2>
 
         <ul class="list-clean">
-          <li>Collect logs from Windows and Linux lab systems.</li>
-          <li>Review authentication events and failed login activity.</li>
-          <li>Practice reading security alerts and understanding event context.</li>
-          <li>Connect endpoint activity back to networking and system administration knowledge.</li>
+          <li>Collect security-relevant events from Windows and Linux systems.</li>
+          <li>Review authentication activity, failed logins, and host context.</li>
+          <li>Practice separating expected behavior from suspicious activity.</li>
+          <li>Write investigation notes that include evidence, impact, and next steps.</li>
+          <li>Connect endpoint events back to networking and system administration knowledge.</li>
         </ul>
       </div>
 
@@ -61,50 +62,68 @@
         <ul class="list-clean">
           <li>Basic SIEM workflow understanding</li>
           <li>Endpoint monitoring concepts</li>
-          <li>Log review and alert triage</li>
-          <li>Windows and Linux event visibility</li>
+          <li>Alert triage and evidence review</li>
+          <li>Authentication event analysis</li>
           <li>Clear security documentation</li>
         </ul>
       </div>
-
     </section>
 
     <section class="section card">
-      <h2>Example Investigation Workflow</h2>
+      <h2>Investigation Workflow</h2>
 
       <ol class="list-clean">
-        <li>Identify an alert or suspicious authentication event.</li>
-        <li>Review the affected host, username, source, timestamp, and related activity.</li>
-        <li>Decide whether the activity appears expected, misconfigured, or suspicious.</li>
-        <li>Document the finding, possible cause, business impact, and recommended next step.</li>
+        <li>Identify the alert, event type, affected host, user, and timestamp.</li>
+        <li>Review surrounding events before and after the alert.</li>
+        <li>Check whether the source, account, and action match expected behavior.</li>
+        <li>Classify the event as expected, misconfiguration, suspicious, or needs more evidence.</li>
+        <li>Document what happened, why it matters, what was checked, and the recommended next step.</li>
       </ol>
+    </section>
+
+    <section class="section three-column">
+      <article class="detail-card">
+        <span class="mini-label">Visibility</span>
+        <h2>Endpoint Context</h2>
+        <p>Look at hosts, users, and timestamps together instead of treating alerts as isolated popups.</p>
+      </article>
+
+      <article class="detail-card">
+        <span class="mini-label">Triage</span>
+        <h2>Noise vs Signal</h2>
+        <p>Practice asking whether an alert is expected activity, a configuration issue, or something worth escalating.</p>
+      </article>
+
+      <article class="detail-card">
+        <span class="mini-label">Notes</span>
+        <h2>Reusable Writeups</h2>
+        <p>Write investigation notes clearly enough that another technician could understand what was checked.</p>
+      </article>
     </section>
 
     <section class="section two-column">
       <div class="card">
         <h2>What I Learned</h2>
-
         <p>
-          This project helped me understand how monitoring tools collect events, how
-          alerts can be investigated, and why good notes matter during security operations.
-          It also connects my networking and systems knowledge to SOC-style workflows.
+          Monitoring tools are only useful when the analyst understands context. This
+          project helped me connect logs, accounts, systems, and network knowledge into
+          a repeatable investigation workflow.
         </p>
       </div>
 
       <div class="card">
         <h2>Next Improvements</h2>
-
         <ul class="list-clean">
-          <li>Add more Windows and Linux agents.</li>
-          <li>Create sample incident writeups for failed login activity.</li>
-          <li>Improve alert tuning to reduce noise.</li>
-          <li>Document common events and response steps.</li>
+          <li>Add more endpoint agents and document their roles.</li>
+          <li>Create sanitized sample incident writeups.</li>
+          <li>Improve alert tuning notes to reduce noise.</li>
+          <li>Build a small playbook library for common alert types.</li>
         </ul>
       </div>
     </section>
 
     <div class="back-link">
-      <a href="index.html">&larr; Back to homepage</a>
+      <a href="index.html#projects">&lt;- Back to projects</a>
     </div>
 
   </main>
@@ -113,5 +132,6 @@
     <p>Security monitoring lab documentation by Nazeem Dickey.</p>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
