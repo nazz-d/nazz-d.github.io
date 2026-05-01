@@ -158,6 +158,8 @@ p {
   background: linear-gradient(135deg, #38bdf8, #a78bfa);
   border: 1px solid transparent;
   box-shadow: 0 12px 28px rgba(56, 189, 248, 0.18);
+  cursor: pointer;
+  font-family: inherit;
   transition: transform 0.2s ease, opacity 0.2s ease, border-color 0.2s ease;
 }
 
@@ -175,6 +177,14 @@ p {
 
 .button.secondary:hover {
   border-color: rgba(56, 189, 248, 0.5);
+}
+
+.button:focus-visible,
+.nav-links a:focus-visible,
+.project-card:focus-visible,
+.back-link a:focus-visible {
+  outline: 2px solid #38bdf8;
+  outline-offset: 4px;
 }
 
 .contact-line {
@@ -348,14 +358,18 @@ p {
 }
 
 .contact-card {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 28px;
+  gap: 18px 28px;
 }
 
 .contact-card h2 {
   margin-bottom: 8px;
+}
+
+.contact-copy p {
+  margin-bottom: 0;
 }
 
 .contact-actions {
@@ -363,6 +377,11 @@ p {
   flex-wrap: wrap;
   gap: 12px;
   justify-content: flex-end;
+}
+
+.contact-card .contact-line {
+  grid-column: 1 / -1;
+  margin-top: 0;
 }
 
 .diagram-card {
@@ -443,12 +462,15 @@ p {
   }
 
   .contact-card {
-    align-items: flex-start;
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
   .contact-actions {
     justify-content: flex-start;
+  }
+
+  .contact-card .contact-line {
+    grid-column: auto;
   }
 }
 

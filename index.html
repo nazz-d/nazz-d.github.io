@@ -140,7 +140,7 @@
     </section>
 
     <section id="contact" class="section card contact-card">
-      <div>
+      <div class="contact-copy">
         <h2>Contact</h2>
         <p>
           I am looking for entry-level IT support, network technician, junior infrastructure,
@@ -149,12 +149,12 @@
       </div>
 
       <div class="contact-actions">
-        <button class="button secondary" onclick="copyEmail()">Copy Email</button>
-        <a href="https://github.com/nazz-d" class="button secondary" target="_blank">GitHub</a>
+        <button type="button" class="button secondary" onclick="copyEmail()">Copy Email</button>
+        <a href="https://github.com/nazz-d" class="button secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="resume.html" class="button secondary">Resume</a>
       </div>
-      
-      <p class="contact-line" id="emailText">
+
+      <p class="contact-line" id="emailText" aria-live="polite">
         Email: NazeemDickey@gmail.com
       </p>
     </section>
@@ -164,19 +164,24 @@
   <footer class="footer">
     <p>Built with HTML, CSS, GitHub Pages, and a lot of homelab troubleshooting.</p>
   </footer>
+
   <script>
-    function copyEmail() {
+    async function copyEmail() {
       const email = "NazeemDickey@gmail.com";
-    
-      navigator.clipboard.writeText(email).then(() => {
-        const text = document.getElementById("emailText");
-        text.innerHTML = "Email: NazeemDickey@gmail.com ✅ Copied!";
-        
+      const text = document.getElementById("emailText");
+
+      try {
+        await navigator.clipboard.writeText(email);
+        text.textContent = "Email: " + email + " ✅ Copied!";
+
         setTimeout(() => {
-          text.innerHTML = "Email: NazeemDickey@gmail.com";
+          text.textContent = "Email: " + email;
         }, 2000);
-      });
+      } catch (error) {
+        text.textContent = "Email: " + email + " — copy manually";
+      }
     }
-    </script>
+  </script>
+
 </body>
 </html>
