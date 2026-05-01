@@ -14,10 +14,10 @@
 
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="index.html">Home</a>
-      <a href="index.html#projects">Projects</a>
+      <a href="#projects">Projects</a>
       <a href="index.html#skills">Skills</a>
       <a href="resume.html" aria-current="page">Resume</a>
-      <a href="index.html#contact">Contact</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
@@ -36,10 +36,10 @@
       </p>
 
       <div class="hero-actions">
-        <a href="resume.pdf" class="button">Download Resume PDF</a>
-        <button type="button" class="button secondary" onclick="copyEmail()">Copy Email</button>
-        <a href="index.html#projects" class="button secondary">Projects</a>
+        <a href="resume.pdf" class="button" target="_blank" rel="noopener noreferrer">Download Resume PDF</a>
+        <a href="https://github.com/nazz-d" class="button secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="https://www.linkedin.com/in/nazeemdickey/" class="button secondary" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <button type="button" class="button secondary" onclick="copyEmail()">Copy Email</button>
       </div>
 
       <p class="contact-line" id="emailText" aria-live="polite">
@@ -213,7 +213,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section id="projects" class="section">
       <div class="section-header">
         <div>
           <h2>Portfolio Projects</h2>
@@ -224,23 +224,41 @@
       <div class="project-grid">
         <a href="homelab.html" class="project-card">
           <div class="project-top">
-            <span class="project-icon">01</span>
-            <span class="project-type">Infrastructure</span>
+            <span class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            </span>
+            <span class="project-type">Architecture</span>
           </div>
           <h3>Enterprise Homelab Architecture</h3>
-          <p>Proxmox, OPNsense, switching, secure access, documentation, and service mapping.</p>
+          <p>A production-grade virtualization lab: Proxmox cluster, Cisco switching, and Synology storage.</p>
           <span class="card-link">View project -&gt;</span>
         </a>
 
         <a href="wazuh.html" class="project-card">
           <div class="project-top">
-            <span class="project-icon">06</span>
-            <span class="project-type">Security</span>
+            <span class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            </span>
+            <span class="project-type">Monitoring</span>
           </div>
-          <h3>Wazuh Monitoring Lab</h3>
-          <p>Alert triage, log review, endpoint visibility, and investigation workflow practice.</p>
+          <h3>SIEM/XDR with Wazuh</h3>
+          <p>Active security monitoring and log aggregation for endpoint behavior and compliance.</p>
           <span class="card-link">View project -&gt;</span>
         </a>
+      </div>
+    </section>
+
+    <section id="contact" class="section card callout">
+      <div class="section-header">
+        <div>
+          <h2>Get In Touch</h2>
+          <p>Open to Junior Network Administrator, SOC Analyst, NOC, MSP, Help Desk, IT Support, and Cybersecurity Internship opportunities.</p>
+        </div>
+      </div>
+      <div class="contact-actions" style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px;">
+        <a href="mailto:NazeemDickey@gmail.com" class="button">Email Me</a>
+        <a href="https://www.linkedin.com/in/nazeemdickey/" class="button secondary" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <button type="button" class="button secondary" onclick="copyEmail()">Copy Email</button>
       </div>
     </section>
 

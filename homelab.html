@@ -17,7 +17,7 @@
       <a href="index.html#projects">Projects</a>
       <a href="index.html#skills">Skills</a>
       <a href="resume.html">Resume</a>
-      <a href="index.html#contact">Contact</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
@@ -92,42 +92,50 @@
       <div class="project-grid">
         <a href="opnsense.html" class="project-card">
           <div class="project-top">
-            <span class="project-icon">FW</span>
-            <span class="project-type">Network Security</span>
+            <span class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </span>
+            <span class="project-type">Firewall</span>
           </div>
           <h3>OPNsense Edge Firewall</h3>
-          <p>Routing, DHCP, DNS, NAT review, IDS concepts, and controlled management access.</p>
-          <span class="card-link">Open project -&gt;</span>
+          <p>Hardened gateway implementation: VLAN segmentation, AdGuard DNS, and WireGuard VPN.</p>
+          <span class="card-link">View project -&gt;</span>
         </a>
 
         <a href="proxmox.html" class="project-card">
           <div class="project-top">
-            <span class="project-icon">PX</span>
-            <span class="project-type">Infrastructure</span>
+            <span class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            </span>
+            <span class="project-type">Virtualization</span>
           </div>
-          <h3>Proxmox Infrastructure</h3>
-          <p>VMs, LXC containers, service placement, storage thinking, and workload documentation.</p>
-          <span class="card-link">Open project -&gt;</span>
+          <h3>Proxmox Cluster Management</h3>
+          <p>Multi-node compute environment running 20+ VMs/LXCs with focus on high-availability.</p>
+          <span class="card-link">View project -&gt;</span>
         </a>
 
         <a href="remote-access.html" class="project-card">
           <div class="project-top">
-            <span class="project-icon">RA</span>
-            <span class="project-type">Secure Access</span>
+            <span class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+            </span>
+            <span class="project-type">Network</span>
           </div>
-          <h3>Remote Access Design</h3>
-          <p>Cloudflare Tunnel and mesh VPN patterns for safer access to internal systems.</p>
-          <span class="card-link">Open project -&gt;</span>
+          <h3>Zero-Trust Remote Access</h3>
+          <p>Securing ingress via Nginx Proxy Manager and Cloudflare Tunnels for safer connectivity.</p>
+          <span class="card-link">View project -&gt;</span>
         </a>
 
         <a href="identity.html" class="project-card">
           <div class="project-top">
-            <span class="project-icon">ID</span>
-            <span class="project-type">Identity</span>
+            <span class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </span>
+            <span class="project-type">IAM</span>
           </div>
-          <h3>Authentik Identity Lab</h3>
-          <p>SSO, access control, identity-provider concepts, and authentication workflows.</p>
-          <span class="card-link">Open project -&gt;</span>
+          <h3>Centralized Identity &amp; Auth</h3>
+          <p>Authentik implementation for SSO, OIDC, and LDAP across the lab infrastructure.</p>
+          <span class="card-link">View project -&gt;</span>
         </a>
       </div>
     </section>
@@ -138,6 +146,24 @@
         This portfolio intentionally names technologies and design patterns, but it
         does not publish private addressing, MAC addresses, live firewall rule detail,
         secrets, or complete configuration exports.
+      </p>
+    </section>
+
+    <section id="contact" class="section card callout">
+      <div class="section-header">
+        <div>
+          <h2>Get In Touch</h2>
+          <p>Open to Junior Network Administrator, SOC Analyst, NOC, MSP, Help Desk, IT Support, and Cybersecurity Internship opportunities.</p>
+        </div>
+      </div>
+      <div class="contact-actions" style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px;">
+        <a href="mailto:NazeemDickey@gmail.com" class="button">Email Me</a>
+        <button type="button" class="button secondary" onclick="copyEmail()">Copy Email</button>
+        <a href="https://www.linkedin.com/in/nazeemdickey/" class="button secondary" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/nazz-d" class="button secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+      <p class="contact-line" id="emailText" aria-live="polite" style="margin-top: 24px; color: var(--subtle); font-weight: 700;">
+        Email: NazeemDickey@gmail.com | Boynton Beach, FL
       </p>
     </section>
 

@@ -16,7 +16,7 @@
       <a href="index.html#projects">Projects</a>
       <a href="index.html#skills">Skills</a>
       <a href="resume.html">Resume</a>
-      <a href="index.html#contact">Contact</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
@@ -87,6 +87,83 @@
       <p>
         I can work with virtualization beyond a tutorial: plan hosts, run services,
         document what exists, and explain why infrastructure choices matter.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2>Explore More Projects</h2>
+          <p>Project pages that focus on specific services and security layers.</p>
+        </div>
+      </div>
+
+      <div class="project-grid">
+        <a href="homelab.html" class="project-card">
+          <div class="project-top">
+            <span class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            </span>
+            <span class="project-type">Architecture</span>
+          </div>
+          <h3>Enterprise Homelab Architecture</h3>
+          <p>A production-grade virtualization lab: Proxmox cluster, Cisco switching, and Synology storage.</p>
+          <span class="card-link">View project -&gt;</span>
+        </a>
+
+        <a href="opnsense.html" class="project-card">
+          <div class="project-top">
+            <span class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </span>
+            <span class="project-type">Firewall</span>
+          </div>
+          <h3>OPNsense Edge Firewall</h3>
+          <p>Hardened gateway implementation: VLAN segmentation, AdGuard DNS, and WireGuard VPN.</p>
+          <span class="card-link">View project -&gt;</span>
+        </a>
+
+        <a href="wazuh.html" class="project-card">
+          <div class="project-top">
+            <span class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            </span>
+            <span class="project-type">Monitoring</span>
+          </div>
+          <h3>SIEM/XDR with Wazuh</h3>
+          <p>Active security monitoring and log aggregation for endpoint behavior and compliance.</p>
+          <span class="card-link">View project -&gt;</span>
+        </a>
+
+        <a href="remote-access.html" class="project-card">
+          <div class="project-top">
+            <span class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+            </span>
+            <span class="project-type">Network</span>
+          </div>
+          <h3>Zero-Trust Remote Access</h3>
+          <p>Securing ingress via Nginx Proxy Manager and Cloudflare Tunnels for safer connectivity.</p>
+          <span class="card-link">View project -&gt;</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="contact" class="section card callout">
+      <div class="section-header">
+        <div>
+          <h2>Get In Touch</h2>
+          <p>Open to Junior Network Administrator, SOC Analyst, NOC, MSP, Help Desk, IT Support, and Cybersecurity Internship opportunities.</p>
+        </div>
+      </div>
+      <div class="contact-actions" style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px;">
+        <a href="mailto:NazeemDickey@gmail.com" class="button">Email Me</a>
+        <button type="button" class="button secondary" onclick="copyEmail()">Copy Email</button>
+        <a href="https://www.linkedin.com/in/nazeemdickey/" class="button secondary" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/nazz-d" class="button secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+      <p class="contact-line" id="emailText" aria-live="polite" style="margin-top: 24px; color: var(--subtle); font-weight: 700;">
+        Email: NazeemDickey@gmail.com | Boynton Beach, FL
       </p>
     </section>
 

@@ -91,6 +91,31 @@
       </article>
     </section>
 
+    <section class="section tech-stack" aria-label="Core technologies">
+      <div class="tech-row">
+        <div class="tech-item">
+          <strong>Virtualization</strong>
+          <span>Proxmox VE, LXC, KVM</span>
+        </div>
+        <div class="tech-item">
+          <strong>Networking</strong>
+          <span>OPNsense, Cisco IOS, VLANs</span>
+        </div>
+        <div class="tech-item">
+          <strong>Security</strong>
+          <span>Wazuh SIEM, Suricata IDS, MFA</span>
+        </div>
+        <div class="tech-item">
+          <strong>Identity</strong>
+          <span>Authentik SSO, OIDC, LDAP</span>
+        </div>
+        <div class="tech-item">
+          <strong>Infrastructure</strong>
+          <span>Synology NAS, Docker, NPM</span>
+        </div>
+      </div>
+    </section>
+
     <section id="projects" class="section">
       <div class="section-header">
         <div>
@@ -111,43 +136,46 @@
 
         <a href="homelab.html" class="project-card" data-tags="all infrastructure network security">
           <div class="project-top">
-            <span class="project-icon">01</span>
+            <span class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            </span>
             <span class="project-type">Architecture</span>
           </div>
 
           <h3>Enterprise Homelab Architecture</h3>
           <p>
-            A rackmount and small-form-factor lab documented like production:
-            virtualization, edge firewalling, switching, storage, secure access,
-            and service dependency mapping.
+            A production-grade virtualization lab: Proxmox cluster, Cisco switching, 
+            and Synology storage documented with physical and logical topology mapping.
           </p>
 
           <div class="chip-row">
             <span class="chip">Proxmox</span>
-            <span class="chip">OPNsense</span>
             <span class="chip">Cisco</span>
-            <span class="chip">Documentation</span>
+            <span class="chip">Inventory</span>
+            <span class="chip">Topology</span>
           </div>
 
-          <span class="card-link">Read breakdown -&gt;</span>
+          <span class="card-link">View project -&gt;</span>
         </a>
 
         <a href="opnsense.html" class="project-card" data-tags="all network security">
           <div class="project-top">
-            <span class="project-icon">02</span>
+            <span class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </span>
             <span class="project-type">Firewall</span>
           </div>
 
           <h3>OPNsense Edge Firewall</h3>
           <p>
-            Bare-metal routing and firewall work covering DNS, DHCP, VLAN thinking,
-            controlled ingress, VPN-friendly access, and documented NAT behavior.
+            Hardened gateway implementation: VLAN segmentation, AdGuard DNS, 
+            WireGuard VPN, and IDS/IPS rules for high-visibility traffic control.
           </p>
 
           <div class="chip-row">
             <span class="chip">Routing</span>
-            <span class="chip">DNS</span>
-            <span class="chip">NAT</span>
+            <span class="chip">Security</span>
+            <span class="chip">VLANs</span>
             <span class="chip">Suricata</span>
           </div>
 
@@ -156,21 +184,23 @@
 
         <a href="proxmox.html" class="project-card" data-tags="all infrastructure network">
           <div class="project-top">
-            <span class="project-icon">03</span>
+            <span class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            </span>
             <span class="project-type">Virtualization</span>
           </div>
 
-          <h3>Proxmox Infrastructure</h3>
+          <h3>Proxmox Cluster Management</h3>
           <p>
-            Multi-node virtualization lab using VMs and LXC containers for media,
-            identity, dashboards, game servers, remote access, and service experiments.
+            Multi-node compute environment running 20+ VMs/LXCs. Focus on high-availability, 
+            resource allocation, and backup consistency.
           </p>
 
           <div class="chip-row">
-            <span class="chip">VMs</span>
-            <span class="chip">LXC</span>
-            <span class="chip">Linux</span>
-            <span class="chip">Storage</span>
+            <span class="chip">Virtualization</span>
+            <span class="chip">LXC/VM</span>
+            <span class="chip">HA Cluster</span>
+            <span class="chip">Backup</span>
           </div>
 
           <span class="card-link">View project -&gt;</span>
@@ -178,20 +208,21 @@
 
         <a href="remote-access.html" class="project-card" data-tags="all network security">
           <div class="project-top">
-            <span class="project-icon">04</span>
-            <span class="project-type">Access</span>
+            <span class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+            </span>
+            <span class="project-type">Network</span>
           </div>
 
-          <h3>Secure Remote Access Design</h3>
+          <h3>Zero-Trust Remote Access</h3>
           <p>
-            Cloudflare Tunnel, Headscale/Tailscale-style mesh access, and public-safe
-            service routing designed to reduce direct management exposure.
+            Securing ingress via Nginx Proxy Manager and Cloudflare Tunnels, 
+            eliminating the need for open ports while maintaining usability.
           </p>
 
           <div class="chip-row">
-            <span class="chip">Cloudflare</span>
-            <span class="chip">Headscale</span>
-            <span class="chip">Tailscale</span>
+            <span class="chip">Tunneling</span>
+            <span class="chip">SSL/TLS</span>
             <span class="chip">Reverse Proxy</span>
           </div>
 
@@ -200,14 +231,16 @@
 
         <a href="identity.html" class="project-card" data-tags="all identity security infrastructure">
           <div class="project-top">
-            <span class="project-icon">05</span>
-            <span class="project-type">Identity</span>
+            <span class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </span>
+            <span class="project-type">IAM</span>
           </div>
 
-          <h3>Authentik Identity Lab</h3>
+          <h3>Centralized Identity &amp; Auth</h3>
           <p>
-            SSO and identity-provider practice connecting access control concepts
-            to real services, admin workflows, and safer authentication patterns.
+            Authentik implementation for Single Sign-On (SSO) across the lab, 
+            utilizing OIDC and LDAP for secure, uniform service access.
           </p>
 
           <div class="chip-row">
@@ -222,21 +255,23 @@
 
         <a href="wazuh.html" class="project-card" data-tags="all security">
           <div class="project-top">
-            <span class="project-icon">06</span>
-            <span class="project-type">SOC</span>
+            <span class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            </span>
+            <span class="project-type">Monitoring</span>
           </div>
 
-          <h3>Wazuh Monitoring Lab</h3>
+          <h3>SIEM/XDR with Wazuh</h3>
           <p>
-            Endpoint visibility and SOC-style workflow practice: authentication events,
-            alert triage, evidence review, and investigation notes.
+            Active security monitoring and log aggregation. Tracking endpoint behavior, 
+            vulnerabilities, and policy compliance across the network.
           </p>
 
           <div class="chip-row">
             <span class="chip">Wazuh</span>
-            <span class="chip">Logs</span>
-            <span class="chip">Triage</span>
-            <span class="chip">Writeups</span>
+            <span class="chip">SIEM</span>
+            <span class="chip">SOC</span>
+            <span class="chip">Logging</span>
           </div>
 
           <span class="card-link">View project -&gt;</span>
@@ -329,23 +364,20 @@
       </div>
     </section>
 
-    <section id="contact" class="section card contact-card">
-      <div>
-        <h2>Contact</h2>
-        <p>
-          I am looking for junior network administrator, SOC analyst, NOC, MSP,
-          help desk, IT support, and cybersecurity internship opportunities.
-        </p>
+    <section id="contact" class="section card callout">
+      <div class="section-header">
+        <div>
+          <h2>Get In Touch</h2>
+          <p>Open to Junior Network Administrator, SOC Analyst, NOC, MSP, Help Desk, IT Support, and Cybersecurity Internship opportunities.</p>
+        </div>
       </div>
-
-      <div class="contact-actions">
+      <div class="contact-actions" style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px;">
+        <a href="mailto:NazeemDickey@gmail.com" class="button">Email Me</a>
         <button type="button" class="button secondary" onclick="copyEmail()">Copy Email</button>
-        <a href="resume.html" class="button secondary">Resume</a>
         <a href="https://www.linkedin.com/in/nazeemdickey/" class="button secondary" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="https://github.com/nazz-d" class="button secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
-
-      <p class="contact-line" id="emailText" aria-live="polite">
+      <p class="contact-line" id="emailText" aria-live="polite" style="margin-top: 24px; color: var(--subtle); font-weight: 700;">
         Email: NazeemDickey@gmail.com | Boynton Beach, FL
       </p>
     </section>
