@@ -34,13 +34,13 @@
 
       <div class="buttons">
         <a href="resume.pdf" class="button">Download Resume PDF</a>
-        <a href="https://github.com/nazz-d" class="button secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <button class="button secondary" onclick="copyEmail()">Copy Email</button>
+        <a href="https://github.com/nazz-d" class="button secondary" target="_blank">GitHub</a>
       </div>
-
-      <p class="contact-line">
-        Email: <a href="mailto:NazeemDickey@gmail.com">NazeemDickey@gmail.com</a>
+      
+      <p class="contact-line" id="emailText">
+        Email: NazeemDickey@gmail.com
       </p>
-    </section>
 
     <section class="section two-column">
 
@@ -161,6 +161,19 @@
   <footer class="footer">
     <p>Resume page for Nazeem Dickey.</p>
   </footer>
-
+  <script>
+    function copyEmail() {
+      const email = "NazeemDickey@gmail.com";
+    
+      navigator.clipboard.writeText(email).then(() => {
+        const text = document.getElementById("emailText");
+        text.innerHTML = "Email: NazeemDickey@gmail.com ✅ Copied!";
+    
+        setTimeout(() => {
+          text.innerHTML = "Email: NazeemDickey@gmail.com";
+        }, 2000);
+      });
+    }
+    </script>
 </body>
 </html>

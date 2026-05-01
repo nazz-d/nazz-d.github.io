@@ -149,12 +149,13 @@
       </div>
 
       <div class="contact-actions">
-        <a href="https://github.com/nazz-d" class="button secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <button class="button secondary" onclick="copyEmail()">Copy Email</button>
+        <a href="https://github.com/nazz-d" class="button secondary" target="_blank">GitHub</a>
         <a href="resume.html" class="button secondary">Resume</a>
       </div>
       
-      <p class="contact-line">
-        Email: <a href="mailto:NazeemDickey@gmail.com">NazeemDickey@gmail.com</a>
+      <p class="contact-line" id="emailText">
+        Email: NazeemDickey@gmail.com
       </p>
     </section>
 
@@ -163,6 +164,19 @@
   <footer class="footer">
     <p>Built with HTML, CSS, GitHub Pages, and a lot of homelab troubleshooting.</p>
   </footer>
-
+  <script>
+    function copyEmail() {
+      const email = "NazeemDickey@gmail.com";
+    
+      navigator.clipboard.writeText(email).then(() => {
+        const text = document.getElementById("emailText");
+        text.innerHTML = "Email: NazeemDickey@gmail.com ✅ Copied!";
+        
+        setTimeout(() => {
+          text.innerHTML = "Email: NazeemDickey@gmail.com";
+        }, 2000);
+      });
+    }
+    </script>
 </body>
 </html>
