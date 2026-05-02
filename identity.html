@@ -27,66 +27,69 @@
       <p class="eyebrow">Project | Identity &amp; Access</p>
       <h1>Authentik Identity Lab</h1>
       <p class="lead">
-        Identity-provider practice using Authentik concepts to connect SSO, OIDC/LDAP
-        style integrations, access control, admin workflows, and secure service access.
+        Authentik deployed as a self-hosted identity provider across the lab — SSO, OIDC,
+        and LDAP for services that support it, centralized user management, and a single
+        login policy instead of scattered per-app credentials.
       </p>
       <div class="chip-row">
         <span class="chip">Authentik</span>
         <span class="chip">SSO</span>
-        <span class="chip">OIDC Concepts</span>
-        <span class="chip">LDAP Concepts</span>
-        <span class="chip">Access Control</span>
+        <span class="chip">OIDC</span>
+        <span class="chip">LDAP</span>
+        <span class="chip">Centralized IAM</span>
+        <span class="chip">Access Policy</span>
       </div>
     </section>
 
     <section class="section two-column">
       <div class="card">
-        <h2>What I Worked On</h2>
+        <h2>What I Built</h2>
         <ul class="list-clean">
-          <li>Hosted an identity provider as part of the internal service environment.</li>
-          <li>Connected identity concepts to firewall, admin, and application access decisions.</li>
-          <li>Documented SSO-related architecture without publishing secrets or client values.</li>
-          <li>Practiced thinking about users, groups, service accounts, and access boundaries.</li>
+          <li>Deployed Authentik as a self-hosted identity provider in an LXC container on the Proxmox cluster.</li>
+          <li>Configured OIDC providers for services that support OAuth2/OpenID Connect login.</li>
+          <li>Set up LDAP outpost so services that only support LDAP authentication can bind against Authentik's user directory.</li>
+          <li>Managed users, groups, and access policies centrally — one place to grant or revoke access across services.</li>
+          <li>Integrated Jellyfin invite management (Wizarr) with the identity layer for controlled media access.</li>
         </ul>
       </div>
 
       <div class="card">
         <h2>Skills Demonstrated</h2>
         <ul class="list-clean">
-          <li>Identity and access management fundamentals</li>
-          <li>SSO workflow awareness</li>
-          <li>Credential handling and secret hygiene</li>
-          <li>Service integration documentation</li>
-          <li>Security-minded admin design</li>
+          <li>Identity provider deployment and configuration</li>
+          <li>OIDC / OAuth2 application integration</li>
+          <li>LDAP directory service fundamentals</li>
+          <li>Centralized user and group management</li>
+          <li>Credential hygiene and secret handling</li>
+          <li>Access policy design across multiple services</li>
         </ul>
       </div>
     </section>
 
     <section class="section three-column">
       <article class="detail-card">
-        <span class="mini-label">SSO</span>
-        <h2>Access Experience</h2>
-        <p>Used identity tooling to practice the difference between local app logins and centralized access patterns.</p>
+        <span class="mini-label">OIDC</span>
+        <h2>Single Sign-On</h2>
+        <p>Services that support OIDC authenticate through Authentik rather than managing their own user databases. One login, consistent access control, and a single place to disable a user across all integrated apps.</p>
       </article>
 
       <article class="detail-card">
-        <span class="mini-label">Secrets</span>
-        <h2>Private Config</h2>
-        <p>Kept sensitive XML exports, client secrets, bind credentials, and full configuration values out of public documentation.</p>
+        <span class="mini-label">LDAP</span>
+        <h2>Legacy Protocol Support</h2>
+        <p>Authentik's LDAP outpost lets services that only understand directory-style authentication bind against the same user store as modern OIDC apps — no separate directory server needed.</p>
       </article>
 
       <article class="detail-card">
-        <span class="mini-label">Ops</span>
-        <h2>Admin Workflow</h2>
-        <p>Connected identity to the broader homelab so access decisions are documented alongside services and infrastructure.</p>
+        <span class="mini-label">Policy</span>
+        <h2>Centralized Access Control</h2>
+        <p>Users and groups are managed in one place. Granting or revoking access to a service is a policy change in Authentik, not a manual account change in every app — the same model enterprise IAM teams use at scale.</p>
       </article>
     </section>
 
     <section class="section card callout">
       <h2>What This Shows Employers</h2>
       <p>
-        I understand that identity is part of infrastructure. Access decisions,
-        credential handling, and documentation matter just as much as getting a service online.
+        IAM is one of the first things enterprise environments ask junior admins to touch — password resets, provisioning, group policy. I already know what a centralized identity provider looks like from the inside: how SSO flows work, why LDAP still matters, and how access policy changes propagate. That's day-one relevant.
       </p>
     </section>
 

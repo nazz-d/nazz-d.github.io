@@ -27,16 +27,17 @@
       <p class="eyebrow">Project | Infrastructure</p>
       <h1>Proxmox Infrastructure</h1>
       <p class="lead">
-        Multi-server virtualization lab using Proxmox VE, Linux VMs, LXC containers,
-        storage-backed services, dashboards, identity, media automation, and game
-        server workloads.
+        Three-node Proxmox cluster — IBM M4, Dell R610, Dell R410 — running 22 VMs and LXC
+        containers across SIEM, identity, media automation, AI inference, home automation,
+        game servers, and network tooling. Backed by a Proxmox Backup Server and Synology NAS.
       </p>
       <div class="chip-row">
         <span class="chip">Proxmox VE</span>
-        <span class="chip">Linux</span>
-        <span class="chip">LXC</span>
-        <span class="chip">Docker</span>
-        <span class="chip">NAS Storage</span>
+        <span class="chip">3-Node Cluster</span>
+        <span class="chip">LXC Containers</span>
+        <span class="chip">PBS Backups</span>
+        <span class="chip">3-2-1 Strategy</span>
+        <span class="chip">Enterprise Hardware</span>
       </div>
     </section>
 
@@ -44,22 +45,21 @@
       <div class="card">
         <h2>What I Built</h2>
         <ul class="list-clean">
-          <li>Built a Proxmox lab across enterprise rackmount and small form factor hardware.</li>
-          <li>Ran a mix of VMs and LXC containers for core services and experiments.</li>
-          <li>Hosted service categories including media, identity, dashboards, remote access, and game infrastructure.</li>
-          <li>Documented host inventory, service roles, ports, and likely dependencies.</li>
-          <li>Separated known facts from items still needing verification.</li>
+          <li>Built a 3-node Proxmox cluster on IBM M4 (firstmoon), Dell R610 (secondmoon), and Dell R410 (thirdmoon).</li>
+          <li>Deployed 22 running VMs and LXC containers covering SIEM (Wazuh), SSO (Authentik), media stack (Jellyfin + Sonarr + Radarr + Prowlarr), AI inference (Ollama + Open WebUI), home automation (Home Assistant), game servers (Pelican Panel + Wings), and network tooling (Unifi controller, netboot-xyz, Headplane).</li>
+          <li>Implemented a 3-2-1 backup strategy: Proxmox Backup Server for deduplicated incremental backups, with a secondary Synology NAS target for redundancy.</li>
+          <li>Maintained a full host inventory with IPs, service roles, ports, and dependencies.</li>
         </ul>
       </div>
 
       <div class="card">
         <h2>Operational Habits</h2>
         <ul class="list-clean">
-          <li>Track host roles before making changes.</li>
-          <li>Use documentation to make troubleshooting repeatable.</li>
-          <li>Keep experiments separate from core services when possible.</li>
-          <li>Identify unknown hosts instead of ignoring them.</li>
-          <li>Use public-safe summaries for portfolio materials.</li>
+          <li>Document every host: IP, MAC, role, and dependencies before making changes.</li>
+          <li>Use PBS deduplicated backups so restores are fast and storage-efficient.</li>
+          <li>Separate production services (identity, reverse proxy) from experimental workloads.</li>
+          <li>Use LXC containers for lightweight services, QEMU VMs for OS-level isolation needs.</li>
+          <li>Maintain a private documentation repo for inventory, change log, and incident notes.</li>
         </ul>
       </div>
     </section>
@@ -67,28 +67,27 @@
     <section class="section three-column">
       <article class="detail-card">
         <span class="mini-label">Compute</span>
-        <h2>Real Hardware</h2>
-        <p>Rackmount and desktop hardware make the lab closer to production support than a simple single-machine demo.</p>
+        <h2>Rackmount + SFF Cluster</h2>
+        <p>Three physical nodes — IBM M4, Dell R610, Dell R410 — give the cluster realistic failure domains and hardware diversity. All production workloads run on enterprise rack hardware, not a single desktop box.</p>
       </article>
 
       <article class="detail-card">
-        <span class="mini-label">Services</span>
-        <h2>Mixed Workloads</h2>
-        <p>Multiple service types create realistic dependency chains across DNS, reverse proxying, storage, identity, and remote access.</p>
+        <span class="mini-label">Backup</span>
+        <h2>3-2-1 Backup Strategy</h2>
+        <p>Proxmox Backup Server handles deduplicated incremental VM backups as the primary target. A Synology NAS provides a second copy. Media and config backups land on a separate Synology, keeping media storage and VM backups on independent hardware.</p>
       </article>
 
       <article class="detail-card">
-        <span class="mini-label">Docs</span>
-        <h2>Inventory Discipline</h2>
-        <p>Inventory and topology notes help convert lab complexity into something a team could understand and maintain.</p>
+        <span class="mini-label">Workloads</span>
+        <h2>Production-Like Diversity</h2>
+        <p>Security tools (Wazuh, Authentik), automation (Sonarr, Radarr), AI inference (Ollama), home automation (Home Assistant), and game server infrastructure (Pelican) create realistic cross-service dependencies that mirror what a junior admin encounters in the field.</p>
       </article>
     </section>
 
     <section class="section card callout">
       <h2>What This Shows Employers</h2>
       <p>
-        I can work with virtualization beyond a tutorial: plan hosts, run services,
-        document what exists, and explain why infrastructure choices matter.
+        I manage a real multi-node cluster, not a single-host lab. I can provision VMs and containers, maintain a backup strategy, document host inventory, and keep 22 services running without losing track of what depends on what. That's the daily reality of infrastructure work.
       </p>
     </section>
 

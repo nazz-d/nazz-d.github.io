@@ -27,16 +27,17 @@
       <p class="eyebrow">Project | Network Security</p>
       <h1>OPNsense Edge Firewall</h1>
       <p class="lead">
-        Bare-metal firewall and routing project focused on the fundamentals that matter:
-        traffic flow, DNS, DHCP, NAT, secure remote access, IDS concepts, and careful
-        documentation of what is exposed and what stays internal.
+        OPNsense 26.1 deployed on a Dell Optiplex 5040 SFF as the sole edge device:
+        routing, DHCP, DNS filtering, VLAN segmentation, wildcard TLS, IDS on WAN, and
+        a DMZ-isolated Cloudflare Tunnel for public ingress — no raw management ports on the internet.
       </p>
       <div class="chip-row">
-        <span class="chip">OPNsense</span>
-        <span class="chip">Firewall Rules</span>
-        <span class="chip">DNS / DHCP</span>
-        <span class="chip">NAT Review</span>
-        <span class="chip">Suricata Concepts</span>
+        <span class="chip">OPNsense 26.1</span>
+        <span class="chip">VLAN Segmentation</span>
+        <span class="chip">AdGuard Home</span>
+        <span class="chip">Suricata IDS</span>
+        <span class="chip">ACME / TLS</span>
+        <span class="chip">Cloudflare DoT</span>
       </div>
     </section>
 
@@ -44,22 +45,24 @@
       <div class="card">
         <h2>What I Built</h2>
         <ul class="list-clean">
-          <li>Deployed OPNsense on dedicated hardware as the edge router and firewall.</li>
-          <li>Configured LAN routing, DHCP, DNS, and service access patterns.</li>
-          <li>Used Cloudflare DNS-01 and wildcard certificate workflows for services.</li>
-          <li>Reviewed WAN NAT forwards and documented which services are intentionally reachable.</li>
-          <li>Mapped firewall behavior into public-safe documentation without exposing private config.</li>
+          <li>Deployed OPNsense 26.1 on a Dell Optiplex 5040 SFF as the dedicated edge router and firewall.</li>
+          <li>Segmented the network into LAN and a Public DMZ VLAN for Cloudflare Tunnel isolation.</li>
+          <li>Replaced the default Unbound DNS resolver with AdGuard Home (OPNsense plugin) with Cloudflare DoT upstream for encrypted, filtered DNS.</li>
+          <li>Deployed Suricata IDS on the WAN interface in netmap mode for intrusion detection.</li>
+          <li>Automated wildcard TLS certificate issuance for *.masternazz.com using ACME with Cloudflare DNS-01 challenge.</li>
+          <li>Placed Cloudflare Tunnel connector in the DMZ VLAN so public HTTPS ingress never touches the LAN directly.</li>
         </ul>
       </div>
 
       <div class="card">
         <h2>Skills Demonstrated</h2>
         <ul class="list-clean">
-          <li>Network segmentation and routing fundamentals</li>
-          <li>Firewall rule review and change tracking</li>
-          <li>DNS resolver and filtering concepts</li>
-          <li>Public/private service boundary thinking</li>
-          <li>Security documentation and operational judgment</li>
+          <li>Network segmentation and VLAN design</li>
+          <li>Firewall rule logic and change tracking</li>
+          <li>DNS filtering and encrypted upstream resolvers</li>
+          <li>Intrusion detection system configuration</li>
+          <li>Automated TLS certificate management (ACME / DNS-01)</li>
+          <li>Public/private service boundary decision-making</li>
         </ul>
       </div>
     </section>
@@ -67,29 +70,30 @@
     <section class="section three-column">
       <article class="detail-card">
         <span class="mini-label">DNS</span>
-        <h2>Filtering and Resolution</h2>
-        <p>Documented the move toward DNS filtering and upstream encrypted resolver concepts, with notes on enforcement that still need live verification.</p>
+        <h2>AdGuard + Encrypted Upstream</h2>
+        <p>Replaced Unbound with AdGuard Home for network-wide DNS filtering with ad and malware blocking. Upstream queries go over Cloudflare DNS-over-TLS so ISP-level DNS snooping is eliminated.</p>
       </article>
 
       <article class="detail-card">
         <span class="mini-label">Ingress</span>
-        <h2>Controlled Exposure</h2>
-        <p>Separated public-facing service access from private management access and marked uncertain paths for verification instead of guessing.</p>
+        <h2>DMZ-Isolated Public Access</h2>
+        <p>Cloudflare Tunnel connector runs in a dedicated Public DMZ VLAN, isolated from the LAN. Public HTTPS traffic routes through Cloudflare → tunnel → reverse proxy without exposing internal addressing or management ports.</p>
       </article>
 
       <article class="detail-card">
-        <span class="mini-label">Security</span>
-        <h2>IDS Awareness</h2>
-        <p>Included Suricata/IDS concepts as part of the edge design and kept the public portfolio focused on architecture rather than sensitive rules.</p>
+        <span class="mini-label">IDS</span>
+        <h2>Suricata on WAN</h2>
+        <p>Suricata runs in netmap mode on the WAN interface for wire-rate intrusion detection. Alerts feed into Wazuh for centralized analysis and correlation with host-level events.</p>
       </article>
     </section>
 
     <section class="section card callout">
       <h2>What This Shows Employers</h2>
       <p>
-        I can think like a technician responsible for a live edge device: understand
-        traffic direction, avoid exposing management services casually, document
-        firewall state, and keep sensitive configuration out of public materials.
+        I built and operate a real edge firewall — not a lab simulation. I know how traffic
+        flows from WAN to service, why VLAN isolation matters for tunnel placement, and how
+        to keep management surfaces off the internet. The IDS, DNS filtering, and automated
+        cert pipeline are all production habits, not checkboxes.
       </p>
     </section>
 

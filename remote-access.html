@@ -27,68 +27,68 @@
       <p class="eyebrow">Project | Secure Access</p>
       <h1>Secure Remote Access Design</h1>
       <p class="lead">
-        Remote access architecture using mesh VPN concepts, Cloudflare Tunnel, reverse
-        proxying, and access boundaries so internal services can be reached without
-        casually exposing management surfaces.
+        Two independent remote access layers: a self-hosted Headscale mesh VPN for admin
+        access, and a Cloudflare Tunnel in a DMZ VLAN for public-facing services. No
+        management ports on the internet — every access path is intentional and documented.
       </p>
       <div class="chip-row">
-        <span class="chip">Cloudflare Tunnel</span>
         <span class="chip">Headscale</span>
-        <span class="chip">Tailscale Concepts</span>
-        <span class="chip">Reverse Proxy</span>
-        <span class="chip">Access Control</span>
+        <span class="chip">Tailscale Exit Node</span>
+        <span class="chip">Cloudflare Tunnel</span>
+        <span class="chip">Nginx Proxy Manager</span>
+        <span class="chip">DMZ Design</span>
+        <span class="chip">Wildcard TLS</span>
       </div>
     </section>
 
     <section class="section two-column">
       <div class="card">
-        <h2>Design Goals</h2>
+        <h2>What I Built</h2>
         <ul class="list-clean">
-          <li>Keep private management tools off the open internet.</li>
-          <li>Use tunnel and mesh access patterns for safer remote administration.</li>
-          <li>Route public services through controlled front doors.</li>
-          <li>Document public ingress clearly without publishing sensitive rule details.</li>
-          <li>Support troubleshooting by mapping service paths and dependencies.</li>
+          <li>Self-hosted Headscale as a WireGuard-based mesh VPN controller, managed via the Headplane web UI.</li>
+          <li>Tailscale exit node for subnet routing and remote access to lab resources from anywhere.</li>
+          <li>Cloudflare Tunnel connector deployed in a dedicated Public DMZ VLAN, isolated from LAN, routing public HTTPS requests through Cloudflare's edge without a WAN port forward.</li>
+          <li>Nginx Proxy Manager Plus as the internal reverse proxy, terminating TLS with a wildcard cert (*.masternazz.com) and routing subdomains to backend services.</li>
+          <li>ACME client on OPNsense auto-renewing the wildcard cert via Cloudflare DNS-01 — no cert management overhead.</li>
         </ul>
       </div>
 
       <div class="card">
-        <h2>What I Practiced</h2>
+        <h2>Skills Demonstrated</h2>
         <ul class="list-clean">
-          <li>Reverse proxy concepts and service routing</li>
-          <li>Cloudflare Tunnel placement in a DMZ-style network</li>
-          <li>Mesh VPN controller and exit-node concepts</li>
-          <li>Public-safe architecture documentation</li>
-          <li>Risk-aware decisions about what should be exposed</li>
+          <li>Mesh VPN design and self-hosted control plane operation</li>
+          <li>Reverse proxy configuration and subdomain routing</li>
+          <li>DMZ network design for tunnel isolation</li>
+          <li>Automated TLS lifecycle management</li>
+          <li>Separating admin access paths from public service paths</li>
         </ul>
       </div>
     </section>
 
     <section class="section three-column">
       <article class="detail-card">
-        <span class="mini-label">Tunnel</span>
-        <h2>Cloudflare Path</h2>
-        <p>Documented a tunnel connector design for public service access while keeping private addressing out of the portfolio.</p>
+        <span class="mini-label">Public Ingress</span>
+        <h2>Cloudflare Tunnel in DMZ</h2>
+        <p>The Cloudflare Tunnel connector LXC lives in VLAN 50, separated from the LAN. Public requests hit Cloudflare's edge, traverse the tunnel to the DMZ host, then reach internal services through the reverse proxy — no direct WAN port forwards needed.</p>
       </article>
 
       <article class="detail-card">
-        <span class="mini-label">Mesh</span>
-        <h2>Admin Access</h2>
-        <p>Practiced the idea of reaching internal systems through authenticated mesh access rather than exposing raw admin ports.</p>
+        <span class="mini-label">Admin Access</span>
+        <h2>Headscale Mesh VPN</h2>
+        <p>Headscale provides a self-hosted WireGuard control plane. Admin traffic — Proxmox, OPNsense, Authentik — reaches the lab through the encrypted mesh rather than open firewall rules. Headplane gives a clean UI for managing peers and access policies.</p>
       </article>
 
       <article class="detail-card">
-        <span class="mini-label">Review</span>
-        <h2>Ingress Audit</h2>
-        <p>Compared documented NAT and service paths so unclear exposure gets marked for verification instead of assumed safe.</p>
+        <span class="mini-label">TLS</span>
+        <h2>Wildcard Cert Pipeline</h2>
+        <p>OPNsense's ACME client issues and renews a *.masternazz.com certificate automatically via Cloudflare DNS-01. Nginx Proxy Manager terminates TLS for all subdomains, so every internal service gets HTTPS without managing individual certs.</p>
       </article>
     </section>
 
     <section class="section card callout">
       <h2>What This Shows Employers</h2>
       <p>
-        I understand remote access as a security design problem, not just a convenience.
-        I can document how users reach services and think about what should remain private.
+        I built two separate access layers — mesh VPN for admin, Cloudflare Tunnel for public services — because they solve different problems. I can explain why each path exists, what it protects, and where the trust boundaries are. That's the mindset network and security roles need on day one.
       </p>
     </section>
 
