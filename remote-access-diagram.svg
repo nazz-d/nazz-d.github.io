@@ -121,7 +121,7 @@
   <rect x="522" y="344" width="306" height="4" rx="4" fill="#d97706" opacity="0.5"/>
   <text x="675" y="366" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="700">Nginx Proxy Manager Plus</text>
   <text x="675" y="383" text-anchor="middle" fill="#9488ad" font-size="10">TLS termination · subdomain routing</text>
-  <text x="675" y="400" text-anchor="middle" fill="#4b4266" font-size="9">Jellyfin · Homepage · Game Servers · etc.</text>
+  <text x="675" y="400" text-anchor="middle" fill="#4b4266" font-size="9">Media · Homepage · Game Servers · etc.</text>
 
   <!-- RIGHT: Bottom label -->
   <rect x="522" y="420" width="306" height="36" rx="6" fill="#110d22" stroke="#d97706" stroke-width="0.8" opacity="0.8"/>

@@ -47,15 +47,14 @@
 
   <!-- Lines from Authentik left to OIDC apps -->
   <line x1="280" y1="120" x2="220" y2="205" stroke="#7c3aed" stroke-width="1.2" opacity="0.6" marker-end="url(#arr)"/>
-  <line x1="280" y1="130" x2="170" y2="205" stroke="#7c3aed" stroke-width="1.2" opacity="0.6" marker-end="url(#arr)"/>
-  <line x1="280" y1="140" x2="120" y2="205" stroke="#7c3aed" stroke-width="1.2" opacity="0.6" marker-end="url(#arr)"/>
-  <line x1="280" y1="148" x2="68" y2="275" stroke="#7c3aed" stroke-width="1.2" opacity="0.5" marker-end="url(#arr)"/>
-  <line x1="280" y1="148" x2="168" y2="275" stroke="#7c3aed" stroke-width="1.2" opacity="0.5" marker-end="url(#arr)"/>
+  <line x1="280" y1="132" x2="87" y2="205" stroke="#7c3aed" stroke-width="1.2" opacity="0.6" marker-end="url(#arr)"/>
+  <line x1="280" y1="144" x2="87" y2="275" stroke="#7c3aed" stroke-width="1.2" opacity="0.5" marker-end="url(#arr)"/>
+  <line x1="280" y1="152" x2="212" y2="275" stroke="#7c3aed" stroke-width="1.2" opacity="0.5" marker-end="url(#arr)"/>
 
   <!-- OIDC app chips row 1 -->
   <rect x="30" y="205" width="115" height="44" rx="6" fill="#110d22" stroke="#9333ea" stroke-width="1"/>
-  <text x="87" y="224" text-anchor="middle" fill="#c084fc" font-size="10" font-weight="600">Jellyfin</text>
-  <text x="87" y="240" text-anchor="middle" fill="#4b4266" font-size="9">Media access SSO</text>
+  <text x="87" y="224" text-anchor="middle" fill="#c084fc" font-size="10" font-weight="600">Media Server</text>
+  <text x="87" y="240" text-anchor="middle" fill="#4b4266" font-size="9">Jellyfin SSO</text>
 
   <rect x="155" y="205" width="115" height="44" rx="6" fill="#110d22" stroke="#9333ea" stroke-width="1"/>
   <text x="212" y="224" text-anchor="middle" fill="#c084fc" font-size="10" font-weight="600">NPM Plus</text>
