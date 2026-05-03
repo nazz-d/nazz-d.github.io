@@ -176,11 +176,11 @@
   <text x="312" y="697" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="600">Termix</text>
   <text x="312" y="712" text-anchor="middle" fill="#4b4266" font-size="9">Web terminal</text>
 
-  <!-- Media chip -->
-  <rect x="410" y="550" width="130" height="168" rx="5" fill="#110d22" stroke="#6d28d9" stroke-width="1"/>
-  <text x="475" y="622" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="600">Self-Hosted</text>
-  <text x="475" y="638" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="600">Media Server</text>
-  <text x="475" y="658" text-anchor="middle" fill="#4b4266" font-size="9">Streaming · private library</text>
+  <!-- Media chip (centered in column space y=550–718) -->
+  <rect x="410" y="594" width="130" height="80" rx="5" fill="#110d22" stroke="#6d28d9" stroke-width="1"/>
+  <text x="475" y="625" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="600">Self-Hosted</text>
+  <text x="475" y="641" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="600">Media Server</text>
+  <text x="475" y="657" text-anchor="middle" fill="#4b4266" font-size="9">Streaming · private library</text>
 
   <!-- Game/mgmt chips -->
   <rect x="550" y="550" width="275" height="36" rx="5" fill="#110d22" stroke="#6d28d9" stroke-width="1"/>
