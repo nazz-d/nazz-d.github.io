@@ -1,0 +1,126 @@
+<svg width="900" height="500" viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#0d0a18"/>
+      <stop offset="100%" stop-color="#030208"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#1a1030"/>
+      <stop offset="100%" stop-color="#0a0818"/>
+    </linearGradient>
+    <linearGradient id="purpleBar" x1="0" y1="0" x2="1" y2="0" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#9333ea"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#9333ea" stroke-width="0.2" opacity="0.3"/>
+    </pattern>
+    <filter id="glow">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L7,3.5 z" fill="#7c3aed" opacity="0.8"/>
+    </marker>
+    <marker id="arrIndigo" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L7,3.5 z" fill="#4f46e5" opacity="0.8"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#grid)"/>
+
+  <!-- Title -->
+  <text x="450" y="28" text-anchor="middle" fill="#c084fc" font-size="14" font-weight="700" letter-spacing="2">CENTRALIZED IDENTITY — AUTHENTIK</text>
+  <text x="450" y="46" text-anchor="middle" fill="#4b4266" font-size="10" letter-spacing="1">SSO · OIDC · LDAP · Centralized Access Control</text>
+
+  <!-- ── AUTHENTIK CENTER ── -->
+  <rect x="280" y="64" width="340" height="90" rx="10" fill="url(#card)" stroke="#9333ea" stroke-width="2.5" filter="url(#glow)"/>
+  <rect x="280" y="64" width="340" height="5" rx="4" fill="url(#purpleBar)"/>
+  <text x="450" y="92" text-anchor="middle" fill="#f6f3ff" font-size="14" font-weight="700">Authentik</text>
+  <text x="450" y="111" text-anchor="middle" fill="#c084fc" font-size="11" font-weight="600">Self-Hosted Identity Provider</text>
+  <text x="450" y="128" text-anchor="middle" fill="#9488ad" font-size="10">SSO · OIDC / OAuth2 · LDAP Outpost · MFA · Access Policy</text>
+
+  <!-- ── LEFT: OIDC BRANCH ── -->
+  <text x="170" y="185" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="700" letter-spacing="1">OIDC / OAuth2 APPS</text>
+
+  <!-- Lines from Authentik left to OIDC apps -->
+  <line x1="280" y1="120" x2="220" y2="205" stroke="#7c3aed" stroke-width="1.2" opacity="0.6" marker-end="url(#arr)"/>
+  <line x1="280" y1="130" x2="170" y2="205" stroke="#7c3aed" stroke-width="1.2" opacity="0.6" marker-end="url(#arr)"/>
+  <line x1="280" y1="140" x2="120" y2="205" stroke="#7c3aed" stroke-width="1.2" opacity="0.6" marker-end="url(#arr)"/>
+  <line x1="280" y1="148" x2="68" y2="275" stroke="#7c3aed" stroke-width="1.2" opacity="0.5" marker-end="url(#arr)"/>
+  <line x1="280" y1="148" x2="168" y2="275" stroke="#7c3aed" stroke-width="1.2" opacity="0.5" marker-end="url(#arr)"/>
+
+  <!-- OIDC app chips row 1 -->
+  <rect x="30" y="205" width="115" height="44" rx="6" fill="#110d22" stroke="#9333ea" stroke-width="1"/>
+  <text x="87" y="224" text-anchor="middle" fill="#c084fc" font-size="10" font-weight="600">Jellyfin</text>
+  <text x="87" y="240" text-anchor="middle" fill="#4b4266" font-size="9">Media access SSO</text>
+
+  <rect x="155" y="205" width="115" height="44" rx="6" fill="#110d22" stroke="#9333ea" stroke-width="1"/>
+  <text x="212" y="224" text-anchor="middle" fill="#c084fc" font-size="10" font-weight="600">NPM Plus</text>
+  <text x="212" y="240" text-anchor="middle" fill="#4b4266" font-size="9">Proxy auth portal</text>
+
+  <!-- OIDC app chips row 2 -->
+  <rect x="30" y="275" width="115" height="44" rx="6" fill="#110d22" stroke="#9333ea" stroke-width="1"/>
+  <text x="87" y="294" text-anchor="middle" fill="#c084fc" font-size="10" font-weight="600">Homepage</text>
+  <text x="87" y="310" text-anchor="middle" fill="#4b4266" font-size="9">Dashboard SSO</text>
+
+  <rect x="155" y="275" width="115" height="44" rx="6" fill="#110d22" stroke="#9333ea" stroke-width="1"/>
+  <text x="212" y="294" text-anchor="middle" fill="#c084fc" font-size="10" font-weight="600">Proxmox</text>
+  <text x="212" y="310" text-anchor="middle" fill="#4b4266" font-size="9">Hypervisor SSO</text>
+
+  <!-- ── RIGHT: LDAP BRANCH ── -->
+  <text x="730" y="185" text-anchor="middle" fill="#818cf8" font-size="10" font-weight="700" letter-spacing="1">LDAP OUTPOST</text>
+
+  <!-- Lines from Authentik right to LDAP apps -->
+  <line x1="620" y1="120" x2="680" y2="205" stroke="#4f46e5" stroke-width="1.2" opacity="0.6" marker-end="url(#arrIndigo)"/>
+  <line x1="620" y1="130" x2="730" y2="205" stroke="#4f46e5" stroke-width="1.2" opacity="0.6" marker-end="url(#arrIndigo)"/>
+  <line x1="620" y1="140" x2="780" y2="205" stroke="#4f46e5" stroke-width="1.2" opacity="0.6" marker-end="url(#arrIndigo)"/>
+
+  <!-- LDAP app chips -->
+  <rect x="625" y="205" width="115" height="44" rx="6" fill="#110d22" stroke="#4f46e5" stroke-width="1"/>
+  <text x="682" y="224" text-anchor="middle" fill="#818cf8" font-size="10" font-weight="600">Wazuh SIEM</text>
+  <text x="682" y="240" text-anchor="middle" fill="#4b4266" font-size="9">Directory auth</text>
+
+  <rect x="750" y="205" width="115" height="44" rx="6" fill="#110d22" stroke="#4f46e5" stroke-width="1"/>
+  <text x="807" y="224" text-anchor="middle" fill="#818cf8" font-size="10" font-weight="600">Legacy Apps</text>
+  <text x="807" y="240" text-anchor="middle" fill="#4b4266" font-size="9">LDAP bind support</text>
+
+  <!-- LDAP outpost box -->
+  <rect x="640" y="275" width="220" height="52" rx="8" fill="url(#card)" stroke="#4f46e5" stroke-width="1.5"/>
+  <text x="750" y="296" text-anchor="middle" fill="#818cf8" font-size="11" font-weight="600">LDAP Outpost</text>
+  <text x="750" y="314" text-anchor="middle" fill="#9488ad" font-size="10">Exposes user directory · no separate LDAP server needed</text>
+
+  <line x1="682" y1="249" x2="700" y2="275" stroke="#4f46e5" stroke-width="1" opacity="0.5" marker-end="url(#arrIndigo)"/>
+  <line x1="807" y1="249" x2="790" y2="275" stroke="#4f46e5" stroke-width="1" opacity="0.5" marker-end="url(#arrIndigo)"/>
+
+  <!-- ── BOTTOM: USER FLOW ── -->
+  <rect x="30" y="370" width="840" height="62" rx="8" fill="url(#card)" stroke="#9333ea" stroke-width="1" opacity="0.85"/>
+  <rect x="30" y="370" width="840" height="4" rx="3" fill="url(#purpleBar)" opacity="0.6"/>
+
+  <!-- User flow chips inside callout -->
+  <rect x="50" y="384" width="100" height="34" rx="5" fill="#110d22" stroke="#7c3aed" stroke-width="1"/>
+  <text x="100" y="400" text-anchor="middle" fill="#c084fc" font-size="10" font-weight="600">User Login</text>
+  <text x="100" y="413" text-anchor="middle" fill="#4b4266" font-size="9">Single credential</text>
+
+  <text x="175" y="403" text-anchor="middle" fill="#6d28d9" font-size="18">→</text>
+
+  <rect x="195" y="384" width="100" height="34" rx="5" fill="#110d22" stroke="#9333ea" stroke-width="1.5"/>
+  <text x="245" y="400" text-anchor="middle" fill="#c084fc" font-size="10" font-weight="600">Authentik</text>
+  <text x="245" y="413" text-anchor="middle" fill="#4b4266" font-size="9">Verify + MFA</text>
+
+  <text x="320" y="403" text-anchor="middle" fill="#6d28d9" font-size="18">→</text>
+
+  <rect x="340" y="384" width="130" height="34" rx="5" fill="#110d22" stroke="#9333ea" stroke-width="1"/>
+  <text x="405" y="400" text-anchor="middle" fill="#c084fc" font-size="10" font-weight="600">Access Granted</text>
+  <text x="405" y="413" text-anchor="middle" fill="#4b4266" font-size="9">Token issued to app</text>
+
+  <text x="500" y="395" text-anchor="middle" fill="#9488ad" font-size="10">·</text>
+
+  <text x="600" y="396" text-anchor="middle" fill="#9488ad" font-size="10">One login · centralized policy</text>
+  <text x="600" y="410" text-anchor="middle" fill="#4b4266" font-size="9">Revoke access across all services instantly</text>
+
+  <!-- Bottom note -->
+  <text x="450" y="458" text-anchor="middle" fill="#4b4266" font-size="9">Secrets, client IDs, and bind credentials are kept private — architecture shown only</text>
+</svg>

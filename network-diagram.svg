@@ -1,4 +1,4 @@
-<svg width="1200" height="860" viewBox="0 0 1200 860" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', system-ui, sans-serif">
+<svg width="1200" height="960" viewBox="0 0 1200 960" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', system-ui, sans-serif">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
       <stop offset="0%" stop-color="#0d0a18"/>
@@ -31,8 +31,8 @@
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="860" fill="url(#bg)"/>
-  <rect width="1200" height="860" fill="url(#grid)"/>
+  <rect width="1200" height="960" fill="url(#bg)"/>
+  <rect width="1200" height="960" fill="url(#grid)"/>
 
   <!-- Title -->
   <text x="600" y="30" text-anchor="middle" fill="#c084fc" font-size="15" font-weight="700" letter-spacing="2">masternazz.com — Network Topology</text>
@@ -211,33 +211,38 @@
   <text x="687" y="712" text-anchor="middle" fill="#4b4266" font-size="9">Game server nodes</text>
 
   <!-- More services note -->
-  <text x="430" y="742" fill="#4b4266" font-size="9">+ Jellyseerr · FlareSolverr · Wizarr · netboot · npmplus · and more</text>
+  <text x="430" y="742" fill="#4b4266" font-size="9">+ Home Assistant · Ollama · OpenWebUI · Unifi Controller · Pelican Panel · Homarr · scanopy · Jellyseerr · FlareSolverr · Wizarr · netboot-xyz · and more</text>
 
   <!-- ═══════════════ LEGEND ═══════════════ -->
-  <rect x="20" y="752" width="1160" height="90" rx="8" fill="url(#card)" stroke="#9333ea" stroke-width="0.5" opacity="0.6"/>
-  <text x="600" y="770" text-anchor="middle" fill="#4b4266" font-size="10" font-weight="700" letter-spacing="2">LEGEND</text>
+  <rect x="20" y="758" width="1160" height="182" rx="8" fill="url(#card)" stroke="#9333ea" stroke-width="0.5" opacity="0.6"/>
+  <text x="600" y="778" text-anchor="middle" fill="#4b4266" font-size="10" font-weight="700" letter-spacing="2">LEGEND</text>
 
-  <rect x="40" y="779" width="10" height="10" rx="2" fill="none" stroke="#9333ea" stroke-width="2"/>
-  <text x="57" y="789" fill="#9488ad" font-size="10">Core Infrastructure</text>
+  <rect x="40" y="788" width="10" height="10" rx="2" fill="none" stroke="#9333ea" stroke-width="2"/>
+  <text x="57" y="798" fill="#9488ad" font-size="10">Core Infrastructure</text>
 
-  <rect x="180" y="779" width="10" height="10" rx="2" fill="none" stroke="#d97706" stroke-width="2"/>
-  <text x="197" y="789" fill="#9488ad" font-size="10">Public DMZ / Cloudflare</text>
+  <rect x="215" y="788" width="10" height="10" rx="2" fill="none" stroke="#d97706" stroke-width="2"/>
+  <text x="232" y="798" fill="#9488ad" font-size="10">Public DMZ / Cloudflare</text>
 
-  <rect x="360" y="779" width="10" height="10" rx="2" fill="none" stroke="#4f46e5" stroke-width="2"/>
-  <text x="377" y="789" fill="#9488ad" font-size="10">NAS Storage</text>
+  <rect x="410" y="788" width="10" height="10" rx="2" fill="none" stroke="#4f46e5" stroke-width="2"/>
+  <text x="427" y="798" fill="#9488ad" font-size="10">NAS Storage</text>
 
-  <rect x="470" y="779" width="10" height="10" rx="2" fill="none" stroke="#0369a1" stroke-width="2"/>
-  <text x="487" y="789" fill="#9488ad" font-size="10">Wireless / Physical</text>
+  <rect x="530" y="788" width="10" height="10" rx="2" fill="none" stroke="#0369a1" stroke-width="2"/>
+  <text x="547" y="798" fill="#9488ad" font-size="10">Wireless / Physical</text>
 
-  <rect x="610" y="779" width="10" height="10" rx="2" fill="none" stroke="#0d9488" stroke-width="2"/>
-  <text x="627" y="789" fill="#9488ad" font-size="10">Zero-Trust Remote Access</text>
+  <rect x="680" y="788" width="10" height="10" rx="2" fill="none" stroke="#0d9488" stroke-width="2"/>
+  <text x="697" y="798" fill="#9488ad" font-size="10">Zero-Trust Remote Access</text>
 
-  <rect x="800" y="779" width="10" height="10" rx="2" fill="none" stroke="#6d28d9" stroke-width="2"/>
-  <text x="817" y="789" fill="#9488ad" font-size="10">Virtualized Services (VMs/LXC)</text>
+  <rect x="870" y="788" width="10" height="10" rx="2" fill="none" stroke="#6d28d9" stroke-width="2"/>
+  <text x="887" y="798" fill="#9488ad" font-size="10">Virtualized Services (VMs/LXC)</text>
 
-  <rect x="1010" y="779" width="10" height="10" rx="2" fill="none" stroke="#22d3ee" stroke-width="2"/>
-  <text x="1027" y="789" fill="#9488ad" font-size="10">Internet / WAN</text>
+  <rect x="1080" y="788" width="10" height="10" rx="2" fill="none" stroke="#22d3ee" stroke-width="2"/>
+  <text x="1097" y="798" fill="#9488ad" font-size="10">Internet / WAN</text>
 
-  <text x="40" y="815" fill="#4b4266" font-size="9">Security: Suricata IDS/IPS on WAN · AdGuard DNS filtering (Cloudflare DoT upstream) · Authentik SSO · Wildcard SSL via ACME + Cloudflare DNS-01</text>
-  <text x="40" y="830" fill="#4b4266" font-size="9">Remote access via encrypted Headscale/Tailscale mesh only — no raw management ports exposed to internet · Zero-trust architecture</text>
+  <text x="40" y="828" fill="#6b5f88" font-size="9" font-weight="700" letter-spacing="1">SECURITY STACK</text>
+  <text x="40" y="846" fill="#9488ad" font-size="9">Suricata IDS/IPS on WAN (netmap mode) · AdGuard Home DNS filtering · Cloudflare DoT upstream · Authentik SSO (OIDC + LDAP)</text>
+  <text x="40" y="862" fill="#9488ad" font-size="9">ACME wildcard SSL (*.masternazz.com) via Cloudflare DNS-01 · Deny-by-default firewall · No raw management ports on internet</text>
+
+  <text x="40" y="888" fill="#6b5f88" font-size="9" font-weight="700" letter-spacing="1">ACCESS PATHS</text>
+  <text x="40" y="906" fill="#9488ad" font-size="9">Admin access → Headscale mesh VPN (WireGuard) — encrypted, zero exposed ports · Public services → Cloudflare Tunnel (VLAN 50 DMZ) → NPM reverse proxy</text>
+  <text x="40" y="922" fill="#4b4266" font-size="9">Proxmox Backup Server (PBS) · Synology NAS backup target · 3-2-1 backup strategy for all VMs and LXC containers</text>
 </svg>
