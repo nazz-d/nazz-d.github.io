@@ -98,10 +98,10 @@
   <text x="733" y="322" text-anchor="middle" fill="#4b4266" font-size="9">Deny-by-default</text>
 
   <!-- Left arrow → LAN -->
-  <line x1="270" y1="332" x2="220" y2="370" stroke="#7c3aed" stroke-width="2" opacity="0.75" marker-end="url(#arr)"/>
+  <line x1="215" y1="332" x2="215" y2="370" stroke="#7c3aed" stroke-width="2" opacity="0.75" marker-end="url(#arr)"/>
 
   <!-- Right arrow → DMZ -->
-  <line x1="633" y1="332" x2="680" y2="370" stroke="#d97706" stroke-width="2" opacity="0.75" marker-end="url(#arrOrange)"/>
+  <line x1="678" y1="332" x2="678" y2="370" stroke="#d97706" stroke-width="2" opacity="0.75" marker-end="url(#arrOrange)"/>
 
   <!-- LAN box -->
   <rect x="60" y="372" width="310" height="72" rx="8" fill="url(#card)" stroke="#9333ea" stroke-width="1.8" filter="url(#glowSoft)"/>

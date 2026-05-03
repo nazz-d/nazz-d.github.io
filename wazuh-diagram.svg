@@ -73,11 +73,11 @@
   <text x="125" y="349" text-anchor="middle" fill="#9488ad" font-size="9">Authentik · NPM Plus · NAS</text>
   <text x="125" y="363" text-anchor="middle" fill="#4b4266" font-size="9">Auth events · access logs</text>
 
-  <!-- Arrows from sources to Wazuh Manager -->
-  <line x1="228" y1="116" x2="326" y2="246" stroke="#22d3ee" stroke-width="1.5" opacity="0.7" marker-end="url(#arr)"/>
-  <line x1="228" y1="192" x2="330" y2="262" stroke="#9333ea" stroke-width="1.5" opacity="0.7" marker-end="url(#arr)"/>
-  <line x1="228" y1="268" x2="330" y2="278" stroke="#7c3aed" stroke-width="1.5" opacity="0.7" marker-end="url(#arr)"/>
-  <line x1="228" y1="344" x2="326" y2="296" stroke="#6d28d9" stroke-width="1.5" opacity="0.7" marker-end="url(#arr)"/>
+  <!-- Arrows from sources to Wazuh Manager — right-angle elbows -->
+  <path d="M228,116 L263,116 L263,210 L329,210" fill="none" stroke="#22d3ee" stroke-width="1.5" stroke-linejoin="round" opacity="0.7" marker-end="url(#arr)"/>
+  <path d="M228,192 L291,192 L291,235 L329,235" fill="none" stroke="#9333ea" stroke-width="1.5" stroke-linejoin="round" opacity="0.7" marker-end="url(#arr)"/>
+  <line x1="228" y1="268" x2="329" y2="268" stroke="#7c3aed" stroke-width="1.5" opacity="0.7" marker-end="url(#arr)"/>
+  <path d="M228,344 L279,344 L279,295 L329,295" fill="none" stroke="#6d28d9" stroke-width="1.5" stroke-linejoin="round" opacity="0.7" marker-end="url(#arr)"/>
 
   <!-- ── CENTER: WAZUH MANAGER ── -->
   <rect x="330" y="190" width="240" height="150" rx="10" fill="url(#card)" stroke="#9333ea" stroke-width="2.5" filter="url(#glow)"/>
@@ -90,10 +90,10 @@
   <text x="450" y="300" text-anchor="middle" fill="#9488ad" font-size="9">Vulnerability detection · compliance</text>
   <text x="450" y="316" text-anchor="middle" fill="#4b4266" font-size="9">Active response + alert enrichment</text>
 
-  <!-- Arrows from Wazuh Manager to outputs -->
-  <line x1="570" y1="246" x2="648" y2="152" stroke="#9333ea" stroke-width="1.8" opacity="0.75" marker-end="url(#arr)"/>
-  <line x1="570" y1="278" x2="648" y2="276" stroke="#dc2626" stroke-width="1.8" opacity="0.75" marker-end="url(#arrRed)"/>
-  <line x1="570" y1="310" x2="648" y2="390" stroke="#16a34a" stroke-width="1.8" opacity="0.75" marker-end="url(#arrGreen)"/>
+  <!-- Arrows from Wazuh Manager to outputs — right-angle elbows -->
+  <path d="M570,215 L619,215 L619,116 L648,116" fill="none" stroke="#9333ea" stroke-width="1.8" stroke-linejoin="round" opacity="0.75" marker-end="url(#arr)"/>
+  <line x1="570" y1="274" x2="648" y2="274" stroke="#dc2626" stroke-width="1.8" opacity="0.75" marker-end="url(#arrRed)"/>
+  <path d="M570,310 L619,310 L619,390 L648,390" fill="none" stroke="#16a34a" stroke-width="1.8" stroke-linejoin="round" opacity="0.75" marker-end="url(#arrGreen)"/>
 
   <!-- ── RIGHT: OUTPUTS ── -->
   <text x="775" y="76" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="700" letter-spacing="1">OUTPUTS</text>

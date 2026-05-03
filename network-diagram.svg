@@ -44,7 +44,7 @@
   <text x="580" y="99" text-anchor="middle" fill="#4b6e7a" font-size="10">WAN uplink · DHCP</text>
 
   <!-- Internet → OPNsense -->
-  <line x1="580" y1="108" x2="490" y2="148" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.6" marker-end="url(#arr)"/>
+  <line x1="580" y1="108" x2="580" y2="148" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.6" marker-end="url(#arr)"/>
 
   <!-- ═══════════════ OPNSENSE ═══════════════ -->
   <rect x="100" y="148" width="680" height="82" rx="8" fill="url(#card)" stroke="#9333ea" stroke-width="2" filter="url(#glow)"/>
@@ -69,6 +69,9 @@
   <!-- DMZ → Cloudflare -->
   <line x1="1018" y1="230" x2="1018" y2="262" stroke="#d97706" stroke-width="1.5" opacity="0.6" marker-end="url(#arrOrange)"/>
 
+  <!-- Zero-trust path drawn here so Cloudflare box and Switch render on top of it -->
+  <path d="M780,289 L1018,289 L1018,334" fill="none" stroke="#0d9488" stroke-width="1.5" stroke-dasharray="5,3" stroke-linejoin="round" opacity="0.5" marker-end="url(#arrTeal)"/>
+
   <!-- Cloudflare box -->
   <rect x="878" y="262" width="280" height="52" rx="8" fill="url(#card)" stroke="#d97706" stroke-width="1" opacity="0.85"/>
   <text x="1018" y="284" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="600">☁  Cloudflare CDN + WAF</text>
@@ -84,10 +87,9 @@
   <text x="490" y="306" text-anchor="middle" fill="#9488ad" font-size="10">L2/L3 Core Switching · VLAN Trunking · PoE</text>
 
   <!-- Switch → physical nodes -->
-  <line x1="310" y1="317" x2="175" y2="358" stroke="#6d28d9" stroke-width="1.5" opacity="0.6" marker-end="url(#arr)"/>
-  <line x1="420" y1="317" x2="430" y2="358" stroke="#4f46e5" stroke-width="1.5" opacity="0.6" marker-end="url(#arr)"/>
-  <line x1="530" y1="317" x2="645" y2="358" stroke="#0369a1" stroke-width="1.5" opacity="0.6" marker-end="url(#arr)"/>
-  <line x1="620" y1="317" x2="870" y2="358" stroke="#0d9488" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5" marker-end="url(#arrTeal)"/>
+  <line x1="260" y1="317" x2="260" y2="358" stroke="#6d28d9" stroke-width="1.5" opacity="0.6" marker-end="url(#arr)"/>
+  <line x1="470" y1="317" x2="470" y2="358" stroke="#4f46e5" stroke-width="1.5" opacity="0.6" marker-end="url(#arr)"/>
+  <line x1="730" y1="317" x2="730" y2="358" stroke="#0369a1" stroke-width="1.5" opacity="0.6" marker-end="url(#arr)"/>
 
   <!-- ═══════════════ PROXMOX CLUSTER ═══════════════ -->
   <rect x="20" y="358" width="300" height="120" rx="8" fill="url(#card)" stroke="#6d28d9" stroke-width="1.5"/>
@@ -139,7 +141,7 @@
   <!-- Column headers -->
   <text x="40" y="544" fill="#6b5f88" font-size="9" font-weight="700" letter-spacing="1">NETWORK &amp; PROXY</text>
   <text x="280" y="544" fill="#6b5f88" font-size="9" font-weight="700" letter-spacing="1">IDENTITY &amp; SECURITY</text>
-  <text x="520" y="544" fill="#6b5f88" font-size="9" font-weight="700" letter-spacing="1">MEDIA STACK</text>
+  <text x="472" y="544" fill="#6b5f88" font-size="9" font-weight="700" letter-spacing="1">APPS &amp; UTILITIES</text>
   <text x="680" y="544" fill="#6b5f88" font-size="9" font-weight="700" letter-spacing="1">SERVERS &amp; MGMT</text>
 
   <!-- Network chips -->
@@ -176,11 +178,22 @@
   <text x="312" y="697" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="600">Termix</text>
   <text x="312" y="712" text-anchor="middle" fill="#4b4266" font-size="9">Web terminal</text>
 
-  <!-- Media chip (centered in column space y=550–718) -->
-  <rect x="410" y="594" width="130" height="80" rx="5" fill="#110d22" stroke="#6d28d9" stroke-width="1"/>
-  <text x="475" y="625" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="600">Self-Hosted</text>
-  <text x="475" y="641" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="600">Media Server</text>
-  <text x="475" y="657" text-anchor="middle" fill="#4b4266" font-size="9">Streaming · private library</text>
+  <!-- Apps & Utilities chips -->
+  <rect x="410" y="550" width="125" height="36" rx="5" fill="#110d22" stroke="#6d28d9" stroke-width="1"/>
+  <text x="472" y="565" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="600">Media Server</text>
+  <text x="472" y="580" text-anchor="middle" fill="#4b4266" font-size="9">Streaming · private library</text>
+
+  <rect x="410" y="594" width="125" height="36" rx="5" fill="#110d22" stroke="#6d28d9" stroke-width="1"/>
+  <text x="472" y="609" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="600">Home Assistant</text>
+  <text x="472" y="624" text-anchor="middle" fill="#4b4266" font-size="9">Home automation</text>
+
+  <rect x="410" y="638" width="125" height="36" rx="5" fill="#110d22" stroke="#6d28d9" stroke-width="1"/>
+  <text x="472" y="653" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="600">Ollama / OpenWebUI</text>
+  <text x="472" y="668" text-anchor="middle" fill="#4b4266" font-size="9">Local AI inference</text>
+
+  <rect x="410" y="682" width="125" height="36" rx="5" fill="#110d22" stroke="#6d28d9" stroke-width="1"/>
+  <text x="472" y="697" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="600">Unifi Controller</text>
+  <text x="472" y="712" text-anchor="middle" fill="#4b4266" font-size="9">Network management</text>
 
   <!-- Game/mgmt chips -->
   <rect x="550" y="550" width="275" height="36" rx="5" fill="#110d22" stroke="#6d28d9" stroke-width="1"/>
@@ -200,7 +213,7 @@
   <text x="687" y="712" text-anchor="middle" fill="#4b4266" font-size="9">Dedicated game instances</text>
 
   <!-- More services note -->
-  <text x="430" y="742" fill="#4b4266" font-size="9">+ Home Assistant · Ollama · OpenWebUI · Unifi Controller · Pelican Panel · Homarr · scanopy · netboot-xyz · and more</text>
+  <text x="430" y="742" fill="#4b4266" font-size="9">+ Homarr · scanopy · netboot-xyz · and more services hosted on the cluster</text>
 
   <!-- ═══════════════ LEGEND ═══════════════ -->
   <rect x="20" y="758" width="1160" height="182" rx="8" fill="url(#card)" stroke="#9333ea" stroke-width="0.5" opacity="0.6"/>
