@@ -43,35 +43,87 @@ function setupProjectFilters() {
 }
 
 // Cursor spotlight — fixed overlay so we use clientX/clientY (viewport coords)
+function allowsMotionEffects() {
+  if (!window.matchMedia) {
+    return true;
+  }
+
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const finePointer = window.matchMedia("(pointer: fine)").matches;
+  return finePointer && !reducedMotion;
+}
+
 function setupCursorSpotlight() {
-  let tx = window.innerWidth  / 2;
+  if (!allowsMotionEffects()) {
+    return;
+  }
+
+  let tx = window.innerWidth / 2;
   let ty = window.innerHeight / 2;
   let cx = tx;
   let cy = ty;
+  let frameId = null;
+
+  function lerp(a, b, t) { return a + (b - a) * t; }
+
+  function setSpotlightPosition(x, y) {
+    const width = window.innerWidth || 1;
+    const height = window.innerHeight || 1;
+    const xPct = (x / width * 100).toFixed(2) + "%";
+    const yPct = (y / height * 100).toFixed(2) + "%";
+    document.documentElement.style.setProperty("--cx", xPct);
+    document.documentElement.style.setProperty("--cy", yPct);
+  }
+
+  function scheduleTick() {
+    if (frameId === null && !document.hidden) {
+      frameId = requestAnimationFrame(tick);
+    }
+  }
+
+  function tick() {
+    frameId = null;
+
+    if (document.hidden) {
+      return;
+    }
+
+    const dx = tx - cx;
+    const dy = ty - cy;
+
+    if (Math.abs(dx) < 0.3 && Math.abs(dy) < 0.3) {
+      cx = tx;
+      cy = ty;
+      setSpotlightPosition(cx, cy);
+      return;
+    }
+
+    cx = lerp(cx, tx, 0.14);
+    cy = lerp(cy, ty, 0.14);
+    setSpotlightPosition(cx, cy);
+    scheduleTick();
+  }
 
   document.addEventListener("mousemove", (e) => {
     tx = e.clientX;
     ty = e.clientY;
-  });
+    scheduleTick();
+  }, { passive: true });
 
-  function lerp(a, b, t) { return a + (b - a) * t; }
-
-  function tick() {
-    if (!document.hidden) {
-      cx = lerp(cx, tx, 0.08);
-      cy = lerp(cy, ty, 0.08);
-      const xPct = (cx / window.innerWidth  * 100).toFixed(2) + "%";
-      const yPct = (cy / window.innerHeight * 100).toFixed(2) + "%";
-      document.documentElement.style.setProperty("--cx", xPct);
-      document.documentElement.style.setProperty("--cy", yPct);
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden && frameId !== null) {
+      cancelAnimationFrame(frameId);
+      frameId = null;
     }
-    requestAnimationFrame(tick);
-  }
-  tick();
+  });
 }
 
 // Apple-style liquid glass — tracks cursor position + angle within each panel
 function setupGlassPanels() {
+  if (!allowsMotionEffects()) {
+    return;
+  }
+
   const panels = document.querySelectorAll(".glass-panel");
 
   panels.forEach((panel) => {
@@ -92,7 +144,7 @@ function setupGlassPanels() {
       panel.style.setProperty("--mx",    xPct);
       panel.style.setProperty("--my",    yPct);
       panel.style.setProperty("--angle", deg);
-    });
+    }, { passive: true });
   });
 }
 
