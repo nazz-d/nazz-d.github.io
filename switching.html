@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cisco Switching &amp; DMZ VLAN | Nazeem Dickey</title>
+  <meta name="description" content="Cisco Catalyst 3750 V2 switching deployment with VLAN 50 DMZ isolation for Cloudflare Tunnel public ingress.">
+  <link rel="canonical" href="https://masternazz.com/switching.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Cisco Switching &amp; DMZ VLAN | Nazeem Dickey">
+  <meta property="og:description" content="Two Cisco Catalyst 3750 V2 switches, trunk port configuration, and VLAN 50 DMZ design for isolated public ingress.">
+  <meta property="og:url" content="https://masternazz.com/switching.html">
+  <meta property="og:image" content="https://masternazz.com/network-diagram.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cisco Switching &amp; DMZ VLAN | Nazeem Dickey">
+  <meta name="twitter:description" content="Trunk port design, VLAN 50 DMZ isolation, and change validation on real Cisco Catalyst hardware.">
+  <meta name="twitter:image" content="https://masternazz.com/network-diagram.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+
+  <header class="nav">
+    <a href="index.html" class="brand" aria-label="Nazeem Dickey home">ND</a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="certifications.html">Certs</a>
+      <a href="resume.html">Resume</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="page">
+
+    <section class="page-hero">
+      <p class="eyebrow">Project | Networking</p>
+      <h1>Cisco Switching &amp; DMZ VLAN</h1>
+      <p class="lead">
+        Two Cisco Catalyst 3750 V2 switches configured with trunk ports, VLAN 50 DMZ
+        isolation, and SSH-based administration — providing clean traffic separation
+        between the native LAN and a public ingress path for Cloudflare Tunnel.
+      </p>
+      <div class="chip-row">
+        <span class="chip">Cisco Catalyst 3750 V2</span>
+        <span class="chip">VLAN Segmentation</span>
+        <span class="chip">Trunk Ports</span>
+        <span class="chip">DMZ Design</span>
+        <span class="chip">SSH Administration</span>
+        <span class="chip">Change Validation</span>
+      </div>
+    </section>
+
+    <section class="section two-column">
+      <div class="card">
+        <h2>What I Built</h2>
+        <ul class="list-clean">
+          <li>Deployed two Cisco Catalyst 3750 V2 switches in a main/sub hierarchy — the main switch is the STP root for both VLAN 1 and VLAN 50, with the sub switch uplinked via a trunk port.</li>
+          <li>Designed VLAN 50 as a DMZ for public-facing services, keeping all internet-exposed workloads isolated from the native LAN (VLAN 1) at the switching layer.</li>
+          <li>Configured trunk ports between OPNsense, Proxmox, the main switch, and the sub switch — all carrying VLANs 1 and 50 with VLAN 1 as the native VLAN.</li>
+          <li>Cleaned up switch administration: created a named local account, removed the default <code>admin</code> account, and verified SSH access before removing the old credential.</li>
+          <li>Validated the full path after every change — DHCP lease delivery, ping to the DMZ gateway, tunnel service status, and trunk allowlist review on both switches.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Skills Demonstrated</h2>
+        <ul class="list-clean">
+          <li>Cisco IOS VLAN configuration and trunk port setup</li>
+          <li>Multi-switch hierarchy design (STP root placement)</li>
+          <li>DMZ network segmentation and traffic isolation</li>
+          <li>SSH-based switch administration and credential hygiene</li>
+          <li>End-to-end change validation (DHCP, ping, service checks)</li>
+          <li>Network documentation and topology tracking</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section three-column">
+      <article class="detail-card glass-panel">
+        <span class="mini-label">Design</span>
+        <h2>Main / Sub Switch Hierarchy</h2>
+        <p>The main Catalyst 3750 V2 acts as the aggregation point — it uplinks directly to OPNsense and Proxmox, and trunks down to the sub switch. Placing the main switch as STP root for both VLANs ensures predictable forwarding and avoids accidental topology loops as the lab grows. The sub switch inherits the same VLAN allowlist through its uplink trunk.</p>
+      </article>
+
+      <article class="detail-card glass-panel">
+        <span class="mini-label">Isolation</span>
+        <h2>VLAN 50 DMZ for Public Ingress</h2>
+        <p>VLAN 50 (Public_DMZ, 192.168.x.x/24) exists to hold the Cloudflare Tunnel container and any other internet-facing workloads. Traffic from the DMZ subnet cannot reach LAN hosts without going through OPNsense firewall rules — the VLAN boundary enforces separation at layer 2 before any routing decision is made. The native LAN stays clean regardless of what happens in the DMZ.</p>
+      </article>
+
+      <article class="detail-card glass-panel">
+        <span class="mini-label">Validation</span>
+        <h2>Testing Every Change</h2>
+        <p>After trunking VLAN 50 through both switches, I confirmed the full path: the DMZ container received a DHCP lease from OPNsense, could ping the DMZ gateway, and the Cloudflare Tunnel service reported active registered connections. I also reviewed the trunk allowlist on both switches over SSH to confirm the config matched intent — not just that the service came up.</p>
+      </article>
+    </section>
+
+    <section class="section card">
+      <h2>Trunk Port Layout</h2>
+      <p style="margin-bottom: 20px;">Sanitized port map showing how VLANs 1 and 50 are carried across the switching fabric. All IPs are representative; the native VLAN on every trunk is VLAN 1.</p>
+
+      <div style="overflow-x: auto;">
+        <table style="width:100%; border-collapse:collapse; font-size:0.9rem;">
+          <thead>
+            <tr style="border-bottom: 1px solid var(--line); color: var(--subtle); text-align:left;">
+              <th style="padding: 10px 14px;">Switch</th>
+              <th style="padding: 10px 14px;">Port</th>
+              <th style="padding: 10px 14px;">Connected To</th>
+              <th style="padding: 10px 14px;">Mode</th>
+              <th style="padding: 10px 14px;">Allowed VLANs</th>
+            </tr>
+          </thead>
+          <tbody style="color: var(--muted);">
+            <tr style="border-bottom: 1px solid rgba(147,51,234,0.1);">
+              <td style="padding: 10px 14px;">Main</td>
+              <td style="padding: 10px 14px; font-family: monospace;">Fa5/0/1</td>
+              <td style="padding: 10px 14px;">Proxmox node</td>
+              <td style="padding: 10px 14px;">trunk</td>
+              <td style="padding: 10px 14px;">1, 50</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(147,51,234,0.1);">
+              <td style="padding: 10px 14px;">Main</td>
+              <td style="padding: 10px 14px; font-family: monospace;">Fa5/0/47</td>
+              <td style="padding: 10px 14px;">OPNsense LAN interface</td>
+              <td style="padding: 10px 14px;">trunk</td>
+              <td style="padding: 10px 14px;">1, 50</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(147,51,234,0.1);">
+              <td style="padding: 10px 14px;">Main</td>
+              <td style="padding: 10px 14px; font-family: monospace;">Fa5/0/48</td>
+              <td style="padding: 10px 14px;">Sub switch uplink</td>
+              <td style="padding: 10px 14px;">trunk</td>
+              <td style="padding: 10px 14px;">1, 50</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px 14px;">Sub</td>
+              <td style="padding: 10px 14px; font-family: monospace;">Fa2/0/47</td>
+              <td style="padding: 10px 14px;">Main switch uplink</td>
+              <td style="padding: 10px 14px;">trunk</td>
+              <td style="padding: 10px 14px;">1, 50</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section card callout">
+      <h2>What This Shows Employers</h2>
+      <p>
+        Managed Cisco switching is day-one relevant for junior network admin, NOC, and MSP roles.
+        I configured real Catalyst hardware — not a simulator — and made deliberate design choices:
+        STP root placement, DMZ isolation at layer 2, explicit trunk allowlists, and credential
+        hygiene on the switches themselves. The validation process mirrors what a production change
+        requires: confirm DHCP, confirm routing, confirm the service, review the config. That's
+        the workflow, not just the outcome.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2>Explore More Projects</h2>
+          <p>Related infrastructure this switching layer supports.</p>
+        </div>
+      </div>
+
+      <div class="project-grid">
+        <a href="homelab.html" class="project-card glass-panel">
+          <div class="project-top">
+            <span class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            </span>
+            <span class="project-type">Architecture</span>
+          </div>
+          <h3>Enterprise Homelab Architecture</h3>
+          <p>Full infrastructure overview: Proxmox cluster, Cisco switching, and Synology storage.</p>
+          <span class="card-link">View project -&gt;</span>
+        </a>
+
+        <a href="opnsense.html" class="project-card glass-panel">
+          <div class="project-top">
+            <span class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </span>
+            <span class="project-type">Firewall</span>
+          </div>
+          <h3>OPNsense Edge Firewall</h3>
+          <p>Hardened gateway: VLAN routing for the DMZ, AdGuard DNS, and Suricata IDS.</p>
+          <span class="card-link">View project -&gt;</span>
+        </a>
+
+        <a href="remote-access.html" class="project-card glass-panel">
+          <div class="project-top">
+            <span class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+            </span>
+            <span class="project-type">Network</span>
+          </div>
+          <h3>Zero-Trust Remote Access</h3>
+          <p>Cloudflare Tunnel in the DMZ VLAN and Headscale mesh VPN for admin access.</p>
+          <span class="card-link">View project -&gt;</span>
+        </a>
+
+        <a href="proxmox.html" class="project-card glass-panel">
+          <div class="project-top">
+            <span class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            </span>
+            <span class="project-type">Virtualization</span>
+          </div>
+          <h3>Proxmox Cluster Management</h3>
+          <p>Multi-node compute environment trunked into both VLAN 1 and VLAN 50.</p>
+          <span class="card-link">View project -&gt;</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="contact" class="section card callout">
+      <div class="section-header">
+        <div>
+          <h2>Get In Touch</h2>
+          <p>Open to Junior Network Administrator, SOC Analyst, NOC, MSP, Help Desk, IT Support, and Cybersecurity Internship opportunities.</p>
+        </div>
+      </div>
+      <div class="contact-actions" style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px;">
+        <a href="mailto:NazeemDickey@gmail.com" class="button">Email Me</a>
+        <button type="button" class="button secondary" onclick="copyEmail()">Copy Email</button>
+        <a href="https://www.linkedin.com/in/nazeemdickey/" class="button secondary" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/nazz-d" class="button secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+      <p class="contact-line" id="emailText" aria-live="polite" style="margin-top: 24px; color: var(--subtle); font-weight: 700;">
+        Email: NazeemDickey@gmail.com | Boynton Beach, FL
+      </p>
+    </section>
+
+    <div class="back-link">
+      <a href="index.html#projects">&lt;- Back to projects</a>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <p>Cisco switching project by Nazeem Dickey.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
