@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nazeem Dickey — Resume (ATS)</title>
+  <style>
+    @page { size: letter; margin: 0.55in 0.6in 0.55in 0.6in; }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
+      font-size: 10.5pt;
+      color: #111;
+      background: #fff;
+      line-height: 1.45;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ── NAME BLOCK ── */
+    .name-block {
+      text-align: center;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #1a1a2e;
+      margin-bottom: 8px;
+    }
+
+    .name-block h1 {
+      font-size: 24pt;
+      font-weight: 700;
+      color: #0f0f1e;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+    }
+
+    .name-block .title {
+      font-size: 10.5pt;
+      font-weight: 600;
+      color: #3d2c8a;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .contact-line {
+      font-size: 9pt;
+      color: #333;
+    }
+
+    .contact-line a { color: #3d2c8a; text-decoration: none; }
+
+    /* ── SECTION ── */
+    .section { margin-bottom: 12px; }
+
+    .section-title {
+      font-size: 9pt;
+      font-weight: 700;
+      color: #3d2c8a;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      border-bottom: 1px solid #3d2c8a;
+      padding-bottom: 2px;
+      margin-bottom: 7px;
+    }
+
+    /* ── ACHIEVEMENT STRIP ── */
+    .ach-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+    }
+
+    .ach-item {
+      padding: 5px 8px;
+      border-left: 3px solid #3d2c8a;
+      background: #f7f5ff;
+    }
+
+    .ach-date {
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: #3d2c8a;
+      text-transform: uppercase;
+    }
+
+    .ach-text {
+      font-size: 9pt;
+      font-weight: 600;
+      color: #111;
+    }
+
+    /* ── SUMMARY ── */
+    .summary p {
+      font-size: 10pt;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    /* ── EXPERIENCE ── */
+    .exp-item { margin-bottom: 10px; }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1px;
+    }
+
+    .exp-title {
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: #0f0f1e;
+    }
+
+    .exp-date {
+      font-size: 9pt;
+      color: #444;
+      white-space: nowrap;
+    }
+
+    .exp-org {
+      font-size: 9.5pt;
+      font-weight: 600;
+      color: #3d2c8a;
+      margin-bottom: 3px;
+    }
+
+    .exp-bullets {
+      padding-left: 16px;
+      margin-top: 3px;
+    }
+
+    .exp-bullets li {
+      font-size: 9.5pt;
+      color: #222;
+      margin-bottom: 2px;
+      line-height: 1.5;
+    }
+
+    /* ── PROJECTS ── */
+    .proj-item { margin-bottom: 8px; }
+
+    .proj-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .proj-name {
+      font-size: 10pt;
+      font-weight: 700;
+      color: #0f0f1e;
+    }
+
+    .proj-tech {
+      font-size: 8pt;
+      color: #555;
+    }
+
+    .proj-desc {
+      font-size: 9.5pt;
+      color: #333;
+      margin-top: 2px;
+      padding-left: 14px;
+      line-height: 1.5;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px 20px;
+    }
+
+    .skill-row {
+      font-size: 9.5pt;
+      line-height: 1.55;
+    }
+
+    .skill-row strong {
+      color: #0f0f1e;
+    }
+
+    /* ── CERTS ── */
+    .cert-group { margin-bottom: 6px; }
+
+    .cert-group-label {
+      font-size: 9pt;
+      font-weight: 700;
+      color: #3d2c8a;
+    }
+
+    .cert-list {
+      font-size: 9.5pt;
+      color: #222;
+      padding-left: 14px;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1px;
+    }
+
+    .edu-school {
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: #0f0f1e;
+    }
+
+    .edu-date {
+      font-size: 9pt;
+      color: #444;
+    }
+
+    .edu-detail {
+      font-size: 9.5pt;
+      color: #333;
+      padding-left: 14px;
+    }
+
+    @media print {
+      body { background: #fff; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAME BLOCK -->
+  <div class="name-block">
+    <h1>Nazeem Dickey</h1>
+    <div class="title">Junior Network Administrator &nbsp;|&nbsp; SOC Analyst &nbsp;|&nbsp; IT Support</div>
+    <div class="contact-line">
+      Boynton Beach, FL &nbsp;·&nbsp; NazeemDickey@gmail.com &nbsp;·&nbsp;
+      <a href="https://linkedin.com/in/nazeemdickey">linkedin.com/in/nazeemdickey</a> &nbsp;·&nbsp;
+      <a href="https://github.com/nazz-d">github.com/nazz-d</a>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="section summary">
+    <div class="section-title">Professional Summary</div>
+    <p>
+      Highly motivated IT professional and homelab engineer with CompTIA A+, Network+, Security+, and CySA+ certifications, plus Cisco CCST and six Microsoft Azure credentials. Designed and operates a production-grade homelab: 3-node Proxmox VE virtualization cluster, OPNsense edge firewall with Suricata IDS/IPS, Wazuh SIEM/XDR, Authentik SSO/OIDC, and zero-trust remote access — all running on real enterprise rackmount hardware. SkillsUSA Florida State Champion in Internetworking (1st Place, April 2026). Proven ability to troubleshoot hardware, configure networks, and communicate clearly with both technical and non-technical stakeholders. Eager to contribute immediately as a Junior Network Administrator, SOC Analyst, NOC Technician, or MSP Technician.
+    </p>
+  </div>
+
+  <!-- KEY ACHIEVEMENTS -->
+  <div class="section">
+    <div class="section-title">Key Achievements</div>
+    <div class="ach-strip">
+      <div class="ach-item">
+        <div class="ach-date">April 2026</div>
+        <div class="ach-text">SkillsUSA FL State Champion — Internetworking, 1st Place</div>
+      </div>
+      <div class="ach-item">
+        <div class="ach-date">Upcoming — Atlanta, GA</div>
+        <div class="ach-text">SkillsUSA National LSSC — Internetworking Competitor</div>
+      </div>
+      <div class="ach-item">
+        <div class="ach-date">March 2026</div>
+        <div class="ach-text">CompTIA Trifecta (A+, Net+, Sec+) achieved within three weeks</div>
+      </div>
+      <div class="ach-item">
+        <div class="ach-date">April 2026</div>
+        <div class="ach-text">CyberLaunch State Competition Participant</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WORK EXPERIENCE -->
+  <div class="section">
+    <div class="section-title">Work Experience</div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-title">Freelance IT Technician</span>
+        <span class="exp-date">June 2024 – Present</span>
+      </div>
+      <div class="exp-org">Self-Employed · Boynton Beach, FL</div>
+      <ul class="exp-bullets">
+        <li>Provided remote and on-site technical support via RustDesk remote desktop; diagnosed hardware failures, network latency, and connectivity issues for residential and small business clients.</li>
+        <li>Deployed PC hardware (assembly, configuration, OS installation) and camera systems; delivered clear technical communication throughout each engagement.</li>
+        <li>Managed client expectations and escalation; maintained documentation of issues and resolutions.</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-title">IT &amp; Event Logistics Volunteer</span>
+        <span class="exp-date">June 2024 – January 2026</span>
+      </div>
+      <div class="exp-org">Center for Child Counseling · Palm Beach, FL</div>
+      <ul class="exp-bullets">
+        <li>Managed inventory tracking, supply distribution, and event logistics for community programs.</li>
+        <li>Delivered customer-facing support and activity coordination; consistently received positive feedback for professionalism.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="section">
+    <div class="section-title">Projects — masternazz.com Homelab (Self-Directed)</div>
+
+    <div class="proj-item">
+      <div class="proj-header">
+        <span class="proj-name">Enterprise Virtualization Cluster</span>
+        <span class="proj-tech">Proxmox VE · LXC · Cisco · Synology</span>
+      </div>
+      <div class="proj-desc">
+        Architected a 3-node Proxmox VE cluster (IBM M4, Dell R610, Dell R410, Optiplex 5040 SFF) running 22 live VMs and LXC containers. Configured Cisco PoE switching, Ubiquiti wireless, and a 3-2-1 backup strategy using Proxmox Backup Server (deduplicated) and Synology NAS (independent target).
+      </div>
+    </div>
+
+    <div class="proj-item">
+      <div class="proj-header">
+        <span class="proj-name">OPNsense Edge Firewall &amp; Network Segmentation</span>
+        <span class="proj-tech">OPNsense · Suricata · VLAN · DNS · ACME</span>
+      </div>
+      <div class="proj-desc">
+        Deployed bare-metal OPNsense 26.1 as edge firewall/router with VLAN segmentation, Suricata IDS/IPS in WAN netmap mode, AdGuard Home DNS with Cloudflare DoT upstream, and automated ACME wildcard certificate management (*.masternazz.com via Cloudflare DNS-01).
+      </div>
+    </div>
+
+    <div class="proj-item">
+      <div class="proj-header">
+        <span class="proj-name">Zero-Trust Remote Access Architecture</span>
+        <span class="proj-tech">Headscale · Tailscale · Cloudflare Tunnel · DMZ</span>
+      </div>
+      <div class="proj-desc">
+        Implemented zero-trust access model: self-hosted Headscale control plane with Tailscale mesh for admin access; public services exposed exclusively via Cloudflare Tunnel in a dedicated VLAN 50 DMZ. Zero inbound WAN port forwards.
+      </div>
+    </div>
+
+    <div class="proj-item">
+      <div class="proj-header">
+        <span class="proj-name">SIEM / XDR Deployment with Wazuh</span>
+        <span class="proj-tech">Wazuh · Suricata · FIM · Log Management</span>
+      </div>
+      <div class="proj-desc">
+        Deployed Wazuh SIEM/XDR on LXC; ingesting logs from Linux containers, Windows hosts, Suricata IDS, and Authentik SSO. Configured file integrity monitoring (FIM), rule-based alert correlation, vulnerability detection, and structured SOC-style triage workflow.
+      </div>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="section">
+    <div class="section-title">Education</div>
+    <div class="edu-header">
+      <span class="edu-school">SouthTech Academy</span>
+      <span class="edu-date">January 2025 – Present · Boynton Beach, FL</span>
+    </div>
+    <div class="edu-detail">3.5 GPA &nbsp;·&nbsp; Honor Roll &nbsp;·&nbsp; Honors Classes &nbsp;·&nbsp; Esports Team Captain</div>
+  </div>
+
+  <!-- TECHNICAL SKILLS -->
+  <div class="section">
+    <div class="section-title">Technical Skills</div>
+    <div class="skills-grid">
+      <div class="skill-row"><strong>Networking &amp; Security:</strong> TCP/IP, Subnetting, DHCP, DNS, OPNsense, Firewall Configuration, VLAN Segmentation, Suricata IDS/IPS, VPN, Headscale, Remote Access</div>
+      <div class="skill-row"><strong>Systems &amp; Infrastructure:</strong> Proxmox VE, Linux (Debian/Ubuntu), Windows Server, LXC Containers, Docker, NAS Storage, Backup Strategies, Hardware Troubleshooting, PC Assembly</div>
+      <div class="skill-row"><strong>Cloud &amp; Identity:</strong> Microsoft Azure (Admin, Data, AI, Security, M365), Authentik SSO/OIDC, Google Workspace, Access Control, Cloudflare</div>
+      <div class="skill-row"><strong>Security &amp; Monitoring:</strong> Wazuh SIEM/XDR, File Integrity Monitoring, Log Analysis, Alert Triage, IDS Awareness, Vulnerability Detection, Security Documentation</div>
+      <div class="skill-row"><strong>Support &amp; Communication:</strong> Help Desk, RustDesk Remote Support, Customer Communication, Technical Documentation, Inventory Management, Escalation Handling</div>
+      <div class="skill-row"><strong>Tools &amp; Platforms:</strong> Git, Cloudflare Tunnel, ACME/Let's Encrypt, AdGuard Home, Nginx Proxy Manager, Jellyfin, Home Assistant, Ollama (Local LLM)</div>
+    </div>
+  </div>
+
+  <!-- CERTIFICATIONS -->
+  <div class="section">
+    <div class="section-title">Certifications</div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px 20px;">
+
+      <div class="cert-group">
+        <div class="cert-group-label">CompTIA</div>
+        <div class="cert-list">
+          A+ &nbsp;·&nbsp; Network+ &nbsp;·&nbsp; Security+ &nbsp;·&nbsp; CySA+<br>
+          CIOS &nbsp;·&nbsp; CSIS &nbsp;·&nbsp; CSAP (Stackable)
+        </div>
+      </div>
+
+      <div class="cert-group">
+        <div class="cert-group-label">Cisco</div>
+        <div class="cert-list">
+          CCST IT Support<br>
+          CCST Networking<br>
+          CCST Cybersecurity
+        </div>
+      </div>
+
+      <div class="cert-group">
+        <div class="cert-group-label">Microsoft</div>
+        <div class="cert-list">
+          AZ-900 &nbsp;·&nbsp; SC-900 &nbsp;·&nbsp; DP-900<br>
+          AI-900 &nbsp;·&nbsp; MS-900 &nbsp;·&nbsp; PL-900
+        </div>
+      </div>
+
+      <div class="cert-group">
+        <div class="cert-group-label">ITS — Certiport</div>
+        <div class="cert-list">
+          Computational Thinking &nbsp;·&nbsp; Network Security<br>
+          Cloud Computing &nbsp;·&nbsp; Data Analytics &amp; Databases
+        </div>
+      </div>
+
+      <div class="cert-group">
+        <div class="cert-group-label">Additional</div>
+        <div class="cert-list">
+          Network Security Support Technician<br>
+          ESB: Entrepreneurship &amp; Small Business
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
