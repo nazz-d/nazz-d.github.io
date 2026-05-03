@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Service Status | Nazeem Dickey</title>
+  <meta name="description" content="Real-time uptime monitoring for masternazz.com services, powered by a self-hosted Uptime Kuma instance running on Proxmox.">
+  <link rel="canonical" href="https://masternazz.com/status.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Live Service Status | Nazeem Dickey">
+  <meta property="og:description" content="Self-hosted uptime monitoring with Uptime Kuma — live status for public-facing services.">
+  <meta property="og:url" content="https://masternazz.com/status.html">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    .status-dashboard {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .status-group-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--subtle);
+      margin: 8px 0 4px;
+    }
+    .status-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 18px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.2s;
+    }
+    .status-row:hover { background: rgba(255,255,255,0.055); }
+    .status-left { display: flex; align-items: center; gap: 12px; }
+    .status-indicator {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: var(--subtle);
+    }
+    .status-indicator.up   { background: #22c55e; box-shadow: 0 0 8px rgba(34,197,94,0.5); }
+    .status-indicator.down { background: #ef4444; box-shadow: 0 0 8px rgba(239,68,68,0.5); }
+    .status-indicator.pending { background: #f59e0b; box-shadow: 0 0 8px rgba(245,158,11,0.4); }
+    .status-name { font-size: 0.95rem; font-weight: 500; color: var(--text); }
+    .status-right { display: flex; align-items: center; gap: 16px; }
+    .status-ping { font-size: 0.8rem; color: var(--subtle); font-variant-numeric: tabular-nums; min-width: 60px; text-align: right; }
+    .status-badge {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em;
+      padding: 3px 10px; border-radius: 20px; text-transform: uppercase;
+    }
+    .status-badge.up   { background: rgba(34,197,94,0.15);  color: #22c55e; }
+    .status-badge.down { background: rgba(239,68,68,0.15);  color: #ef4444; }
+    .status-badge.pending { background: rgba(245,158,11,0.15); color: #f59e0b; }
+    .status-updated {
+      font-size: 0.78rem; color: var(--subtle);
+      text-align: right; margin-top: 8px;
+    }
+    .status-loading { color: var(--subtle); font-size: 0.9rem; padding: 24px 0; }
+    .status-error { color: #ef4444; font-size: 0.9rem; padding: 24px 0; }
+    .stack-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .stack-table th {
+      padding: 10px 14px;
+      text-align: left;
+      color: var(--subtle);
+      border-bottom: 1px solid var(--line);
+    }
+    .stack-table td {
+      padding: 10px 14px;
+      color: var(--muted);
+      border-bottom: 1px solid rgba(147,51,234,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <a href="index.html" class="brand" aria-label="Nazeem Dickey home">ND</a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="certifications.html">Certs</a>
+      <a href="resume.html">Resume</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="page">
+
+    <section class="page-hero">
+      <p class="eyebrow">Project | Monitoring</p>
+      <h1>Live Service Status</h1>
+      <p class="lead">
+        Real-time uptime monitoring for public-facing services — powered by a self-hosted
+        Uptime Kuma instance running inside a Proxmox LXC container. The data below is live,
+        not a screenshot.
+      </p>
+      <div class="chip-row">
+        <span class="chip">Uptime Kuma</span>
+        <span class="chip">Proxmox LXC</span>
+        <span class="chip">Self-Hosted</span>
+        <span class="chip">Cloudflare Tunnel</span>
+        <span class="chip">NPMplus</span>
+        <span class="chip">SQLite</span>
+      </div>
+    </section>
+
+    <section class="section card">
+      <div id="status-dashboard" class="status-dashboard">
+        <p class="status-loading">Loading live status&hellip;</p>
+      </div>
+      <p class="status-updated" id="status-updated"></p>
+    </section>
+
+    <section class="section two-column">
+      <div class="card">
+        <h2>What I Built</h2>
+        <ul class="list-clean">
+          <li>Deployed Uptime Kuma 2.x on Node.js 20 inside a Proxmox LXC, with SQLite as the backend — no external database dependencies.</li>
+          <li>Wrote Node.js scripts using the Uptime Kuma socket.io API to bulk-provision all monitors programmatically rather than clicking through the UI.</li>
+          <li>Created a curated public status page exposing only sanitized, generic service names — no internal IPs, hostnames, or network topology leaked.</li>
+          <li>Proxied the status page through NPMplus reverse proxy with a valid wildcard TLS certificate, then published it externally via Cloudflare Tunnel in the DMZ VLAN.</li>
+          <li>Monitors cover HTTP services, ping targets, and public DNS endpoints — 30+ services across the homelab checked every 60 seconds.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Skills Demonstrated</h2>
+        <ul class="list-clean">
+          <li>Self-hosted monitoring stack deployment and configuration</li>
+          <li>Proxmox LXC provisioning and Node.js runtime setup</li>
+          <li>Socket.io API automation for bulk service provisioning</li>
+          <li>SQLite schema navigation and direct database management</li>
+          <li>Reverse proxy configuration with TLS termination</li>
+          <li>Secure public exposure via Cloudflare Tunnel (zero open inbound ports)</li>
+          <li>Operational security — sanitizing public-facing data to avoid info leakage</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section three-column">
+      <article class="detail-card glass-panel">
+        <span class="mini-label">Deployment</span>
+        <h2>LXC on Proxmox</h2>
+        <p>Uptime Kuma runs in a lightweight Debian LXC container on the Proxmox cluster — no full VM overhead. Node.js 20 is installed directly, the app runs as a systemd service with auto-restart, and SQLite keeps all data local with no external database to maintain. The whole stack uses under 150 MB of RAM at idle.</p>
+      </article>
+
+      <article class="detail-card glass-panel">
+        <span class="mini-label">Automation</span>
+        <h2>API-Driven Provisioning</h2>
+        <p>All 30+ monitors were added via the Uptime Kuma socket.io WebSocket API using a custom Node.js script — not manual UI clicks. This meant discovering the exact payload schema the API expects (including required fields like <code>conditions</code> and <code>accepted_statuscodes</code>), handling sequencing to avoid race conditions, and debugging directly against the SQLite database when the API returned ambiguous errors.</p>
+      </article>
+
+      <article class="detail-card glass-panel">
+        <span class="mini-label">Security</span>
+        <h2>Public Without Exposure</h2>
+        <p>The status page is publicly reachable at status.masternazz.com but reveals nothing about the internal network. Service names are generic ("Media Streaming", "Authentication"), no internal IPs or hostnames appear, and the page is served through Cloudflare Tunnel — meaning there are zero open inbound ports on the firewall. The monitoring backend itself is only accessible from inside the LAN.</p>
+      </article>
+    </section>
+
+    <section class="section card">
+      <h2>Monitoring Stack</h2>
+      <p style="margin-bottom: 20px;">How each layer fits together from check to public display.</p>
+      <div style="overflow-x: auto;">
+        <table class="stack-table">
+          <thead>
+            <tr>
+              <th>Layer</th>
+              <th>Component</th>
+              <th>Role</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Monitor</td><td>Uptime Kuma 2.x</td><td>HTTP &amp; ping checks every 60s, SQLite storage</td></tr>
+            <tr><td>Reverse Proxy</td><td>NPMplus</td><td>TLS termination, routes status.masternazz.com → Kuma LXC</td></tr>
+            <tr><td>Public Ingress</td><td>Cloudflare Tunnel</td><td>Exposes NPMplus externally with no open firewall ports</td></tr>
+            <tr><td>DNS</td><td>AdGuard Home + Cloudflare</td><td>Internal rewrites for LAN, public DNS via Cloudflare</td></tr>
+            <tr><td>Compute</td><td>Proxmox LXC</td><td>Lightweight container hosting the Node.js app</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section card callout">
+      <h2>What This Shows Employers</h2>
+      <p>
+        Running your own monitoring stack end-to-end — from provisioning the container to writing
+        the API automation to securing the public endpoint — covers a broad slice of what production
+        operations actually looks like. The interesting parts aren't the happy path: they're
+        diagnosing why the socket API silently drops payloads, why a JSON column in SQLite breaks
+        the login handler, and why a status code range needs to be a string array rather than an
+        integer range. That debugging process, not just the running service, is what the project demonstrates.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2>Explore More Projects</h2>
+          <p>Infrastructure this monitoring stack sits on top of.</p>
+        </div>
+      </div>
+
+      <div class="project-grid">
+        <a href="homelab.html" class="project-card glass-panel">
+          <div class="project-top">
+            <span class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            </span>
+            <span class="project-type">Architecture</span>
+          </div>
+          <h3>Enterprise Homelab Architecture</h3>
+          <p>Full infrastructure overview: Proxmox cluster, Cisco switching, and Synology storage.</p>
+          <span class="card-link">View project -&gt;</span>
+        </a>
+
+        <a href="proxmox.html" class="project-card glass-panel">
+          <div class="project-top">
+            <span class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            </span>
+            <span class="project-type">Virtualization</span>
+          </div>
+          <h3>Proxmox Cluster Management</h3>
+          <p>Multi-node compute cluster hosting 30+ LXC containers and VMs.</p>
+          <span class="card-link">View project -&gt;</span>
+        </a>
+
+        <a href="remote-access.html" class="project-card glass-panel">
+          <div class="project-top">
+            <span class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+            </span>
+            <span class="project-type">Network</span>
+          </div>
+          <h3>Zero-Trust Remote Access</h3>
+          <p>Cloudflare Tunnel in the DMZ VLAN — the same tunnel that serves this status page.</p>
+          <span class="card-link">View project -&gt;</span>
+        </a>
+
+        <a href="switching.html" class="project-card glass-panel">
+          <div class="project-top">
+            <span class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            </span>
+            <span class="project-type">Networking</span>
+          </div>
+          <h3>Cisco Switching &amp; DMZ VLAN</h3>
+          <p>The switching fabric and DMZ design that isolates public ingress traffic.</p>
+          <span class="card-link">View project -&gt;</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="contact" class="section card callout">
+      <div class="section-header">
+        <div>
+          <h2>Get In Touch</h2>
+          <p>Open to Junior Network Administrator, SOC Analyst, NOC, MSP, Help Desk, IT Support, and Cybersecurity Internship opportunities.</p>
+        </div>
+      </div>
+      <div class="contact-actions" style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px;">
+        <a href="mailto:NazeemDickey@gmail.com" class="button">Email Me</a>
+        <button type="button" class="button secondary" onclick="copyEmail()">Copy Email</button>
+        <a href="https://www.linkedin.com/in/nazeemdickey/" class="button secondary" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/nazz-d" class="button secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+      <p class="contact-line" id="emailText" aria-live="polite" style="margin-top: 24px; color: var(--subtle); font-weight: 700;">
+        Email: NazeemDickey@gmail.com | Boynton Beach, FL
+      </p>
+    </section>
+
+    <div class="back-link">
+      <a href="index.html#projects">&lt;- Back to projects</a>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <p>Uptime monitoring project by Nazeem Dickey.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    const BASE = "https://status.masternazz.com";
+    const dashboard = document.getElementById("status-dashboard");
+    const updatedEl = document.getElementById("status-updated");
+
+    async function loadStatus() {
+      console.log("Fetching status from:", BASE);
+      try {
+        const [pageRes, hbRes] = await Promise.all([
+          fetch(BASE + "/api/status-page/public"),
+          fetch(BASE + "/api/status-page/heartbeat/public"),
+        ]);
+        
+        if (!pageRes.ok || !hbRes.ok) {
+          throw new Error(`API returned status ${pageRes.status} / ${hbRes.status}`);
+        }
+        
+        const page = await pageRes.json();
+        const hb   = await hbRes.json();
+
+        console.log("Status data received:", page);
+
+        const groups = page.publicGroupList || [];
+        const beats  = hb.heartbeatList || {};
+
+        if (!groups.length) {
+          dashboard.innerHTML = '<p class="status-error">No monitors configured.</p>';
+          return;
+        }
+
+        let html = "";
+        groups.forEach(group => {
+          html += `<p class="status-group-label">${group.name}</p>`;
+          group.monitorList.forEach(monitor => {
+            const checks = beats[monitor.id] || [];
+            const last   = checks[checks.length - 1];
+            // status: 1 = up, 0 = down, 2 = pending
+            const state  = last ? (last.status === 1 ? "up" : last.status === 0 ? "down" : "pending") : "pending";
+            const label  = state === "up" ? "Operational" : state === "down" ? "Down" : "Pending";
+            const ping   = last && last.ping ? last.ping + " ms" : "—";
+            
+            html += `
+              <div class="status-row">
+                <div class="status-left">
+                  <span class="status-indicator ${state}"></span>
+                  <span class="status-name">${monitor.name}</span>
+                </div>
+                <div class="status-right">
+                  <span class="status-ping">${ping}</span>
+                  <span class="status-badge ${state}">${label}</span>
+                </div>
+              </div>`;
+          });
+        });
+
+        dashboard.innerHTML = html;
+        updatedEl.textContent = "Last updated: " + new Date().toLocaleTimeString();
+      } catch (err) {
+        console.error("Status Dashboard Error:", err);
+        dashboard.innerHTML = `
+          <div class="status-error">
+            <p><strong>Could not reach status API.</strong></p>
+            <p style="margin-top: 8px; font-size: 0.85rem;">
+              This is usually due to a DNS resolution issue or a network firewall. 
+              Please verify that <a href="${BASE}/status/public" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">status.masternazz.com</a> is reachable in your browser.
+            </p>
+            <p style="margin-top: 12px; opacity: 0.7; font-size: 0.75rem;">Error: ${err.message}</p>
+          </div>`;
+      }
+    }
+
+    loadStatus();
+    setInterval(loadStatus, 60000);
+  </script>
+</body>
+</html>
