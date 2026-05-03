@@ -176,22 +176,11 @@
   <text x="312" y="697" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="600">Termix</text>
   <text x="312" y="712" text-anchor="middle" fill="#4b4266" font-size="9">Web terminal</text>
 
-  <!-- Media chips -->
-  <rect x="410" y="550" width="130" height="36" rx="5" fill="#110d22" stroke="#6d28d9" stroke-width="1"/>
-  <text x="475" y="565" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="600">Jellyfin</text>
-  <text x="475" y="580" text-anchor="middle" fill="#4b4266" font-size="9">Media server</text>
-
-  <rect x="410" y="594" width="130" height="36" rx="5" fill="#110d22" stroke="#6d28d9" stroke-width="1"/>
-  <text x="475" y="609" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="600">Sonarr / Radarr</text>
-  <text x="475" y="624" text-anchor="middle" fill="#4b4266" font-size="9">TV &amp; movie automation</text>
-
-  <rect x="410" y="638" width="130" height="36" rx="5" fill="#110d22" stroke="#6d28d9" stroke-width="1"/>
-  <text x="475" y="653" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="600">Prowlarr</text>
-  <text x="475" y="668" text-anchor="middle" fill="#4b4266" font-size="9">Indexer manager</text>
-
-  <rect x="410" y="682" width="130" height="36" rx="5" fill="#110d22" stroke="#6d28d9" stroke-width="1"/>
-  <text x="475" y="697" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="600">qBittorrent</text>
-  <text x="475" y="712" text-anchor="middle" fill="#4b4266" font-size="9">Download client</text>
+  <!-- Media chip -->
+  <rect x="410" y="550" width="130" height="168" rx="5" fill="#110d22" stroke="#6d28d9" stroke-width="1"/>
+  <text x="475" y="622" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="600">Self-Hosted</text>
+  <text x="475" y="638" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="600">Media Server</text>
+  <text x="475" y="658" text-anchor="middle" fill="#4b4266" font-size="9">Streaming · private library</text>
 
   <!-- Game/mgmt chips -->
   <rect x="550" y="550" width="275" height="36" rx="5" fill="#110d22" stroke="#6d28d9" stroke-width="1"/>
@@ -211,7 +200,7 @@
   <text x="687" y="712" text-anchor="middle" fill="#4b4266" font-size="9">Game server nodes</text>
 
   <!-- More services note -->
-  <text x="430" y="742" fill="#4b4266" font-size="9">+ Home Assistant · Ollama · OpenWebUI · Unifi Controller · Pelican Panel · Homarr · scanopy · Jellyseerr · FlareSolverr · Wizarr · netboot-xyz · and more</text>
+  <text x="430" y="742" fill="#4b4266" font-size="9">+ Home Assistant · Ollama · OpenWebUI · Unifi Controller · Pelican Panel · Homarr · scanopy · netboot-xyz · and more</text>
 
   <!-- ═══════════════ LEGEND ═══════════════ -->
   <rect x="20" y="758" width="1160" height="182" rx="8" fill="url(#card)" stroke="#9333ea" stroke-width="0.5" opacity="0.6"/>
