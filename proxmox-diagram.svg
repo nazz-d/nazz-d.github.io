@@ -140,26 +140,26 @@
   <text x="450" y="420" text-anchor="middle" fill="#a78bfa" font-size="11" font-weight="700" letter-spacing="1">3-2-1 Backup Strategy</text>
 
   <!-- PBS box -->
-  <rect x="80" y="428" width="340" height="76" rx="8" fill="url(#card)" stroke="#4f46e5" stroke-width="1.8"/>
-  <rect x="80" y="428" width="340" height="5" rx="4" fill="#4f46e5" opacity="0.7"/>
-  <text x="250" y="452" text-anchor="middle" fill="#f6f3ff" font-size="12" font-weight="700">Proxmox Backup Server</text>
-  <text x="250" y="469" text-anchor="middle" fill="#9488ad" font-size="10">Thecus NAS — Primary backup target</text>
-  <text x="250" y="484" text-anchor="middle" fill="#4b4266" font-size="9">Deduplicated incremental · fast restore</text>
-  <text x="250" y="498" text-anchor="middle" fill="#4b4266" font-size="9">Encrypted at rest</text>
+  <rect x="80" y="442" width="340" height="76" rx="8" fill="url(#card)" stroke="#4f46e5" stroke-width="1.8"/>
+  <rect x="80" y="442" width="340" height="5" rx="4" fill="#4f46e5" opacity="0.7"/>
+  <text x="250" y="466" text-anchor="middle" fill="#f6f3ff" font-size="12" font-weight="700">Proxmox Backup Server</text>
+  <text x="250" y="483" text-anchor="middle" fill="#9488ad" font-size="10">Thecus NAS — Primary backup target</text>
+  <text x="250" y="498" text-anchor="middle" fill="#4b4266" font-size="9">Deduplicated incremental · fast restore</text>
+  <text x="250" y="512" text-anchor="middle" fill="#4b4266" font-size="9">Encrypted at rest</text>
 
   <!-- Synology box -->
-  <rect x="480" y="428" width="340" height="76" rx="8" fill="url(#card)" stroke="#4f46e5" stroke-width="1.8"/>
-  <rect x="480" y="428" width="340" height="5" rx="4" fill="#4f46e5" opacity="0.7"/>
-  <text x="650" y="452" text-anchor="middle" fill="#f6f3ff" font-size="12" font-weight="700">Synology NAS</text>
-  <text x="650" y="469" text-anchor="middle" fill="#9488ad" font-size="10">Secondary — independent backup target</text>
-  <text x="650" y="484" text-anchor="middle" fill="#4b4266" font-size="9">Different media · separate failure domain</text>
-  <text x="650" y="498" text-anchor="middle" fill="#4b4266" font-size="9">Offsite planned</text>
+  <rect x="480" y="442" width="340" height="76" rx="8" fill="url(#card)" stroke="#4f46e5" stroke-width="1.8"/>
+  <rect x="480" y="442" width="340" height="5" rx="4" fill="#4f46e5" opacity="0.7"/>
+  <text x="650" y="466" text-anchor="middle" fill="#f6f3ff" font-size="12" font-weight="700">Synology NAS</text>
+  <text x="650" y="483" text-anchor="middle" fill="#9488ad" font-size="10">Secondary — independent backup target</text>
+  <text x="650" y="498" text-anchor="middle" fill="#4b4266" font-size="9">Different media · separate failure domain</text>
+  <text x="650" y="512" text-anchor="middle" fill="#4b4266" font-size="9">Offsite planned</text>
 
   <!-- Bottom label -->
-  <rect x="190" y="516" width="520" height="34" rx="8" fill="#110d22" stroke="#4b4266" stroke-width="0.8" opacity="0.8"/>
-  <text x="450" y="531" text-anchor="middle" fill="#c084fc" font-size="10" font-weight="700">3 copies · 2 different media · offsite planned</text>
-  <text x="450" y="544" text-anchor="middle" fill="#4b4266" font-size="9">Proxmox Backup Server (dedup) + Synology NAS (independent target)</text>
+  <rect x="190" y="530" width="520" height="34" rx="8" fill="#110d22" stroke="#4b4266" stroke-width="0.8" opacity="0.8"/>
+  <text x="450" y="545" text-anchor="middle" fill="#c084fc" font-size="10" font-weight="700">3 copies · 2 different media · offsite planned</text>
+  <text x="450" y="558" text-anchor="middle" fill="#4b4266" font-size="9">Proxmox Backup Server (dedup) + Synology NAS (independent target)</text>
 
   <!-- Footer -->
-  <text x="450" y="572" text-anchor="middle" fill="#4b4266" font-size="9">Cluster managed via Proxmox VE web UI · corosync cluster communication · live migration capable</text>
+  <text x="450" y="586" text-anchor="middle" fill="#4b4266" font-size="9">Cluster managed via Proxmox VE web UI · corosync cluster communication · live migration capable</text>
 </svg>

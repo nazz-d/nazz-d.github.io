@@ -60,8 +60,13 @@
   <text x="450" y="211" text-anchor="middle" fill="#c084fc" font-size="11" font-weight="600">VLAN Segmentation · NAT · Deny-by-default Firewall Rules</text>
   <text x="450" y="228" text-anchor="middle" fill="#4b4266" font-size="9">Encrypted management only · no raw admin ports exposed to internet</text>
 
-  <!-- OPNsense → Feature boxes arrow -->
-  <line x1="450" y1="246" x2="450" y2="268" stroke="#7c3aed" stroke-width="1.5" opacity="0.6" marker-end="url(#arr)"/>
+  <!-- OPNsense → Feature boxes: trunk + horizontal bus + 4 branch arrows -->
+  <line x1="450" y1="246" x2="450" y2="257" stroke="#7c3aed" stroke-width="1.5" opacity="0.6"/>
+  <line x1="139" y1="257" x2="733" y2="257" stroke="#7c3aed" stroke-width="1.2" opacity="0.4"/>
+  <line x1="139" y1="257" x2="139" y2="268" stroke="#7c3aed" stroke-width="1.5" opacity="0.6" marker-end="url(#arr)"/>
+  <line x1="337" y1="257" x2="337" y2="268" stroke="#7c3aed" stroke-width="1.5" opacity="0.6" marker-end="url(#arr)"/>
+  <line x1="535" y1="257" x2="535" y2="268" stroke="#7c3aed" stroke-width="1.5" opacity="0.6" marker-end="url(#arr)"/>
+  <line x1="733" y1="257" x2="733" y2="268" stroke="#7c3aed" stroke-width="1.5" opacity="0.6" marker-end="url(#arr)"/>
 
   <!-- Feature chips row -->
   <!-- AdGuard -->

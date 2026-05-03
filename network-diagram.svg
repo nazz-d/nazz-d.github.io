@@ -188,7 +188,7 @@
   <text x="687" y="580" text-anchor="middle" fill="#4b4266" font-size="9">Voice server</text>
 
   <rect x="550" y="594" width="275" height="36" rx="5" fill="#110d22" stroke="#6d28d9" stroke-width="1"/>
-  <text x="687" y="609" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="600">Pterodactyl Panel</text>
+  <text x="687" y="609" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="600">Pelican Panel</text>
   <text x="687" y="624" text-anchor="middle" fill="#4b4266" font-size="9">Game server management</text>
 
   <rect x="550" y="638" width="275" height="36" rx="5" fill="#110d22" stroke="#6d28d9" stroke-width="1"/>
