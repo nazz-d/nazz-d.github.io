@@ -15,101 +15,112 @@
   <meta name="twitter:description" content="ATS-friendly IT and cybersecurity resume.">
   <meta name="twitter:image" content="https://masternazz.com/network-diagram.png">
   <style>
-    @page { size: letter; margin: 0.55in 0.6in 0.55in 0.6in; }
+    @page { 
+      size: letter; 
+      margin: 0.35in 0.45in 0.3in 0.45in; 
+    }
+
+    /* Force browser to hide headers/footers (time, date, url) */
+    @media print {
+      body { 
+        -webkit-print-color-adjust: exact; 
+        print-color-adjust: exact; 
+      }
+      /* Standard way to attempt to hide browser artifacts */
+      @page { margin: 0.35in 0.45in 0.3in 0.45in; }
+    }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
-      font-size: 10.5pt;
+      font-size: 9.8pt;
       color: #111;
       background: #fff;
-      line-height: 1.45;
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
+      line-height: 1.32;
     }
 
     /* ── NAME BLOCK ── */
     .name-block {
       text-align: center;
-      padding-bottom: 10px;
+      padding-bottom: 6px;
       border-bottom: 2px solid #1a1a2e;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .name-block h1 {
-      font-size: 24pt;
+      font-size: 21pt;
       font-weight: 700;
       color: #0f0f1e;
       letter-spacing: 0.5px;
-      margin-bottom: 2px;
+      margin-bottom: 1px;
     }
 
     .name-block .title {
-      font-size: 10.5pt;
+      font-size: 9.5pt;
       font-weight: 600;
       color: #3d2c8a;
-      letter-spacing: 1px;
+      letter-spacing: 0.8px;
       text-transform: uppercase;
-      margin-bottom: 5px;
+      margin-bottom: 3px;
     }
 
     .contact-line {
-      font-size: 9pt;
+      font-size: 8.2pt;
       color: #333;
     }
 
     .contact-line a { color: #3d2c8a; text-decoration: none; }
 
     /* ── SECTION ── */
-    .section { margin-bottom: 12px; }
+    .section { margin-bottom: 8px; }
 
     .section-title {
-      font-size: 9pt;
+      font-size: 8.2pt;
       font-weight: 700;
       color: #3d2c8a;
       text-transform: uppercase;
-      letter-spacing: 1.2px;
+      letter-spacing: 1.1px;
       border-bottom: 1px solid #3d2c8a;
-      padding-bottom: 2px;
-      margin-bottom: 7px;
+      padding-bottom: 1px;
+      margin-bottom: 4px;
     }
 
     /* ── ACHIEVEMENT STRIP ── */
     .ach-strip {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 6px;
+      gap: 3px;
     }
 
     .ach-item {
-      padding: 5px 8px;
-      border-left: 3px solid #3d2c8a;
+      padding: 2px 6px;
+      border-left: 2.5px solid #3d2c8a;
       background: #f7f5ff;
     }
 
     .ach-date {
-      font-size: 7.5pt;
+      font-size: 6.8pt;
       font-weight: 700;
       color: #3d2c8a;
       text-transform: uppercase;
     }
 
     .ach-text {
-      font-size: 9pt;
+      font-size: 8.2pt;
       font-weight: 600;
       color: #111;
     }
 
     /* ── SUMMARY ── */
     .summary p {
-      font-size: 10pt;
+      font-size: 9.2pt;
       color: #222;
-      line-height: 1.6;
+      line-height: 1.45;
     }
 
     /* ── EXPERIENCE ── */
-    .exp-item { margin-bottom: 10px; }
+    .exp-item { margin-bottom: 6px; }
 
     .exp-header {
       display: flex;
@@ -119,38 +130,37 @@
     }
 
     .exp-title {
-      font-size: 10.5pt;
+      font-size: 9.8pt;
       font-weight: 700;
       color: #0f0f1e;
     }
 
     .exp-date {
-      font-size: 9pt;
+      font-size: 8.2pt;
       color: #444;
       white-space: nowrap;
     }
 
     .exp-org {
-      font-size: 9.5pt;
+      font-size: 8.8pt;
       font-weight: 600;
       color: #3d2c8a;
-      margin-bottom: 3px;
+      margin-bottom: 1px;
     }
 
     .exp-bullets {
-      padding-left: 16px;
-      margin-top: 3px;
+      padding-left: 12px;
     }
 
     .exp-bullets li {
-      font-size: 9.5pt;
+      font-size: 8.8pt;
       color: #222;
-      margin-bottom: 2px;
-      line-height: 1.5;
+      margin-bottom: 1px;
+      line-height: 1.35;
     }
 
     /* ── PROJECTS ── */
-    .proj-item { margin-bottom: 8px; }
+    .proj-item { margin-bottom: 5px; }
 
     .proj-header {
       display: flex;
@@ -159,34 +169,34 @@
     }
 
     .proj-name {
-      font-size: 10pt;
+      font-size: 9.2pt;
       font-weight: 700;
       color: #0f0f1e;
     }
 
     .proj-tech {
-      font-size: 8pt;
+      font-size: 7.2pt;
       color: #555;
     }
 
     .proj-desc {
-      font-size: 9.5pt;
+      font-size: 8.8pt;
       color: #333;
-      margin-top: 2px;
-      padding-left: 14px;
-      line-height: 1.5;
+      margin-top: 1px;
+      padding-left: 10px;
+      line-height: 1.35;
     }
 
     /* ── SKILLS ── */
     .skills-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 5px 20px;
+      gap: 3px 14px;
     }
 
     .skill-row {
-      font-size: 9.5pt;
-      line-height: 1.55;
+      font-size: 8.8pt;
+      line-height: 1.4;
     }
 
     .skill-row strong {
@@ -194,18 +204,18 @@
     }
 
     /* ── CERTS ── */
-    .cert-group { margin-bottom: 6px; }
+    .cert-group { margin-bottom: 3px; }
 
     .cert-group-label {
-      font-size: 9pt;
+      font-size: 8.2pt;
       font-weight: 700;
       color: #3d2c8a;
     }
 
     .cert-list {
-      font-size: 9.5pt;
+      font-size: 8.8pt;
       color: #222;
-      padding-left: 14px;
+      padding-left: 10px;
     }
 
     /* ── EDUCATION ── */
@@ -217,20 +227,20 @@
     }
 
     .edu-school {
-      font-size: 10.5pt;
+      font-size: 9.8pt;
       font-weight: 700;
       color: #0f0f1e;
     }
 
     .edu-date {
-      font-size: 9pt;
+      font-size: 8.2pt;
       color: #444;
     }
 
     .edu-detail {
-      font-size: 9.5pt;
+      font-size: 8.8pt;
       color: #333;
-      padding-left: 14px;
+      padding-left: 10px;
     }
 
     @media print {
