@@ -154,6 +154,7 @@
     .body {
       display: grid;
       grid-template-columns: 2.5in 1fr;
+      min-height: calc(11in - 60px);
     }
 
     /* ── SIDEBAR ── */
@@ -367,44 +368,6 @@
       line-height: 1.4;
     }
 
-    /* ── Creative Footer ── */
-    .tech-sig {
-      margin-top: 10px;
-      padding: 8px 24px;
-      border-top: 1px solid var(--line);
-      background: linear-gradient(to right, rgba(147, 51, 234, 0.04), transparent);
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-    }
-
-    .sig-left {
-      font-family: 'Consolas', 'Monaco', monospace;
-      font-size: 6pt;
-      color: var(--dim);
-    }
-
-    .sig-left .prompt { color: var(--accent); }
-    .sig-left .cmd { color: var(--text); font-weight: bold; }
-
-    .sig-right {
-      text-align: right;
-    }
-
-    .sig-right .status {
-      font-size: 5.8pt;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: var(--purple);
-    }
-
-    .sig-right .url {
-      font-size: 7.5pt;
-      font-weight: 900;
-      color: var(--text);
-    }
-
     @media print {
       html, body { width: 8.5in; }
     }
@@ -611,17 +574,6 @@
     </div>
   </div>
 
-  <!-- CREATIVE FOOTER -->
-  <div class="tech-sig">
-    <div class="sig-left">
-      <div><span class="prompt">nazz@homelab:~$</span> <span class="cmd">curl -s masternazz.com/api/status</span></div>
-      <div>{"status": "online", "uptime": "99.99%", "location": "Boynton Beach, FL"}</div>
-    </div>
-    <div class="sig-right">
-      <div class="status">Live Infrastructure Verified</div>
-      <div class="url">masternazz.com</div>
-    </div>
-  </div>
 
 </body>
 </html>
