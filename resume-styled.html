@@ -38,7 +38,7 @@
     html, body {
       width: 8.5in;
       font-family: 'Segoe UI', system-ui, sans-serif;
-      font-size: 8.8pt;
+      font-size: 8.2pt;
       color: var(--text);
       background: var(--bg);
       -webkit-print-color-adjust: exact;
@@ -48,7 +48,7 @@
     /* ── HEADER ── */
     .header {
       position: relative;
-      padding: 26px 36px 22px;
+      padding: 16px 28px 12px;
       background: linear-gradient(135deg, #0a0614 0%, #160c2a 50%, #0a0614 100%);
       overflow: hidden;
     }
@@ -57,7 +57,7 @@
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
-      height: 4px;
+      height: 3px;
       background: linear-gradient(90deg, #7c3aed, #9333ea, #c084fc, #9333ea);
     }
 
@@ -67,9 +67,9 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(147,51,234,0.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(147,51,234,0.07) 1px, transparent 1px);
-      background-size: 28px 28px;
+        linear-gradient(rgba(147,51,234,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(147,51,234,0.05) 1px, transparent 1px);
+      background-size: 24px 28px;
       pointer-events: none;
     }
 
@@ -79,63 +79,63 @@
       display: grid;
       grid-template-columns: 1fr auto;
       align-items: start;
-      gap: 16px;
+      gap: 12px;
     }
 
     .name {
-      font-size: 32pt;
+      font-size: 26pt;
       font-weight: 900;
       color: var(--text);
       letter-spacing: -1px;
       line-height: 1;
-      margin-bottom: 6px;
+      margin-bottom: 2px;
     }
 
     .title-line {
-      font-size: 10pt;
+      font-size: 8.8pt;
       font-weight: 700;
       color: var(--accent);
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 6px;
     }
 
     .contact-row {
       display: flex;
       flex-wrap: wrap;
-      column-gap: 18px;
-      row-gap: 4px;
+      column-gap: 14px;
+      row-gap: 2px;
     }
 
     .contact-item {
-      font-size: 8pt;
+      font-size: 7pt;
       color: var(--muted);
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 4px;
     }
 
     .contact-item .pip {
       color: var(--purple);
-      font-size: 6.5pt;
+      font-size: 5pt;
     }
 
     .badge-col {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      gap: 8px;
-      padding-top: 4px;
+      gap: 4px;
+      padding-top: 2px;
     }
 
     .badge {
-      padding: 6px 14px;
+      padding: 3px 10px;
       border-radius: 20px;
-      font-size: 7.2pt;
+      font-size: 6.5pt;
       font-weight: 900;
-      letter-spacing: 0.3px;
+      letter-spacing: 0.2px;
       text-align: center;
-      line-height: 1.4;
+      line-height: 1.3;
     }
 
     .badge.gold {
@@ -153,142 +153,142 @@
     /* ── BODY ── */
     .body {
       display: grid;
-      grid-template-columns: 2.85in 1fr;
+      grid-template-columns: 2.5in 1fr;
     }
 
     /* ── SIDEBAR ── */
     .sidebar {
       background: var(--bg2);
       border-right: 1px solid var(--line);
-      padding: 22px 18px;
+      padding: 12px 14px;
     }
 
     /* ── MAIN ── */
     .main {
       background: var(--bg);
-      padding: 22px 26px;
+      padding: 12px 18px;
     }
 
     /* ── Shared section label ── */
     .sec-label {
-      font-size: 7.2pt;
+      font-size: 6.2pt;
       font-weight: 900;
       color: var(--accent);
       text-transform: uppercase;
-      letter-spacing: 2px;
-      padding-bottom: 6px;
-      margin-bottom: 11px;
+      letter-spacing: 1.5px;
+      padding-bottom: 3px;
+      margin-bottom: 6px;
       border-bottom: 1px solid var(--line);
     }
 
-    .section { margin-bottom: 20px; }
+    .section { margin-bottom: 12px; }
 
     /* ── Education ── */
     .edu-school {
-      font-size: 9.5pt;
+      font-size: 8.5pt;
       font-weight: 800;
       color: var(--text);
-      margin-bottom: 2px;
+      margin-bottom: 1px;
     }
 
     .edu-date {
-      font-size: 7.5pt;
+      font-size: 6.8pt;
       font-weight: 700;
       color: var(--accent);
-      margin-bottom: 6px;
+      margin-bottom: 2px;
     }
 
     .edu-details {
-      font-size: 8pt;
+      font-size: 7pt;
       color: var(--subtle);
-      line-height: 1.75;
+      line-height: 1.5;
     }
 
     /* ── Skills ── */
-    .skill-block { margin-bottom: 11px; }
+    .skill-block { margin-bottom: 7px; }
 
     .skill-block-title {
-      font-size: 8pt;
+      font-size: 7.2pt;
       font-weight: 800;
       color: var(--text);
-      margin-bottom: 3px;
+      margin-bottom: 1px;
     }
 
     .skill-block p {
-      font-size: 7.5pt;
+      font-size: 6.8pt;
       color: var(--subtle);
-      line-height: 1.65;
+      line-height: 1.45;
     }
 
     /* ── Certs ── */
-    .cert-group { margin-bottom: 11px; }
+    .cert-group { margin-bottom: 7px; }
 
     .cert-group-label {
-      font-size: 7.5pt;
+      font-size: 6.8pt;
       font-weight: 900;
       color: var(--purple);
       text-transform: uppercase;
-      letter-spacing: 0.8px;
-      margin-bottom: 4px;
+      letter-spacing: 0.6px;
+      margin-bottom: 2px;
     }
 
     .cert-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 4px 8px;
+      gap: 2px 5px;
     }
 
     .cert-chip {
-      font-size: 7pt;
+      font-size: 6.2pt;
       color: var(--muted);
       background: var(--panel2);
       border: 1px solid var(--line);
       border-radius: 4px;
-      padding: 2px 7px;
+      padding: 1px 4px;
     }
 
     /* ── Summary ── */
     .summary-text {
-      font-size: 8.2pt;
+      font-size: 7.5pt;
       color: var(--muted);
-      line-height: 1.75;
+      line-height: 1.55;
     }
 
     /* ── Achievements grid ── */
     .ach-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 10px;
+      gap: 5px;
     }
 
     .ach-card {
-      padding: 10px 12px;
+      padding: 5px 8px;
       background: var(--panel2);
       border: 1px solid var(--line);
       border-radius: 5px;
-      border-left: 3px solid var(--purple2);
+      border-left: 2.5px solid var(--purple2);
     }
 
     .ach-date {
-      font-size: 6.5pt;
+      font-size: 5.8pt;
       font-weight: 900;
       color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      margin-bottom: 3px;
+      margin-bottom: 1px;
     }
 
     .ach-title {
-      font-size: 8pt;
+      font-size: 7.2pt;
       font-weight: 800;
       color: var(--text);
-      line-height: 1.4;
+      line-height: 1.25;
     }
 
     /* ── Experience ── */
     .exp-item {
-      margin-bottom: 14px;
-      padding-left: 12px;
+      margin-bottom: 8px;
+      padding-left: 10px;
       border-left: 2px solid rgba(34, 211, 238, 0.4);
     }
 
@@ -296,37 +296,37 @@
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      gap: 8px;
-      margin-bottom: 2px;
+      gap: 6px;
+      margin-bottom: 0px;
     }
 
     .exp-title {
-      font-size: 9pt;
+      font-size: 8.2pt;
       font-weight: 800;
       color: var(--text);
     }
 
     .exp-date {
-      font-size: 7.2pt;
+      font-size: 6.5pt;
       font-weight: 700;
       color: var(--accent);
       white-space: nowrap;
     }
 
     .exp-org {
-      font-size: 7.5pt;
+      font-size: 7pt;
       font-weight: 700;
       color: var(--purple);
-      margin-bottom: 6px;
+      margin-bottom: 2px;
     }
 
     .exp-bullets { list-style: none; padding-left: 0; }
 
     .exp-bullets li {
-      font-size: 7.8pt;
+      font-size: 7.2pt;
       color: var(--subtle);
-      line-height: 1.7;
-      padding-left: 12px;
+      line-height: 1.45;
+      padding-left: 10px;
       position: relative;
     }
 
@@ -335,19 +335,19 @@
       position: absolute;
       left: 0;
       color: var(--dim);
-      font-size: 6.5pt;
-      top: 3px;
+      font-size: 5.5pt;
+      top: 2px;
     }
 
     /* ── Projects ── */
     .proj-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 10px;
+      gap: 5px;
     }
 
     .proj-card {
-      padding: 10px 12px;
+      padding: 6px 9px;
       background: var(--panel2);
       border: 1px solid var(--line);
       border-radius: 5px;
@@ -355,24 +355,24 @@
     }
 
     .proj-name {
-      font-size: 8.2pt;
+      font-size: 7.5pt;
       font-weight: 800;
       color: var(--accent);
-      margin-bottom: 4px;
+      margin-bottom: 2px;
     }
 
     .proj-desc {
-      font-size: 7.5pt;
+      font-size: 6.8pt;
       color: var(--subtle);
-      line-height: 1.6;
+      line-height: 1.4;
     }
 
     /* ── Creative Footer ── */
     .tech-sig {
-      margin-top: 24px;
-      padding: 14px 26px;
+      margin-top: 10px;
+      padding: 8px 24px;
       border-top: 1px solid var(--line);
-      background: linear-gradient(to right, rgba(147, 51, 234, 0.05), transparent);
+      background: linear-gradient(to right, rgba(147, 51, 234, 0.04), transparent);
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
@@ -380,7 +380,7 @@
 
     .sig-left {
       font-family: 'Consolas', 'Monaco', monospace;
-      font-size: 7pt;
+      font-size: 6pt;
       color: var(--dim);
     }
 
@@ -392,22 +392,21 @@
     }
 
     .sig-right .status {
-      font-size: 6.5pt;
+      font-size: 5.8pt;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.8px;
       color: var(--purple);
     }
 
     .sig-right .url {
-      font-size: 8.5pt;
+      font-size: 7.5pt;
       font-weight: 900;
       color: var(--text);
     }
 
     @media print {
       html, body { width: 8.5in; }
-      .tech-sig { border-bottom: none; }
     }
   </style>
 </head>
@@ -442,8 +441,8 @@
       <div class="section">
         <div class="sec-label">Education</div>
         <div class="edu-school">SouthTech Academy</div>
-        <div class="edu-date">January 2025 – Present · Boynton Beach, FL</div>
-        <div class="edu-details">3.5 GPA · Honor Roll · Honors Classes<br>Esports Team Captain</div>
+        <div class="edu-date">Jan 2025 – Present</div>
+        <div class="edu-details">3.5 GPA · Honor Roll · Honors<br>Esports Team Captain</div>
       </div>
 
       <div class="section">
@@ -451,22 +450,22 @@
 
         <div class="skill-block">
           <div class="skill-block-title">Networking &amp; Security</div>
-          <p>TCP/IP, Subnetting, DHCP, DNS, OPNsense, Firewall Config, Suricata IDS/IPS, Remote Access, Headscale, VPN mesh</p>
+          <p>TCP/IP, OPNsense, Firewall Config, Suricata IDS/IPS, Remote Access, Headscale, VPN mesh</p>
         </div>
 
         <div class="skill-block">
-          <div class="skill-block-title">Systems &amp; Infrastructure</div>
-          <p>Proxmox VE, Linux, Windows, LXC Containers, Docker, NAS Storage, 3-2-1 Backup Strategy, Hardware Troubleshooting</p>
+          <div class="skill-block-title">Systems &amp; Infra</div>
+          <p>Proxmox VE, Linux, Windows, LXC, Docker, NAS Storage, 3-2-1 Backup Strategy, Troubleshooting</p>
         </div>
 
         <div class="skill-block">
           <div class="skill-block-title">Cloud &amp; Identity</div>
-          <p>Microsoft Azure (Admin, Data, AI, Security), Authentik SSO/OIDC, Google Workspace, Access Control</p>
+          <p>Microsoft Azure, Authentik SSO/OIDC, Google Workspace, Access Control</p>
         </div>
 
         <div class="skill-block">
           <div class="skill-block-title">General IT</div>
-          <p>PC Assembly &amp; Builds, Help Desk, RustDesk Remote Support, Technical Documentation, Customer Communication</p>
+          <p>PC Assembly, Help Desk, RustDesk Remote Support, Documentation, Communication</p>
         </div>
       </div>
 
@@ -477,8 +476,8 @@
           <div class="cert-group-label">CompTIA</div>
           <div class="cert-row">
             <span class="cert-chip">A+</span>
-            <span class="cert-chip">Network+</span>
-            <span class="cert-chip">Security+</span>
+            <span class="cert-chip">Net+</span>
+            <span class="cert-chip">Sec+</span>
             <span class="cert-chip">CySA+</span>
             <span class="cert-chip">CIOS</span>
             <span class="cert-chip">CSIS</span>
@@ -491,7 +490,7 @@
           <div class="cert-row">
             <span class="cert-chip">CCST IT Support</span>
             <span class="cert-chip">CCST Networking</span>
-            <span class="cert-chip">CCST Cybersecurity</span>
+            <span class="cert-chip">CCST Cyber</span>
           </div>
         </div>
 
@@ -510,13 +509,12 @@
         <div class="cert-group">
           <div class="cert-group-label">Additional</div>
           <div class="cert-row">
-            <span class="cert-chip">ITS Computational Thinking</span>
-            <span class="cert-chip">ITS Network Security</span>
-            <span class="cert-chip">ITS Cloud Computing</span>
-            <span class="cert-chip">ITS Data Analytics</span>
-            <span class="cert-chip">ITS Databases</span>
-            <span class="cert-chip">Network Security Support Technician</span>
-            <span class="cert-chip">ESB: Entrepreneurship &amp; Small Business</span>
+            <span class="cert-chip">ITS Comput. Thinking</span>
+            <span class="cert-chip">ITS Net. Security</span>
+            <span class="cert-chip">ITS Cloud</span>
+            <span class="cert-chip">ITS Data/DB</span>
+            <span class="cert-chip">Net. Sec. Tech</span>
+            <span class="cert-chip">ESB</span>
           </div>
         </div>
       </div>
@@ -529,7 +527,7 @@
       <div class="section">
         <div class="sec-label">Professional Summary</div>
         <p class="summary-text">
-          Highly motivated IT professional and homelab engineer. Holds CompTIA A+, Network+, Security+, and CySA+ alongside Cisco CCST and six Microsoft Azure certs. Designed and operates a production-grade homelab: 3-node Proxmox VE cluster, OPNsense edge firewall with Suricata IDS/IPS, Wazuh SIEM/XDR, Authentik SSO, and zero-trust remote access — all on real enterprise rackmount hardware. 1st Place SkillsUSA Florida State Champion in Internetworking (April 2026). Targeting a Junior Network Administrator, SOC Analyst, or NOC/MSP role.
+          Highly motivated IT professional and homelab engineer. Holds CompTIA Trifecta + CySA+, Cisco CCST, and 6x Azure certs. Designed and operates a production-grade homelab: 3-node Proxmox cluster, OPNsense edge firewall with Suricata, Wazuh SIEM/XDR, Authentik SSO, and zero-trust remote access. 1st Place SkillsUSA FL State Champion in Internetworking (April 2026).
         </p>
       </div>
 
@@ -541,12 +539,12 @@
             <div class="ach-title">SkillsUSA FL State Champion — Internetworking, 1st Place</div>
           </div>
           <div class="ach-card">
-            <div class="ach-date">Upcoming — Atlanta, GA</div>
-            <div class="ach-title">SkillsUSA National LSSC — Internetworking Competitor</div>
+            <div class="ach-date">Upcoming</div>
+            <div class="ach-title">SkillsUSA National LSSC — Competitor (Atlanta, GA)</div>
           </div>
           <div class="ach-card">
             <div class="ach-date">March 2026</div>
-            <div class="ach-title">CompTIA Trifecta (A+, Net+, Sec+) within three weeks</div>
+            <div class="ach-title">CompTIA Trifecta (A+, Net+, Sec+) within 3 weeks</div>
           </div>
           <div class="ach-card">
             <div class="ach-date">April 2026</div>
@@ -565,20 +563,20 @@
           </div>
           <div class="exp-org">Self-Employed · Boynton Beach, FL</div>
           <ul class="exp-bullets">
-            <li>Provided remote and on-site technical support via RustDesk; diagnosed hardware failures and network latency issues for residential clients.</li>
-            <li>Deployed hardware — PC builds and camera systems — with clear technical communication throughout each engagement.</li>
+            <li>Remote/on-site support via RustDesk; hardware failure and network troubleshooting.</li>
+            <li>PC builds and camera deployments with clear technical communication.</li>
           </ul>
         </div>
 
         <div class="exp-item">
           <div class="exp-header">
-            <span class="exp-title">IT &amp; Event Logistics Volunteer</span>
-            <span class="exp-date">June 2024 – January 2026</span>
+            <span class="exp-title">IT &amp; Logistics Volunteer</span>
+            <span class="exp-date">June 2024 – Jan 2026</span>
           </div>
           <div class="exp-org">Center for Child Counseling · Palm Beach, FL</div>
           <ul class="exp-bullets">
-            <li>Managed event setup, inventory, and supply distribution for community programs serving families.</li>
-            <li>Delivered customer-facing support and activity supervision with a consistent, professional demeanor.</li>
+            <li>Managed event logistics, inventory, and supply distribution for community programs.</li>
+            <li>Delivered customer-facing support with a professional demeanor.</li>
           </ul>
         </div>
       </div>
@@ -588,23 +586,23 @@
         <div class="proj-grid">
 
           <div class="proj-card">
-            <div class="proj-name">Enterprise Homelab Architecture</div>
-            <div class="proj-desc">3-node Proxmox VE cluster (IBM M4, Dell R610, Dell R410, Optiplex 5040 SFF) running 22 VMs and LXC containers. Cisco PoE switching, Ubiquiti wireless, dual-NAS 3-2-1 backup strategy (PBS + Synology).</div>
+            <div class="proj-name">Enterprise Virtualization</div>
+            <div class="proj-desc">3-node Proxmox cluster (IBM, Dell) running 22 VMs/LXCs. Cisco PoE, Ubiquiti wireless, 3-2-1 backup strategy (PBS + Synology).</div>
           </div>
 
           <div class="proj-card">
-            <div class="proj-name">OPNsense Edge Firewall &amp; Segmentation</div>
-            <div class="proj-desc">Bare-metal OPNsense 26.1 with VLAN segmentation, Suricata IDS/IPS (WAN netmap), AdGuard Home DNS, Cloudflare DoT, and automated ACME wildcard certificate management.</div>
+            <div class="proj-name">OPNsense Edge Security</div>
+            <div class="proj-desc">Bare-metal OPNsense with VLAN segmentation, Suricata IDS (WAN netmap), AdGuard Home, and ACME wildcard certs.</div>
           </div>
 
           <div class="proj-card">
-            <div class="proj-name">Zero-Trust Remote Access &amp; Public Ingress</div>
-            <div class="proj-desc">Self-hosted Headscale control plane with Tailscale mesh for admin access. Public services exposed only via Cloudflare Tunnel in a dedicated VLAN 50 DMZ — zero WAN ports forwarded.</div>
+            <div class="proj-name">Zero-Trust Access</div>
+            <div class="proj-desc">Headscale/Tailscale mesh for admin. Public services exposed via Cloudflare Tunnel in VLAN 50 DMZ — zero WAN ports open.</div>
           </div>
 
           <div class="proj-card">
-            <div class="proj-name">SIEM / XDR with Wazuh</div>
-            <div class="proj-desc">Wazuh SIEM/XDR ingesting logs from Linux LXCs, Windows hosts, Suricata IDS, and Authentik. File integrity monitoring, correlated alert triage, and structured SOC-style investigation workflow.</div>
+            <div class="proj-name">SIEM / XDR Monitoring</div>
+            <div class="proj-desc">Wazuh SIEM ingesting logs from LXCs, Windows, and Suricata. File integrity monitoring and structured alert triage workflow.</div>
           </div>
 
         </div>

@@ -17,7 +17,7 @@
   <style>
     @page { 
       size: letter; 
-      margin: 0.35in 0.45in 0.3in 0.45in; 
+      margin: 0.3in 0.45in 0.25in 0.45in; 
     }
 
     /* Force browser to hide headers/footers (time, date, url) */
@@ -26,64 +26,63 @@
         -webkit-print-color-adjust: exact; 
         print-color-adjust: exact; 
       }
-      /* Standard way to attempt to hide browser artifacts */
-      @page { margin: 0.35in 0.45in 0.3in 0.45in; }
+      @page { margin: 0.3in 0.45in 0.25in 0.45in; }
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
-      font-size: 9.8pt;
+      font-size: 9.5pt;
       color: #111;
       background: #fff;
-      line-height: 1.32;
+      line-height: 1.28;
     }
 
     /* ── NAME BLOCK ── */
     .name-block {
       text-align: center;
-      padding-bottom: 6px;
+      padding-bottom: 4px;
       border-bottom: 2px solid #1a1a2e;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
     }
 
     .name-block h1 {
-      font-size: 21pt;
+      font-size: 20pt;
       font-weight: 700;
       color: #0f0f1e;
       letter-spacing: 0.5px;
-      margin-bottom: 1px;
+      margin-bottom: 0px;
     }
 
     .name-block .title {
-      font-size: 9.5pt;
+      font-size: 9.2pt;
       font-weight: 600;
       color: #3d2c8a;
       letter-spacing: 0.8px;
       text-transform: uppercase;
-      margin-bottom: 3px;
+      margin-bottom: 2px;
     }
 
     .contact-line {
-      font-size: 8.2pt;
+      font-size: 8pt;
       color: #333;
     }
 
     .contact-line a { color: #3d2c8a; text-decoration: none; }
 
     /* ── SECTION ── */
-    .section { margin-bottom: 8px; }
+    .section { margin-bottom: 6px; }
 
     .section-title {
-      font-size: 8.2pt;
+      font-size: 8pt;
       font-weight: 700;
       color: #3d2c8a;
       text-transform: uppercase;
-      letter-spacing: 1.1px;
+      letter-spacing: 1px;
       border-bottom: 1px solid #3d2c8a;
       padding-bottom: 1px;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
 
     /* ── ACHIEVEMENT STRIP ── */
@@ -95,72 +94,72 @@
 
     .ach-item {
       padding: 2px 6px;
-      border-left: 2.5px solid #3d2c8a;
+      border-left: 2px solid #3d2c8a;
       background: #f7f5ff;
     }
 
     .ach-date {
-      font-size: 6.8pt;
+      font-size: 6.5pt;
       font-weight: 700;
       color: #3d2c8a;
       text-transform: uppercase;
     }
 
     .ach-text {
-      font-size: 8.2pt;
+      font-size: 8pt;
       font-weight: 600;
       color: #111;
     }
 
     /* ── SUMMARY ── */
     .summary p {
-      font-size: 9.2pt;
+      font-size: 9pt;
       color: #222;
-      line-height: 1.45;
+      line-height: 1.4;
     }
 
     /* ── EXPERIENCE ── */
-    .exp-item { margin-bottom: 6px; }
+    .exp-item { margin-bottom: 4px; }
 
     .exp-header {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 1px;
+      margin-bottom: 0px;
     }
 
     .exp-title {
-      font-size: 9.8pt;
+      font-size: 9.5pt;
       font-weight: 700;
       color: #0f0f1e;
     }
 
     .exp-date {
-      font-size: 8.2pt;
+      font-size: 8pt;
       color: #444;
       white-space: nowrap;
     }
 
     .exp-org {
-      font-size: 8.8pt;
+      font-size: 8.5pt;
       font-weight: 600;
       color: #3d2c8a;
-      margin-bottom: 1px;
+      margin-bottom: 0px;
     }
 
     .exp-bullets {
-      padding-left: 12px;
+      padding-left: 10px;
     }
 
     .exp-bullets li {
-      font-size: 8.8pt;
+      font-size: 8.5pt;
       color: #222;
-      margin-bottom: 1px;
-      line-height: 1.35;
+      margin-bottom: 0px;
+      line-height: 1.3;
     }
 
     /* ── PROJECTS ── */
-    .proj-item { margin-bottom: 5px; }
+    .proj-item { margin-bottom: 4px; }
 
     .proj-header {
       display: flex;
@@ -169,34 +168,34 @@
     }
 
     .proj-name {
-      font-size: 9.2pt;
+      font-size: 9pt;
       font-weight: 700;
       color: #0f0f1e;
     }
 
     .proj-tech {
-      font-size: 7.2pt;
+      font-size: 7pt;
       color: #555;
     }
 
     .proj-desc {
-      font-size: 8.8pt;
+      font-size: 8.5pt;
       color: #333;
-      margin-top: 1px;
-      padding-left: 10px;
-      line-height: 1.35;
+      margin-top: 0px;
+      padding-left: 8px;
+      line-height: 1.3;
     }
 
     /* ── SKILLS ── */
     .skills-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 3px 14px;
+      gap: 2px 12px;
     }
 
     .skill-row {
-      font-size: 8.8pt;
-      line-height: 1.4;
+      font-size: 8.5pt;
+      line-height: 1.35;
     }
 
     .skill-row strong {
@@ -204,18 +203,18 @@
     }
 
     /* ── CERTS ── */
-    .cert-group { margin-bottom: 3px; }
+    .cert-group { margin-bottom: 2px; }
 
     .cert-group-label {
-      font-size: 8.2pt;
+      font-size: 8pt;
       font-weight: 700;
       color: #3d2c8a;
     }
 
     .cert-list {
-      font-size: 8.8pt;
+      font-size: 8.5pt;
       color: #222;
-      padding-left: 10px;
+      padding-left: 8px;
     }
 
     /* ── EDUCATION ── */
@@ -223,24 +222,24 @@
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 1px;
+      margin-bottom: 0px;
     }
 
     .edu-school {
-      font-size: 9.8pt;
+      font-size: 9.5pt;
       font-weight: 700;
       color: #0f0f1e;
     }
 
     .edu-date {
-      font-size: 8.2pt;
+      font-size: 8pt;
       color: #444;
     }
 
     .edu-detail {
-      font-size: 8.8pt;
+      font-size: 8.5pt;
       color: #333;
-      padding-left: 10px;
+      padding-left: 8px;
     }
 
     @media print {
