@@ -452,6 +452,19 @@ p { color: var(--muted); line-height: 1.72; }
   line-height: 1.6;
 }
 
+.diagram-card img {
+  display: block;
+  width: 100%;
+  min-width: 650px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  transition: filter 0.5s ease;
+}
+
+[data-theme="light"] .diagram-card img {
+  filter: invert(0.92) hue-rotate(185deg) brightness(1.05) contrast(1.1);
+}
+
 /* ── Rack photo gallery ── */
 .rack-gallery {
   display: grid;
