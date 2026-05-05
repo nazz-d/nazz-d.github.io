@@ -18,6 +18,38 @@ Live site: https://masternazz.com
 - GitHub Pages
 - Custom domain via `masternazz.com`
 
+## Project Layout
+
+- `index.html` - homepage and main entry point.
+- `pages/` - secondary site pages and resume HTML sources.
+- `assets/css/` - shared stylesheet.
+- `assets/js/` - shared JavaScript.
+- `assets/images/` - rack photos and certification logos.
+- `assets/diagrams/` - public-safe architecture diagrams.
+- `assets/resumes/` - generated PDF resumes.
+- `tools/` - local Playwright maintenance scripts.
+- `screenshots/` - generated visual-check output, ignored by git.
+
+## Maintenance Tools
+
+Install local tooling once:
+
+```powershell
+npm install
+```
+
+Useful commands:
+
+```powershell
+npm run visual:check
+npm run resume:measure
+npm run resume:export
+```
+
+- `visual:check` captures local page screenshots into `screenshots/`.
+- `resume:measure` checks resume page height and PDF page count.
+- `resume:export` regenerates PDFs in `assets/resumes/`.
+
 ## AI Assistance Credit
 
 OpenAI Codex, Anthropic Claude, and Google Gemini assisted with drafting, review, implementation support, and documentation polish. The project direction, infrastructure decisions, lab ownership, validation, and final technical judgment are Nazeem's.

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page moved | Nazeem Massoom Dickey</title>
+  <style>
+    body {
+      align-items: center;
+      background: #f5f7fb;
+      color: #172033;
+      display: flex;
+      font-family: Arial, sans-serif;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 24px;
+      text-align: center;
+    }
+
+    main {
+      max-width: 520px;
+    }
+
+    a {
+      color: #2754c5;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Page moved</h1>
+    <p>This page may have been reorganized. Sending you to the new location when possible.</p>
+    <p><a href="/">Go to the homepage</a></p>
+  </main>
+
+  <script>
+    const redirects = {
+      '/certifications.html': '/pages/certifications.html',
+      '/homelab.html': '/pages/homelab.html',
+      '/identity.html': '/pages/identity.html',
+      '/journey.html': '/pages/journey.html',
+      '/opnsense.html': '/pages/opnsense.html',
+      '/proxmox.html': '/pages/proxmox.html',
+      '/remote-access.html': '/pages/remote-access.html',
+      '/resume.html': '/pages/resume.html',
+      '/resume-ats.html': '/pages/resume-ats.html',
+      '/resume-styled.html': '/pages/resume-styled.html',
+      '/skillsusa.html': '/pages/skillsusa.html',
+      '/status.html': '/pages/status.html',
+      '/switching.html': '/pages/switching.html',
+      '/wazuh.html': '/pages/wazuh.html',
+      '/writeup-cyberlaunch-2026.html': '/pages/writeup-cyberlaunch-2026.html',
+      '/writeups.html': '/pages/writeups.html',
+      '/identity-diagram.svg': '/assets/diagrams/identity-diagram.svg',
+      '/journey-diagram.svg': '/assets/diagrams/journey-diagram.svg',
+      '/network-diagram.png': '/assets/diagrams/network-diagram.png',
+      '/network-diagram.svg': '/assets/diagrams/network-diagram.svg',
+      '/opnsense-diagram.svg': '/assets/diagrams/opnsense-diagram.svg',
+      '/proxmox-diagram.svg': '/assets/diagrams/proxmox-diagram.svg',
+      '/remote-access-diagram.svg': '/assets/diagrams/remote-access-diagram.svg',
+      '/wazuh-diagram.svg': '/assets/diagrams/wazuh-diagram.svg',
+      '/resume.pdf': '/assets/resumes/resume.pdf',
+      '/resume-ats.pdf': '/assets/resumes/resume-ats.pdf',
+      '/resume-styled.pdf': '/assets/resumes/resume-styled.pdf',
+      '/style.css': '/assets/css/style.css',
+      '/script.js': '/assets/js/script.js',
+    };
+
+    const target = redirects[window.location.pathname];
+    if (target) {
+      window.location.replace(target + window.location.search + window.location.hash);
+    }
+  </script>
+</body>
+</html>

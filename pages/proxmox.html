@@ -5,27 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Proxmox Infrastructure Project | Nazeem Massoom Dickey</title>
   <meta name="description" content="Public-safe Proxmox infrastructure project by Nazeem Massoom Dickey.">
-  <link rel="canonical" href="https://masternazz.com/proxmox.html">
+  <link rel="canonical" href="https://masternazz.com/pages/proxmox.html">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Proxmox Infrastructure Project | Nazeem Massoom Dickey">
   <meta property="og:description" content="Public-safe Proxmox cluster project covering VMs, LXCs, HA/quorum behavior, backups, and service documentation.">
-  <meta property="og:url" content="https://masternazz.com/proxmox.html">
-  <meta property="og:image" content="https://masternazz.com/network-diagram.png">
+  <meta property="og:url" content="https://masternazz.com/pages/proxmox.html">
+  <meta property="og:image" content="https://masternazz.com/assets/diagrams/network-diagram.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Proxmox Infrastructure Project | Nazeem Massoom Dickey">
   <meta name="twitter:description" content="Multi-node Proxmox infrastructure, backup strategy, and documented service operations.">
-  <meta name="twitter:image" content="https://masternazz.com/network-diagram.png">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="twitter:image" content="https://masternazz.com/assets/diagrams/network-diagram.png">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 </head>
 <body>
 
   <header class="nav">
-    <a href="index.html" class="brand" aria-label="Nazeem Massoom Dickey home">ND</a>
+    <a href="../index.html" class="brand" aria-label="Nazeem Massoom Dickey home">ND</a>
     <nav class="nav-links" aria-label="Primary navigation">
-      <a href="index.html">Home</a>
-      <a href="index.html#projects">Projects</a>
-      <a href="index.html#skills">Skills</a>
+      <a href="../index.html">Home</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#skills">Skills</a>
       <a href="journey.html">Timeline</a>
       <a href="certifications.html">Certs</a>
       <a href="resume.html">Resume</a>
@@ -56,7 +56,7 @@
 
     <section class="section card">
       <div class="diagram-card">
-        <img src="proxmox-diagram.svg" alt="Proxmox VE cluster architecture diagram">
+        <img src="../assets/diagrams/proxmox-diagram.svg" alt="Proxmox VE cluster architecture diagram">
       </div>
     </section>
 
@@ -64,7 +64,7 @@
       <div class="card">
         <h2>What I Built</h2>
         <ul class="list-clean">
-          <li>Built a 3-node Proxmox cluster on IBM M4 (firstmoon), Dell R610 (secondmoon), and Dell R410 (thirdmoon).</li>
+          <li>Built a 3-node Proxmox cluster on IBM M4, Dell R610, and Dell R410 hardware with sanitized public node labels.</li>
           <li>Deployed 22 running VMs and LXC containers covering SIEM (Wazuh), SSO (Authentik), self-hosted media server, AI inference (Ollama + Open WebUI), home automation (Home Assistant), game servers (Pelican Panel + Wings), and network tooling (Unifi controller, netboot-xyz, Headplane).</li>
           <li>Implemented a 3-2-1 backup strategy: Proxmox Backup Server for deduplicated incremental backups, with a secondary Synology NAS target for redundancy.</li>
           <li>Maintained a full host inventory with IPs, service roles, ports, and dependencies.</li>
@@ -188,7 +188,7 @@
     </section>
 
     <div class="back-link">
-      <a href="index.html#projects">&lt;- Back to projects</a>
+      <a href="../index.html#projects">&lt;- Back to projects</a>
     </div>
   </main>
 
@@ -196,6 +196,6 @@
     <p>Proxmox project by Nazeem Massoom Dickey.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="../assets/js/script.js"></script>
 </body>
 </html>

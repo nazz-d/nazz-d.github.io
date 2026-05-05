@@ -1,17 +1,18 @@
 const { chromium } = require('playwright');
 const path = require('path');
 
+const root = path.resolve(__dirname, '..');
+
 (async () => {
   const browser = await chromium.launch();
   const page = await browser.newPage();
 
-  const files = ['resume-ats.html', 'resume-styled.html'];
+  const files = ['pages/resume-ats.html', 'pages/resume-styled.html'];
 
-  for (const f of files) {
-    const url = 'file:///' + path.resolve(__dirname, f).replace(/\\/g, '/');
+  for (const file of files) {
+    const url = 'file:///' + path.resolve(root, file).replace(/\\/g, '/');
     await page.goto(url, { waitUntil: 'networkidle' });
 
-    // Generate PDF and check page count
     const pdf = await page.pdf({
       format: 'Letter',
       printBackground: true,
@@ -25,11 +26,10 @@ const path = require('path');
       };
     });
 
-    // Count PDF pages by looking for page markers
     const pdfText = pdf.toString('binary');
     const pageCount = (pdfText.match(/\/Type \/Page[^s]/g) || []).length;
 
-    console.log(f, '— height:', metrics.scrollHeight, 'px — PDF pages:', pageCount);
+    console.log(file, '- height:', metrics.scrollHeight, 'px - PDF pages:', pageCount);
   }
 
   await browser.close();

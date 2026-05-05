@@ -35,24 +35,24 @@
   <text x="450" y="32" text-anchor="middle" fill="#c084fc" font-size="15" font-weight="700" letter-spacing="2">Proxmox VE Cluster</text>
   <text x="450" y="50" text-anchor="middle" fill="#4b4266" font-size="10" letter-spacing="1">masternazz.com homelab · virtualization platform</text>
 
-  <!-- Node 1: firstmoon -->
+  <!-- Node 1 -->
   <rect x="38" y="62" width="258" height="76" rx="8" fill="url(#card)" stroke="#9333ea" stroke-width="1.8" filter="url(#glow)"/>
   <rect x="38" y="62" width="258" height="5" rx="4" fill="url(#purpleBar)"/>
-  <text x="167" y="85" text-anchor="middle" fill="#f6f3ff" font-size="12" font-weight="700">firstmoon — IBM M4</text>
+  <text x="167" y="85" text-anchor="middle" fill="#f6f3ff" font-size="12" font-weight="700">Node 1 - IBM M4</text>
   <text x="167" y="103" text-anchor="middle" fill="#9488ad" font-size="10">Proxmox Node 1</text>
   <text x="167" y="119" text-anchor="middle" fill="#4b4266" font-size="9">All VMs &amp; containers run here</text>
 
-  <!-- Node 2: secondmoon -->
+  <!-- Node 2 -->
   <rect x="321" y="62" width="258" height="76" rx="8" fill="url(#card)" stroke="#7c3aed" stroke-width="1.8"/>
   <rect x="321" y="62" width="258" height="5" rx="4" fill="url(#purpleBar)"/>
-  <text x="450" y="85" text-anchor="middle" fill="#f6f3ff" font-size="12" font-weight="700">secondmoon — Dell R610</text>
+  <text x="450" y="85" text-anchor="middle" fill="#f6f3ff" font-size="12" font-weight="700">Node 2 - Dell R610</text>
   <text x="450" y="103" text-anchor="middle" fill="#9488ad" font-size="10">Proxmox Node 2</text>
   <text x="450" y="119" text-anchor="middle" fill="#4b4266" font-size="9">Online standby</text>
 
-  <!-- Node 3: thirdmoon -->
+  <!-- Node 3 -->
   <rect x="604" y="62" width="258" height="76" rx="8" fill="url(#card)" stroke="#7c3aed" stroke-width="1.8"/>
   <rect x="604" y="62" width="258" height="5" rx="4" fill="url(#purpleBar)"/>
-  <text x="733" y="85" text-anchor="middle" fill="#f6f3ff" font-size="12" font-weight="700">thirdmoon — Dell R410</text>
+  <text x="733" y="85" text-anchor="middle" fill="#f6f3ff" font-size="12" font-weight="700">Node 3 - Dell R410</text>
   <text x="733" y="103" text-anchor="middle" fill="#9488ad" font-size="10">Proxmox Node 3</text>
   <text x="733" y="119" text-anchor="middle" fill="#4b4266" font-size="9">Online standby</text>
 

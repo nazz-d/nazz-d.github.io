@@ -1,7 +1,2 @@
 node_modules/
-package.json
-package-lock.json
-export-resumes.js
-measure-resumes.js
-visual-check.js
 screenshots/
