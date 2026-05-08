@@ -21,6 +21,14 @@
 <body>
 
   <div id="scrollProgress" class="scroll-progress" aria-hidden="true"></div>
+  <div id="openToWork" class="otw-banner" role="status">
+    <span class="otw-dot"></span>
+    Open to internships &amp; entry-level IT roles &mdash; <a href="#contact">get in touch</a>
+    <button class="otw-close" aria-label="Dismiss" onclick="dismissOTW()">&#x2715;</button>
+  </div>
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
 
   <header class="nav">
     <a href="index.html" class="brand" aria-label="Nazeem Massoom Dickey home">ND</a>
@@ -388,21 +396,25 @@
         <div class="skill-box glass-panel">
           <h3>Networking</h3>
           <p>TCP/IP, subnetting, VLAN planning, DHCP, DNS, NAT, firewall rules, switching, wireless, and troubleshooting.</p>
+          <div class="skill-bar-wrap"><div class="skill-bar" data-pct="92"></div></div>
         </div>
 
         <div class="skill-box glass-panel">
           <h3>Infrastructure</h3>
           <p>Proxmox VE, Linux, Windows, LXC, Docker, NAS storage, backup thinking, hardware installs, and PC builds.</p>
+          <div class="skill-bar-wrap"><div class="skill-bar" data-pct="85"></div></div>
         </div>
 
         <div class="skill-box glass-panel">
           <h3>Security</h3>
           <p>OPNsense, Suricata concepts, Wazuh workflows, log review, identity, access control, and secure remote access.</p>
+          <div class="skill-bar-wrap"><div class="skill-bar" data-pct="78"></div></div>
         </div>
 
         <div class="skill-box glass-panel">
           <h3>Support</h3>
           <p>RustDesk remote support, clear communication, customer service, documentation, escalation notes, and problem solving.</p>
+          <div class="skill-bar-wrap"><div class="skill-bar" data-pct="88"></div></div>
         </div>
       </div>
     </section>
@@ -527,6 +539,42 @@
       <div class="in-progress-strip">
         <span class="chip progress">CCNA</span>
         <span class="chip progress">PenTest+</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2>Latest Writeups</h2>
+          <p>Technical writeups and competition recaps — proof of real troubleshooting thinking.</p>
+        </div>
+        <a href="pages/writeups.html" class="button secondary">All writeups &rarr;</a>
+      </div>
+
+      <div class="project-grid">
+        <a href="pages/writeup-vlan50.html" class="project-card glass-panel">
+          <div class="project-top">
+            <span class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="4" rx="1"/><rect x="2" y="14" width="20" height="4" rx="1"/><line x1="6" y1="8" x2="6" y2="8"/><line x1="6" y1="16" x2="6" y2="16"/></svg>
+            </span>
+            <span class="project-type">Networking</span>
+          </div>
+          <h3>Cisco Trunking &amp; VLAN 50 Fix</h3>
+          <p>Diagnosing a VLAN trunking mismatch on Cisco 3750V2 switches that was silently breaking Cloudflare Tunnel DMZ ingress.</p>
+          <span class="card-link">Read writeup &rarr;</span>
+        </a>
+
+        <a href="pages/writeup-cyberlaunch-2026.html" class="project-card glass-panel">
+          <div class="project-top">
+            <span class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </span>
+            <span class="project-type">CTF</span>
+          </div>
+          <h3>CyberLaunch USF 2026 State Championship</h3>
+          <p>Florida's largest high school CTF — Kali Linux, Metasploit, Hashcat, SMB exploitation, hash cracking, and OSINT under competition pressure.</p>
+          <span class="card-link">Read writeup &rarr;</span>
+        </a>
       </div>
     </section>
 
