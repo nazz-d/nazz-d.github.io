@@ -709,8 +709,8 @@ function setupHeroNameCanvas() {
 
     if (phase === "idle") {
       displayText = NAME;
-      // Trigger glitch every 12 seconds of idle
-      if (now - idleStart > 12000) {
+      // Trigger glitch every 8 seconds of idle
+      if (now - idleStart > 8000) {
         phase = "corrupt";
         phaseStart = now;
       }
