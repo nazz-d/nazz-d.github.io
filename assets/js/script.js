@@ -989,7 +989,7 @@ function setupActiveNav() {
 }
 
 function setupNationalsCountdown() {
-  const target = new Date("2026-06-23T08:00:00");
+  const target = new Date("2026-06-01T08:00:00");
   const dEl = document.getElementById("cdDays");
   const hEl = document.getElementById("cdHours");
   const mEl = document.getElementById("cdMins");
