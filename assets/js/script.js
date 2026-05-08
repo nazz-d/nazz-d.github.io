@@ -285,6 +285,13 @@ const INDEX = [
     "icon": "🔀",
     "desc": "Troubleshooting and fixing a VLAN 50 trunking mismatch on Cisco 3750V2 switches to restore Cloudflare Tunnel DMZ connectivity.",
     "keywords": "vlan50 cisco trunking vlan 50 fix troubleshooting switchport trunk allowed vlan opnsense dmz cloudflare tunnel 3750 catalyst networking"
+  },
+  {
+    "title": "AI Automation & Agent Research",
+    "url": "pages/ai-automation.html",
+    "icon": "🤖",
+    "desc": "Research into agentic AI tools — Claude Code, Gemini CLI, OpenAI Codex — and how they apply to IT operations, SOC workflows, and infrastructure automation.",
+    "keywords": "ai automation claude code gemini cli openai codex ab-900 agentic workflows microsoft copilot agent administration it operations soc automation homelab"
   }
 ];
 
@@ -545,6 +552,173 @@ function setupThemeToggle() {
   });
 }
 
+function setupHeroNameCanvas() {
+  const canvas = document.getElementById("heroNameCanvas");
+  if (!canvas) return;
+
+  const NAME = "Nazeem Massoom Dickey";
+  const FONT_WEIGHT = "800";
+  const FONT_FAMILY = '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif';
+
+  const reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function getAccentColor() {
+    const theme = document.documentElement.getAttribute("data-theme");
+    return theme === "light" ? "#2563eb" : "#c084fc";
+  }
+
+  function getTextColor() {
+    const theme = document.documentElement.getAttribute("data-theme");
+    return theme === "light" ? "#102033" : "#f6f3ff";
+  }
+
+  function getFontSize() {
+    const w = canvas.parentElement ? canvas.parentElement.offsetWidth : window.innerWidth;
+    if (w < 480) return Math.floor(w * 0.085);
+    if (w < 768) return Math.floor(w * 0.075);
+    return Math.min(Math.floor(w * 0.065), 80);
+  }
+
+  let fontSize = getFontSize();
+  let charCount = 0;
+  let cursorOn = true;
+  let cursorTick = 0;
+  let glitching = false;
+  let glitchFrame = 0;
+  let idleTimer = 0;
+  let rafId = null;
+
+  function resize() {
+    fontSize = getFontSize();
+    const font = `${FONT_WEIGHT} ${fontSize}px ${FONT_FAMILY}`;
+    const ctx = canvas.getContext("2d");
+    ctx.font = font;
+    const metrics = ctx.measureText(NAME);
+    const w = Math.ceil(metrics.width) + fontSize;
+    const h = Math.ceil(fontSize * 1.22);
+    canvas.width = w * window.devicePixelRatio;
+    canvas.height = h * window.devicePixelRatio;
+    canvas.style.width = w + "px";
+    canvas.style.height = h + "px";
+    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+  }
+
+  function drawFrame() {
+    const ctx = canvas.getContext("2d");
+    const font = `${FONT_WEIGHT} ${fontSize}px ${FONT_FAMILY}`;
+    const w = canvas.width / window.devicePixelRatio;
+    const h = canvas.height / window.devicePixelRatio;
+    const text = NAME.slice(0, charCount);
+    const accent = getAccentColor();
+    const textColor = getTextColor();
+    const baseline = Math.floor(h * 0.82);
+
+    ctx.clearRect(0, 0, w, h);
+
+    if (glitching && !reducedMotion) {
+      // RGB chromatic offset glitch
+      const offsets = [
+        { dx: -3, color: "rgba(255,0,80,0.55)" },
+        { dx:  3, color: "rgba(0,200,255,0.55)" },
+      ];
+      offsets.forEach(({ dx, color }) => {
+        ctx.save();
+        ctx.globalCompositeOperation = "screen";
+        ctx.font = font;
+        ctx.fillStyle = color;
+        ctx.fillText(text, dx, baseline);
+        ctx.restore();
+      });
+
+      // Random scanline bars
+      const barCount = 3 + Math.floor(Math.random() * 4);
+      for (let i = 0; i < barCount; i++) {
+        const y = Math.random() * h;
+        const barH = 1 + Math.random() * 3;
+        ctx.save();
+        ctx.globalCompositeOperation = "source-over";
+        ctx.fillStyle = `rgba(${Math.random() > 0.5 ? "192,132,252" : "34,211,238"},0.22)`;
+        ctx.fillRect(0, y, w, barH);
+        ctx.restore();
+      }
+
+      // Main text on top
+      ctx.font = font;
+      ctx.fillStyle = textColor;
+      ctx.fillText(text, 0, baseline);
+
+      glitchFrame++;
+      if (glitchFrame > 6) {
+        glitching = false;
+        glitchFrame = 0;
+      }
+    } else {
+      ctx.font = font;
+      ctx.fillStyle = textColor;
+      ctx.fillText(text, 0, baseline);
+    }
+
+    // Cursor
+    if (charCount < NAME.length || (cursorOn && charCount === NAME.length)) {
+      const measured = (() => { ctx.font = font; return ctx.measureText(text).width; })();
+      const cursorX = measured + 4;
+      const cursorH = fontSize * 0.78;
+      const cursorY = baseline - fontSize * 0.74;
+      if (cursorOn || charCount < NAME.length) {
+        ctx.fillStyle = accent;
+        ctx.fillRect(cursorX, cursorY, Math.max(3, fontSize * 0.055), cursorH);
+      }
+    }
+  }
+
+  function tick() {
+    rafId = null;
+
+    cursorTick++;
+
+    // Typing phase
+    if (charCount < NAME.length) {
+      if (cursorTick % 3 === 0) charCount++;
+      if (cursorTick % 8 === 0) cursorOn = !cursorOn;
+      drawFrame();
+      rafId = requestAnimationFrame(tick);
+      return;
+    }
+
+    // Idle — blink cursor and trigger glitch
+    if (cursorTick % 28 === 0) cursorOn = !cursorOn;
+
+    idleTimer++;
+    if (!reducedMotion && idleTimer > 0 && idleTimer % 220 === 0) {
+      glitching = true;
+      glitchFrame = 0;
+    }
+
+    drawFrame();
+    rafId = requestAnimationFrame(tick);
+  }
+
+  resize();
+  drawFrame();
+
+  if (!reducedMotion) {
+    rafId = requestAnimationFrame(tick);
+  } else {
+    charCount = NAME.length;
+    cursorOn = false;
+    drawFrame();
+  }
+
+  window.addEventListener("resize", () => {
+    resize();
+    drawFrame();
+  }, { passive: true });
+
+  // Re-draw on theme change so colors update
+  const observer = new MutationObserver(() => { drawFrame(); });
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   setupProjectFilters();
   setupCursorSpotlight();
@@ -552,4 +726,5 @@ document.addEventListener("DOMContentLoaded", () => {
   setupSearch();
   setupThemeAwareDiagrams();
   setupThemeToggle();
+  setupHeroNameCanvas();
 });

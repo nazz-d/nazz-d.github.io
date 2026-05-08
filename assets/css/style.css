@@ -109,18 +109,23 @@ body::before {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-  background-size: 56px 56px;
-  opacity: 0.22;
+    linear-gradient(rgba(192, 132, 252, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(192, 132, 252, 0.055) 1px, transparent 1px),
+    radial-gradient(circle, rgba(192, 132, 252, 0.18) 1px, transparent 1px);
+  background-size: 56px 56px, 56px 56px, 56px 56px;
+  background-position: 0 0, 0 0, -1px -1px;
+  opacity: 0.55;
   transition: opacity 0.5s;
 }
 
 [data-theme="light"] body::before {
   background-image:
-    linear-gradient(rgba(37, 99, 235, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(37, 99, 235, 0.045) 1px, transparent 1px);
-  opacity: 0.46;
+    linear-gradient(rgba(37, 99, 235, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.07) 1px, transparent 1px),
+    radial-gradient(circle, rgba(37, 99, 235, 0.22) 1px, transparent 1px);
+  background-size: 56px 56px, 56px 56px, 56px 56px;
+  background-position: 0 0, 0 0, -1px -1px;
+  opacity: 0.65;
 }
 
 /* Spotlight layer */
@@ -337,6 +342,9 @@ p { color: var(--muted); line-height: 1.72; }
 
 .hero-text, .lead { max-width: 790px; margin: 0; color: var(--muted); font-size: 1.08rem; }
 
+.hero-name-wrap { margin: 0 0 14px; line-height: 0.98; }
+.hero-name-canvas { display: block; max-width: 100%; height: auto; }
+
 .hero-actions, .buttons, .contact-actions { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; }
 
 .button {
@@ -387,6 +395,8 @@ p { color: var(--muted); line-height: 1.72; }
 .snapshot-grid, .achievement-grid, .three-column { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .project-grid, .two-column, .proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .cert-columns { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.skill-grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.skill-grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
 .filter-button {
   min-height: 38px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px;
