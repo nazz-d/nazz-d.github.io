@@ -1073,6 +1073,7 @@ function setupPageTransitions() {
     if (a.target === "_blank") return;
     if (href.startsWith("mailto:") || href.startsWith("tel:")) return;
     if (href.startsWith("#")) return;
+    if (href.includes("#") && a.pathname === window.location.pathname) return;
     if (href.startsWith("http") && !href.includes("masternazz.com")) return;
 
     e.preventDefault();
