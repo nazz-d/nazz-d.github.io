@@ -1020,7 +1020,13 @@ function setupNationalsCountdown() {
 }
 
 function setupPageTransitions() {
-  document.body.style.opacity = "1";
+  // Fade in on load
+  document.body.style.opacity = "0";
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      document.body.style.opacity = "";
+    });
+  });
 
   document.addEventListener("click", (e) => {
     const a = e.target.closest("a");

@@ -99,7 +99,7 @@ body {
   color: var(--text);
   background: var(--body-bg);
   background-attachment: fixed;
-  transition: color var(--transition-speed), background var(--transition-speed);
+  transition: color var(--transition-speed), background var(--transition-speed), opacity 0.18s ease;
 }
 
 /* Grid overlay */
@@ -1257,10 +1257,6 @@ pre code { color: var(--muted); }
 }
 
 /* ── Page transitions ────────────────────────────────────────────────────── */
-body {
-  opacity: 1;
-  transition: opacity 0.18s ease;
-}
 body.page-fade-out {
   opacity: 0;
   pointer-events: none;
