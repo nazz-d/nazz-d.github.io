@@ -1128,6 +1128,35 @@ pre code { color: var(--muted); }
   color: var(--accent);
 }
 
+/* ── SkillsUSA page hero ─────────────────────────────────────────────────── */
+.skillsusa-hero {
+  position: relative;
+}
+.skillsusa-hero-badge {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.2), rgba(var(--accent-rgb), 0.06));
+  border: 2px solid rgba(var(--accent-rgb), 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+.skillsusa-hero-badge svg { width: 26px; height: 26px; }
+.skillsusa-eyebrow-hero {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #fde047;
+  margin-bottom: 0.5rem;
+}
+.skillsusa-hero h1 .hero-accent {
+  color: var(--accent);
+}
+
 /* ── SkillsUSA featured achievement card ─────────────────────────────────── */
 .skillsusa-feature {
   display: flex;

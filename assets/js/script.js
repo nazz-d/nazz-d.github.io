@@ -1001,6 +1001,13 @@ function setupNationalsCountdown() {
   function tick() {
     const now = new Date();
     let diff = target - now;
+    const end = new Date("2026-06-06T23:59:59");
+    if (now >= end) {
+      const wrap = document.getElementById("nationalsCountdown");
+      if (wrap) wrap.closest(".nationals-countdown-section").querySelector("h2").textContent = "Competed at NLSC Nationals";
+      if (wrap) wrap.innerHTML = '<p style="font-size:1.1rem;color:var(--accent);font-weight:600;margin:0;">Atlanta, GA — June 1–6, 2026</p>';
+      return;
+    }
     if (diff <= 0) {
       dEl.textContent = hEl.textContent = mEl.textContent = sEl.textContent = "00";
       return;
