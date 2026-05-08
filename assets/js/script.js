@@ -172,112 +172,112 @@ const INDEX = [
     "url": "pages/certifications.html",
     "icon": "🏅",
     "desc": "Professional certifications and credentials for Nazeem Massoom Dickey.",
-    "keywords": "certifications certifications professional certifications and credentials for nazeem massoom dickey"
+    "keywords": "certifications comptia a+ network+ security+ cysa+ cisco ccst microsoft azure az-900 sc-900 ab-900 ai-900 dp-900 pl-900 ec-council ehe nde its certiport credly badges credentials trifecta csap csis cios stackable"
   },
   {
     "title": "Enterprise Homelab Architecture",
     "url": "pages/homelab.html",
     "icon": "🖥️",
     "desc": "Public-safe overview of Nazeem Massoom Dickey's enterprise-style homelab architecture.",
-    "keywords": "homelab enterprise homelab architecture publicsafe overview of nazeem massoom dickeys enterprisestyle homelab architecture"
+    "keywords": "homelab enterprise architecture lab rack cisco proxmox opnsense synology wazuh authentik remote access vlan switching identity monitoring infrastructure overview"
   },
   {
     "title": "Authentik Identity Lab",
     "url": "pages/identity.html",
     "icon": "👤",
     "desc": "Public-safe Authentik identity and SSO project by Nazeem Massoom Dickey.",
-    "keywords": "identity authentik identity lab publicsafe authentik identity and sso project by nazeem massoom dickey"
+    "keywords": "identity authentik sso single sign-on oidc ldap oauth mfa access control iam idp provider saml application proxy forward auth homelab"
   },
   {
     "title": "Journey &amp; Timeline",
     "url": "pages/journey.html",
     "icon": "🗺️",
     "desc": "How Nazeem Massoom Dickey went from zero IT background to enterprise homelab, CompTIA trifecta, and SkillsUSA Florida 1st Place in under two years.",
-    "keywords": "journey journey amp timeline how nazeem massoom dickey went from zero it background to enterprise homelab comptia trifecta and skillsusa florida 1st place in under two years"
+    "keywords": "journey timeline story background southtech academy zero to enterprise ibm server proxmox cisco rack comptia trifecta skillsusa florida first place failed ccst came back cybersecurity networking"
   },
   {
     "title": "OPNsense Edge Firewall Project",
     "url": "pages/opnsense.html",
     "icon": "🛡️",
     "desc": "Public-safe OPNsense firewall project by Nazeem Massoom Dickey.",
-    "keywords": "opnsense opnsense edge firewall project publicsafe opnsense firewall project by nazeem massoom dickey"
+    "keywords": "opnsense firewall gateway router vlan dhcp dns adguard suricata ids tls acme cloudflare dot dmz segmentation edge network security"
   },
   {
     "title": "Proxmox Infrastructure Project",
     "url": "pages/proxmox.html",
     "icon": "⚙️",
     "desc": "Public-safe Proxmox infrastructure project by Nazeem Massoom Dickey.",
-    "keywords": "proxmox proxmox infrastructure project publicsafe proxmox infrastructure project by nazeem massoom dickey"
+    "keywords": "proxmox virtualization cluster ibm dell r610 r410 lxc vm containers pbs backup 3-2-1 wazuh authentik ollama home assistant pelican synology nas ha quorum"
   },
   {
     "title": "Secure Remote Access Project",
     "url": "pages/remote-access.html",
     "icon": "🔐",
     "desc": "Public-safe secure remote access project by Nazeem Massoom Dickey.",
-    "keywords": "remoteaccess secure remote access project publicsafe secure remote access project by nazeem massoom dickey"
+    "keywords": "remote access headscale wireguard vpn mesh cloudflare tunnel zero trust dmz vlan public ingress headplane tailscale-compatible no open ports admin access"
   },
   {
     "title": "Nazeem Massoom Dickey — Resume (ATS)",
     "url": "pages/Massoom_Dickey_Nazeem_Resume_ATS.html",
     "icon": "📄",
     "desc": "ATS-friendly resume for Nazeem Massoom Dickey, IT and cybersecurity candidate.",
-    "keywords": "resumeats nazeem massoom dickey  resume ats atsfriendly resume for nazeem massoom dickey it and cybersecurity candidate"
+    "keywords": "resume ats plain text applicant tracking system download pdf it cybersecurity networking junior roles"
   },
   {
     "title": "Nazeem Massoom Dickey — Resume",
     "url": "pages/Massoom_Dickey_Nazeem_Resume_Styled.html",
     "icon": "📄",
     "desc": "Styled resume for Nazeem Massoom Dickey, IT and cybersecurity candidate.",
-    "keywords": "resumestyled nazeem massoom dickey  resume styled resume for nazeem massoom dickey it and cybersecurity candidate"
+    "keywords": "resume styled dark theme download pdf it cybersecurity networking junior roles visual portfolio"
   },
   {
     "title": "Resume",
     "url": "pages/resume.html",
     "icon": "📄",
     "desc": "Resume page for Nazeem Massoom Dickey, IT and cybersecurity candidate.",
-    "keywords": "resume resume resume page for nazeem massoom dickey it and cybersecurity candidate"
+    "keywords": "resume cv junior network admin soc analyst noc msp help desk it support cybersecurity internship freelance southtech academy experience certifications skills portfolio download"
   },
   {
     "title": "SkillsUSA Internetworking",
     "url": "pages/skillsusa.html",
     "icon": "🥇",
     "desc": "SkillsUSA Florida Internetworking 1st Place — Nazeem Massoom Dickey competing at state and national level.",
-    "keywords": "skillsusa skillsusa internetworking skillsusa florida internetworking 1st place  nazeem massoom dickey competing at state and national level"
+    "keywords": "skillsusa internetworking florida state champion 1st place gold medal nlsc nationals atlanta written exam oral sales scenario networking subnetting l2 l3 competition"
   },
   {
     "title": "Live Service Status",
     "url": "pages/status.html",
     "icon": "📡",
     "desc": "Real-time uptime monitoring for masternazz.com services, powered by a self-hosted Uptime Kuma instance running on Proxmox.",
-    "keywords": "status live service status realtime uptime monitoring for masternazzcom services powered by a selfhosted uptime kuma instance running on proxmox"
+    "keywords": "status uptime kuma monitoring live services proxmox lxc cloudflare tunnel public dashboard masternazz homelab services online"
   },
   {
     "title": "Cisco Switching &amp; DMZ VLAN",
     "url": "pages/switching.html",
     "icon": "🔀",
     "desc": "Cisco Catalyst 3750 V2 switching deployment with VLAN 50 DMZ isolation for Cloudflare Tunnel public ingress.",
-    "keywords": "switching cisco switching amp dmz vlan cisco catalyst 3750 v2 switching deployment with vlan 50 dmz isolation for cloudflare tunnel public ingress"
+    "keywords": "cisco switching catalyst 3750 v2 vlan 50 dmz trunk ports stp root main sub hierarchy opnsense proxmox ssh administration credential hygiene change validation ios"
   },
   {
     "title": "Wazuh SIEM/XDR Lab",
     "url": "pages/wazuh.html",
     "icon": "🔍",
     "desc": "Self-hosted Wazuh SIEM/XDR deployment and SOC-style investigation workflow by Nazeem Massoom Dickey.",
-    "keywords": "wazuh wazuh siemxdr lab selfhosted wazuh siemxdr deployment and socstyle investigation workflow by nazeem massoom dickey"
+    "keywords": "wazuh siem xdr soc log aggregation endpoint monitoring file integrity suricata alerts dashboards agents homelab security operations center triage"
   },
   {
     "title": "CyberLaunch USF 2026 — CTF Writeup",
     "url": "pages/writeup-cyberlaunch-2026.html",
     "icon": "📄",
     "desc": "CyberLaunch USF 2026 State Championship CTF recap — Kali Linux, Nmap, Metasploit, Hashcat, SMB exploitation, and OSINT geolocation.",
-    "keywords": "writeupcyberlaunch2026 cyberlaunch usf 2026  ctf writeup cyberlaunch usf 2026 state championship ctf recap  kali linux nmap metasploit hashcat smb exploitation and osint geolocation"
+    "keywords": "cyberlaunch usf 2026 ctf capture the flag state championship cyber florida kali linux nmap metasploit hashcat john the ripper smb exploitation osint geolocation flag hunting offensive security high school"
   },
   {
     "title": "Writeups",
     "url": "pages/writeups.html",
     "icon": "✍️",
     "desc": "Technical writeups and competition recaps by Nazeem Massoom Dickey — CTF writeups, competition notes, and field reports.",
-    "keywords": "writeups writeups technical writeups and competition recaps by nazeem massoom dickey  ctf writeups competition notes and field reports"
+    "keywords": "writeups ctf competition recap networking troubleshooting field reports cyberlaunch skillsusa vlan cisco technical writing"
   },
   {
     "title": "Cisco Trunking & VLAN 50 Fix",
@@ -988,6 +988,114 @@ function setupActiveNav() {
   sections.forEach(s => observer.observe(s));
 }
 
+function setupNationalsCountdown() {
+  const target = new Date("2026-06-23T08:00:00");
+  const dEl = document.getElementById("cdDays");
+  const hEl = document.getElementById("cdHours");
+  const mEl = document.getElementById("cdMins");
+  const sEl = document.getElementById("cdSecs");
+  if (!dEl) return;
+
+  function pad(n) { return String(n).padStart(2, "0"); }
+
+  function tick() {
+    const now = new Date();
+    let diff = target - now;
+    if (diff <= 0) {
+      dEl.textContent = hEl.textContent = mEl.textContent = sEl.textContent = "00";
+      return;
+    }
+    const days = Math.floor(diff / 86400000); diff %= 86400000;
+    const hours = Math.floor(diff / 3600000); diff %= 3600000;
+    const mins = Math.floor(diff / 60000); diff %= 60000;
+    const secs = Math.floor(diff / 1000);
+    dEl.textContent = String(days);
+    hEl.textContent = pad(hours);
+    mEl.textContent = pad(mins);
+    sEl.textContent = pad(secs);
+  }
+
+  tick();
+  setInterval(tick, 1000);
+}
+
+function setupPageTransitions() {
+  document.body.style.opacity = "1";
+
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest("a");
+    if (!a) return;
+    const href = a.getAttribute("href");
+    if (!href) return;
+    if (a.target === "_blank") return;
+    if (href.startsWith("mailto:") || href.startsWith("tel:")) return;
+    if (href.startsWith("#")) return;
+    if (href.startsWith("http") && !href.includes("masternazz.com")) return;
+
+    e.preventDefault();
+    document.body.classList.add("page-fade-out");
+    setTimeout(() => { window.location.href = href; }, 200);
+  });
+}
+
+function setupMobileNav() {
+  const nav = document.querySelector(".nav");
+  if (!nav) return;
+
+  const hamburger = document.createElement("button");
+  hamburger.className = "hamburger";
+  hamburger.setAttribute("aria-label", "Toggle navigation");
+  hamburger.setAttribute("aria-expanded", "false");
+  hamburger.innerHTML = "<span></span><span></span><span></span>";
+  nav.appendChild(hamburger);
+
+  const overlay = document.createElement("div");
+  overlay.className = "mobile-nav-overlay";
+  document.body.appendChild(overlay);
+
+  const panel = document.createElement("div");
+  panel.className = "mobile-nav-panel";
+
+  const links = document.querySelector(".nav-links");
+  if (links) {
+    [...links.querySelectorAll("a")].forEach(a => {
+      const clone = document.createElement("a");
+      clone.href = a.href;
+      clone.textContent = a.textContent.trim();
+      if (a.getAttribute("aria-current")) clone.setAttribute("aria-current", a.getAttribute("aria-current"));
+      clone.addEventListener("click", close);
+      panel.appendChild(clone);
+    });
+  }
+
+  document.body.appendChild(panel);
+
+  function open() {
+    overlay.classList.add("is-open");
+    panel.classList.add("is-open");
+    hamburger.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+  }
+
+  function close() {
+    overlay.classList.remove("is-open");
+    panel.classList.remove("is-open");
+    hamburger.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  }
+
+  hamburger.addEventListener("click", () => {
+    const isOpen = hamburger.getAttribute("aria-expanded") === "true";
+    isOpen ? close() : open();
+  });
+
+  overlay.addEventListener("click", close);
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") close();
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   setupProjectFilters();
   setupCursorSpotlight();
@@ -1004,4 +1112,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupBackToTop();
   setupSkillBars();
   setupFaviconAnimation();
+  setupNationalsCountdown();
+  setupPageTransitions();
+  setupMobileNav();
 });
