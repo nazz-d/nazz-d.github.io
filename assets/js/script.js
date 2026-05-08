@@ -591,10 +591,11 @@ function setupHeroNameCanvas() {
   let fontSize = getFontSize();
   let charCount = 0;
   let cursorOn = true;
-  let cursorTick = 0;
-  let idleTimer = 0;
+  let lastCursorFlip = 0;
+  let lastCharTime = 0;
+  let idleStart = 0;
   let phase = "typing";
-  let phaseFrame = 0;
+  let phaseStart = 0;
   let displayText = "";
   let rafId = null;
 
@@ -681,28 +682,37 @@ function setupHeroNameCanvas() {
     }
   }
 
-  function tick() {
+  function tick(now) {
     rafId = null;
-    cursorTick++;
+
+    // Cursor blink — 530ms interval regardless of fps
+    if (now - lastCursorFlip > 530) {
+      cursorOn = !cursorOn;
+      lastCursorFlip = now;
+    }
 
     if (phase === "typing") {
-      if (cursorTick % 3 === 0 && charCount < NAME.length) charCount++;
-      if (cursorTick % 8 === 0) cursorOn = !cursorOn;
+      // One char every 55ms
+      if (now - lastCharTime > 55 && charCount < NAME.length) {
+        charCount++;
+        lastCharTime = now;
+      }
       displayText = NAME.slice(0, charCount);
-      if (charCount >= NAME.length) phase = "idle";
+      if (charCount >= NAME.length) {
+        phase = "idle";
+        idleStart = now;
+      }
       drawFrame();
       rafId = requestAnimationFrame(tick);
       return;
     }
 
     if (phase === "idle") {
-      if (cursorTick % 28 === 0) cursorOn = !cursorOn;
       displayText = NAME;
-      idleTimer++;
-      // Trigger glitch sequence every ~15 seconds (900 frames @ 60fps)
-      if (idleTimer > 60 && idleTimer % 900 === 0) {
+      // Trigger glitch every 12 seconds of idle
+      if (now - idleStart > 12000) {
         phase = "corrupt";
-        phaseFrame = 0;
+        phaseStart = now;
       }
       drawFrame();
       rafId = requestAnimationFrame(tick);
@@ -710,36 +720,33 @@ function setupHeroNameCanvas() {
     }
 
     if (phase === "corrupt") {
-      // 30 frames of scrambling NAME → ALIAS
-      const progress = Math.min(phaseFrame / 30, 1);
+      // Scramble over 400ms
+      const progress = Math.min((now - phaseStart) / 400, 1);
       displayText = scrambleBetween(NAME, ALIAS, progress);
-      phaseFrame++;
-      if (phaseFrame >= 30) { phase = "alias"; phaseFrame = 0; }
+      if (progress >= 1) { phase = "alias"; phaseStart = now; }
       drawFrame();
       rafId = requestAnimationFrame(tick);
       return;
     }
 
     if (phase === "alias") {
-      // Hold "masternazz" clearly for 50 frames (~0.8s)
+      // Hold "masternazz" for 900ms
       displayText = ALIAS;
-      phaseFrame++;
-      if (phaseFrame >= 50) { phase = "recover"; phaseFrame = 0; }
+      if (now - phaseStart > 900) { phase = "recover"; phaseStart = now; }
       drawFrame();
       rafId = requestAnimationFrame(tick);
       return;
     }
 
     if (phase === "recover") {
-      // 30 frames scrambling ALIAS → NAME
-      const progress = Math.min(phaseFrame / 30, 1);
+      // Scramble back over 400ms
+      const progress = Math.min((now - phaseStart) / 400, 1);
       displayText = scrambleBetween(ALIAS, NAME, progress);
-      phaseFrame++;
-      if (phaseFrame >= 30) {
+      if (progress >= 1) {
         phase = "idle";
-        phaseFrame = 0;
         displayText = NAME;
         cursorOn = true;
+        idleStart = now;
       }
       drawFrame();
       rafId = requestAnimationFrame(tick);
@@ -752,7 +759,12 @@ function setupHeroNameCanvas() {
   drawFrame();
 
   if (!reducedMotion) {
-    rafId = requestAnimationFrame(tick);
+    rafId = requestAnimationFrame((now) => {
+      lastCharTime = now;
+      lastCursorFlip = now;
+      idleStart = now;
+      tick(now);
+    });
   } else {
     phase = "idle";
     charCount = NAME.length;
