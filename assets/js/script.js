@@ -278,6 +278,13 @@ const INDEX = [
     "icon": "✍️",
     "desc": "Technical writeups and competition recaps by Nazeem Massoom Dickey — CTF writeups, competition notes, and field reports.",
     "keywords": "writeups writeups technical writeups and competition recaps by nazeem massoom dickey  ctf writeups competition notes and field reports"
+  },
+  {
+    "title": "Cisco Trunking & VLAN 50 Fix",
+    "url": "pages/writeup-vlan50.html",
+    "icon": "🔀",
+    "desc": "Troubleshooting and fixing a VLAN 50 trunking mismatch on Cisco 3750V2 switches to restore Cloudflare Tunnel DMZ connectivity.",
+    "keywords": "vlan50 cisco trunking vlan 50 fix troubleshooting switchport trunk allowed vlan opnsense dmz cloudflare tunnel 3750 catalyst networking"
   }
 ];
 
