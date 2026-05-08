@@ -699,8 +699,8 @@ function setupHeroNameCanvas() {
       if (cursorTick % 28 === 0) cursorOn = !cursorOn;
       displayText = NAME;
       idleTimer++;
-      // Trigger glitch sequence every ~8 seconds (480 frames @ 60fps)
-      if (idleTimer > 60 && idleTimer % 480 === 0) {
+      // Trigger glitch sequence every ~15 seconds (900 frames @ 60fps)
+      if (idleTimer > 60 && idleTimer % 900 === 0) {
         phase = "corrupt";
         phaseFrame = 0;
       }
