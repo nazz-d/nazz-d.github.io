@@ -52,11 +52,12 @@
       <h1>VLAN 50 Trunking Path Fix</h1>
       <p class="lead">
         A deep dive into identifying and resolving a VLAN trunking mismatch between OPNsense
-        and the switching fabric to restore connectivity for a DMZ-isolated
-        Cloudflare Tunnel.
+        and the switching fabric to restore connectivity for a DMZ-isolated Cloudflare Tunnel,
+        then validating the path after migration to Cisco SG300 + Netgear GS728TP.
       </p>
       <div class="chip-row">
-        <span class="chip">Cisco IOS</span>
+        <span class="chip">Cisco SG300</span>
+        <span class="chip">Netgear GS728TP</span>
         <span class="chip">VLAN 50</span>
         <span class="chip">802.1Q Trunking</span>
         <span class="chip">Troubleshooting</span>
@@ -71,9 +72,9 @@
         <h3>STAR Breakdown</h3>
         <ul class="list-clean">
           <li><strong>Situation:</strong> The Cloudflare Tunnel LXC, isolated in a dedicated Public_DMZ (VLAN 50), was unreachable and failing to receive a DHCP lease from the OPNsense gateway.</li>
-          <li><strong>Task:</strong> Verify the physical and logical path of VLAN 50 through the network fabric—consisting of OPNsense, a Proxmox cluster, a main Cisco 3750V2, and a secondary Cisco 3750V2.</li>
-          <li><strong>Action:</strong> Systematically audited the switch configurations. Identified that while VLAN 50 was tagged at the OPNsense and Proxmox layers, the Cisco trunk ports connecting the switches were only allowing the native VLAN (VLAN 1). Applied <code>switchport trunk allowed vlan add 50</code> across the entire path.</li>
-          <li><strong>Result:</strong> Restored full L2/L3 pathing. Cloudflared received lease 192.168.50.2, successfully reached the gateway, and restored all global status and web services.</li>
+          <li><strong>Task:</strong> Verify the full VLAN 50 path across OPNsense, Proxmox, and switching during two phases: legacy Catalyst 3750V2 fabric, then post-migration SG300/GS728TP fabric.</li>
+          <li><strong>Action:</strong> Audited trunks and VLAN membership end-to-end. In the legacy phase, found trunks allowing only VLAN 1 and added VLAN 50 across the path. In the migration phase, validated SG300 trunk membership (including Proxmox-facing <code>gi1</code> and OPNsense-facing <code>gi19</code>) and confirmed DMZ continuity through the new core/access design.</li>
+          <li><strong>Result:</strong> Restored and retained L2/L3 pathing through migration. Cloudflared received lease <code>192.168.50.2</code>, reached gateway <code>192.168.50.1</code>, and public status/web ingress returned to normal.</li>
         </ul>
       </div>
 
@@ -89,8 +90,9 @@
 
       <h2>The Topology Audit</h2>
       <p>
-        My network uses a "Router on a Stick" (mostly) model with multiple VLANs. The path for VLAN 50 is:
+        My network uses a Router-on-a-Stick style model with multiple VLANs. The VLAN 50 path was audited in two snapshots:
       </p>
+      <p><strong>Legacy snapshot (Catalyst era):</strong></p>
       <ol>
         <li><strong>OPNsense ( em0.50 )</strong> -> Gateway</li>
         <li><strong>Cisco 3750V2 Main ( Fa5/0/47 )</strong> -> Trunk to OPNsense</li>
@@ -98,9 +100,15 @@
         <li><strong>Cisco 3750V2 Sub ( Fa2/0/47 )</strong> -> Trunk back to Main</li>
         <li><strong>Cisco 3750V2 Main ( Fa5/0/1 )</strong> -> Trunk to Proxmox Node</li>
       </ol>
+      <p><strong>Current snapshot (SG300/Netgear era):</strong></p>
+      <ol>
+        <li><strong>OPNsense ( em0.50 )</strong> -> Gateway</li>
+        <li><strong>Cisco SG300 ( gi19 )</strong> -> Trunk to OPNsense LAN</li>
+        <li><strong>Cisco SG300 ( gi1 )</strong> -> Trunk to Proxmox / cloudflared path</li>
+        <li><strong>Cisco SG300 ( gi20 )</strong> -> Trunk uplink to Netgear GS728TP ( g23 )</li>
+      </ol>
       <p>
-        If any single link in this chain fails to "allow" VLAN 50, the L2 broadcast domain is 
-        broken and the DHCP Discover packet never reaches the OPNsense server.
+        If any link in either path does not carry VLAN 50, the L2 broadcast domain breaks and DHCP Discover never reaches OPNsense.
       </p>
 
       <hr class="section-divider">
@@ -114,7 +122,7 @@
         and tag <code>50</code>. The issue wasn't at the endpoints.
       </p>
 
-      <h3>2. The Cisco Discovery</h3>
+      <h3>2. Legacy Discovery (Catalyst)</h3>
       <p>
         I logged into the main switch (<code>192.168.1.182</code>) and ran <code>show interfaces trunk</code>. 
         The results were clear: <strong>VLAN 50 was missing from the "Vlans allowed on trunk" list.</strong> 
@@ -137,22 +145,26 @@ interface Fa2/0/47
  exit
 wr mem</code></pre>
 
+      <h3>4. Migration Validation (SG300 + GS728TP)</h3>
+      <p>
+        After replacing the 3750 pair with a Cisco SG300-20 core (<code>192.168.1.179</code>) and Netgear GS728TP access switch (<code>192.168.1.131</code>), I revalidated VLAN 50 continuity. The critical correction was ensuring VLAN 50 remained tagged on the Proxmox-facing SG300 trunk (<code>gi1</code>) while preserving tagged pathing on <code>gi19</code> (OPNsense) and uplink to Netgear.
+      </p>
+
       <hr class="section-divider">
 
-      <h2>The Result</h2>
+      <h2>The Result (Across Both Phases)</h2>
       <p>
-        Immediately after saving the configuration, the <code>cloudflared</code> LXC received a 
-        DHCP lease (<code>192.168.50.2</code>). I verified connectivity with a ping to the 
-        gateway (<code>192.168.50.1</code>) and confirmed that the Cloudflare Tunnel registered 
-        as "Active" in the Zero Trust dashboard.
+        In both the initial fix and post-migration validation, <code>cloudflared</code> received
+        DHCP lease <code>192.168.50.2</code>, successfully pinged gateway <code>192.168.50.1</code>,
+        and restored Cloudflare Tunnel health. Public status/web services resumed without exposing
+        management ports to WAN.
       </p>
 
       <hr class="section-divider">
 
       <h2>Key Takeaways</h2>
       <p>
-        <strong>Trust but Verify:</strong> Just because a port is set to <code>mode trunk</code> 
-        doesn't mean it's carrying your traffic. 
+        <strong>Trust but Verify:</strong> A trunk port can still drop required VLANs if allowed lists or membership are wrong.
       </p>
       <p>
         <strong>Documentation is a Tool:</strong> Having a clear map of which physical ports 
@@ -160,9 +172,7 @@ wr mem</code></pre>
         to audit in seconds rather than guessing.
       </p>
       <p>
-        <strong>DMZ Isolation:</strong> This fix was particularly important because it maintained 
-        the security boundary. VLAN 50 remains isolated from the LAN, but now it has the L2 path 
-        it needs to reach the internet.
+        <strong>Migration Discipline:</strong> Hardware upgrades are successful only when security boundaries survive the move. VLAN 50 remained isolated from LAN while retaining required pathing.
       </p>
 
     </section>
@@ -181,8 +191,8 @@ wr mem</code></pre>
             </span>
             <span class="project-type">Switching</span>
           </div>
-          <h3>Cisco Switching Project</h3>
-          <p>The hardware architecture behind this fix—Catalyst 3750V2 setup and trunk port design.</p>
+          <h3>Gigabit Switching &amp; PoE+ Deployment</h3>
+          <p>The architecture and migration from legacy Catalyst to SG300 core + GS728TP access.</p>
           <span class="card-link">View project -&gt;</span>
         </a>
 
@@ -195,6 +205,30 @@ wr mem</code></pre>
           </div>
           <h3>OPNsense Gateway</h3>
           <p>How the edge router handles the L3 side of VLAN 50 and DMZ segmentation.</p>
+          <span class="card-link">View project -&gt;</span>
+        </a>
+
+        <a href="remote-access.html" class="project-card glass-panel">
+          <div class="project-top">
+            <span class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+            </span>
+            <span class="project-type">Network</span>
+          </div>
+          <h3>Zero-Trust Remote Access</h3>
+          <p>The Cloudflare Tunnel design that depends on VLAN 50 DMZ continuity.</p>
+          <span class="card-link">View project -&gt;</span>
+        </a>
+
+        <a href="status.html" class="project-card glass-panel">
+          <div class="project-top">
+            <span class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </span>
+            <span class="project-type">Monitoring</span>
+          </div>
+          <h3>Live Service Status</h3>
+          <p>Public service health that returned once VLAN 50 pathing was corrected.</p>
           <span class="card-link">View project -&gt;</span>
         </a>
       </div>

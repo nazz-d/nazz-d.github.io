@@ -150,7 +150,7 @@
             <span class="project-type">Firewall</span>
           </div>
           <h3>OPNsense Edge Firewall</h3>
-          <p>Hardened gateway implementation: VLAN segmentation, AdGuard DNS, and Suricata IDS.</p>
+          <p>Core routing, segmentation, and edge security policy for the full lab.</p>
           <span class="card-link">View project -&gt;</span>
         </a>
 
@@ -162,31 +162,7 @@
             <span class="project-type">Virtualization</span>
           </div>
           <h3>Proxmox Cluster Management</h3>
-          <p>Three-node cluster — IBM M4, Dell R610, Dell R410 — running 22 VMs and LXC containers.</p>
-          <span class="card-link">View project -&gt;</span>
-        </a>
-
-        <a href="remote-access.html" class="project-card glass-panel">
-          <div class="project-top">
-            <span class="project-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
-            </span>
-            <span class="project-type">Network</span>
-          </div>
-          <h3>Zero-Trust Remote Access</h3>
-          <p>Headscale mesh VPN for admin access and Cloudflare Tunnel in a DMZ VLAN for public services — no open WAN ports.</p>
-          <span class="card-link">View project -&gt;</span>
-        </a>
-
-        <a href="identity.html" class="project-card glass-panel">
-          <div class="project-top">
-            <span class="project-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            </span>
-            <span class="project-type">IAM</span>
-          </div>
-          <h3>Centralized Identity &amp; Auth</h3>
-          <p>Authentik implementation for SSO, OIDC, and LDAP across the lab infrastructure.</p>
+          <p>Compute layer powering services across the homelab architecture.</p>
           <span class="card-link">View project -&gt;</span>
         </a>
 
@@ -198,44 +174,20 @@
             <span class="project-type">Switching</span>
           </div>
           <h3>Gigabit Switching &amp; PoE+ Deployment</h3>
-          <p>Full Gigabit fabric using Cisco SG300 and Netgear GS728TP with PoE+ support and VLAN 50 DMZ isolation.</p>
+          <p>Backbone connectivity and VLAN trunking that ties the stack together.</p>
           <span class="card-link">View project -&gt;</span>
         </a>
 
-        <a href="status.html" class="project-card glass-panel">
+        <a href="remote-access.html" class="project-card glass-panel">
           <div class="project-top">
             <span class="project-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
             </span>
-            <span class="project-type">Monitoring</span>
+            <span class="project-type">Network</span>
           </div>
-          <h3>Live Service Status</h3>
-          <p>Self-hosted Uptime Kuma on Proxmox LXC — 30+ monitors provisioned via socket.io API, published via Cloudflare Tunnel.</p>
+          <h3>Zero-Trust Remote Access</h3>
+          <p>Operational access model for admins and public services built on top of this lab.</p>
           <span class="card-link">View project -&gt;</span>
-        </a>
-
-        <a href="wazuh.html" class="project-card glass-panel">
-          <div class="project-top">
-            <span class="project-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-            </span>
-            <span class="project-type">SIEM / Security</span>
-          </div>
-          <h3>Wazuh SIEM / XDR</h3>
-          <p>Self-hosted Wazuh collecting endpoint logs, Suricata IDS alerts, and file integrity events — SOC-style triage practice environment.</p>
-          <span class="card-link">View project -&gt;</span>
-        </a>
-
-        <a href="skillsusa.html" class="project-card glass-panel">
-          <div class="project-top">
-            <span class="project-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-            </span>
-            <span class="project-type">Competition</span>
-          </div>
-          <h3>SkillsUSA Internetworking</h3>
-          <p>Florida State Champion — 1st Place. Written exam, oral sales scenario, and hands-on prep. Advancing to NLSC Nationals in Atlanta.</p>
-          <span class="card-link">View page -&gt;</span>
         </a>
       </div>
     </section>

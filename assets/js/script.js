@@ -991,6 +991,109 @@ function setupCertCounter() {
   observer.observe(el);
 }
 
+function setupRevealOnScroll() {
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return;
+  }
+
+  const targets = document.querySelectorAll(".glass-panel, .card, .timeline-item, .detail-card");
+  if (!targets.length) return;
+
+  targets.forEach((el) => el.classList.add("reveal-on-scroll"));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -7% 0px" });
+
+  targets.forEach((el) => observer.observe(el));
+}
+
+function setupCountups() {
+  const nodes = document.querySelectorAll("[data-countup]");
+  if (!nodes.length) return;
+
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    nodes.forEach((el) => {
+      const end = Number(el.dataset.countup || "0");
+      const prefix = el.dataset.prefix || "";
+      const suffix = el.dataset.suffix || "";
+      el.textContent = `${prefix}${end}${suffix}`;
+    });
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const end = Number(el.dataset.countup || "0");
+      const duration = Number(el.dataset.duration || "1100");
+      const prefix = el.dataset.prefix || "";
+      const suffix = el.dataset.suffix || "";
+      const startTime = performance.now();
+
+      function tick(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const value = Math.floor(end * eased);
+        el.textContent = `${prefix}${value}${suffix}`;
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+
+      requestAnimationFrame(tick);
+      observer.unobserve(el);
+    });
+  }, { threshold: 0.45 });
+
+  nodes.forEach((el) => observer.observe(el));
+}
+
+function setupSectionDividers() {
+  const dividers = document.querySelectorAll(".section-divider");
+  if (!dividers.length) return;
+
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    dividers.forEach((d) => d.classList.add("is-drawn"));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-drawn");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3, rootMargin: "0px 0px -12% 0px" });
+
+  dividers.forEach((d) => observer.observe(d));
+}
+
+function setupHeroScrollFade() {
+  const hero = document.querySelector(".hero, .page-hero");
+  if (!hero) return;
+
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document.documentElement.style.setProperty("--hero-scroll-fade", "0");
+    return;
+  }
+
+  function update() {
+    const max = 220;
+    const progress = Math.min(window.scrollY / max, 1);
+    const fade = (progress * 0.55).toFixed(3);
+    document.documentElement.style.setProperty("--hero-scroll-fade", fade);
+  }
+
+  window.addEventListener("scroll", update, { passive: true });
+  update();
+}
+
 function setupActiveNav() {
   const sections = ["#projects", "#skills", "#timeline", "#contact"]
     .map(id => document.querySelector(id))
@@ -1057,6 +1160,14 @@ function setupNationalsCountdown() {
 }
 
 function setupPageTransitions() {
+  // iOS/Safari back-swipe can restore from BFCache with stale fade-out styles.
+  // Always clear transition styles when the page is shown again.
+  window.addEventListener("pageshow", () => {
+    document.body.classList.remove("page-fade-out");
+    document.body.style.opacity = "";
+    document.body.style.pointerEvents = "";
+  });
+
   // Fade in on load
   document.body.style.opacity = "0";
   requestAnimationFrame(() => {
@@ -1155,6 +1266,10 @@ document.addEventListener("DOMContentLoaded", () => {
   setupScrollProgress();
   setupRoleRotator();
   setupCertCounter();
+  setupCountups();
+  setupRevealOnScroll();
+  setupSectionDividers();
+  setupHeroScrollFade();
   setupActiveNav();
   setupOpenToWork();
   setupBackToTop();
