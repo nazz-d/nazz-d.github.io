@@ -1164,17 +1164,13 @@ function setupPageTransitions() {
   // Always clear transition styles when the page is shown again.
   window.addEventListener("pageshow", () => {
     document.body.classList.remove("page-fade-out");
+    document.body.classList.remove("page-entering");
     document.body.style.opacity = "";
     document.body.style.pointerEvents = "";
   });
 
-  // Fade in on load
-  document.body.style.opacity = "0";
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      document.body.style.opacity = "";
-    });
-  });
+  // Fade in on load — CSS keyframe avoids JS timing issues with transitions
+  document.body.classList.add("page-entering");
 
   let transitioning = false;
 
