@@ -999,7 +999,12 @@ function setupRevealOnScroll() {
   const targets = document.querySelectorAll(".glass-panel, .card, .timeline-item, .detail-card");
   if (!targets.length) return;
 
-  targets.forEach((el) => el.classList.add("reveal-on-scroll"));
+  // Skip reveal animation on tall elements (writeup bodies, full-page cards) —
+  // a threshold-based observer won't fire reliably when the element is taller than the viewport.
+  targets.forEach((el) => {
+    if (el.classList.contains("writeup-body")) return;
+    el.classList.add("reveal-on-scroll");
+  });
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -1008,9 +1013,11 @@ function setupRevealOnScroll() {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: "0px 0px -7% 0px" });
+  }, { threshold: 0, rootMargin: "0px 0px -5% 0px" });
 
-  targets.forEach((el) => observer.observe(el));
+  targets.forEach((el) => {
+    if (el.classList.contains("reveal-on-scroll")) observer.observe(el);
+  });
 }
 
 function setupCountups() {
