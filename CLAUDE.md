@@ -3,8 +3,8 @@
 ## Identity
 - **Full name:** Nazeem Massoom Dickey
 - **Preferred name:** Nazeem
-- **GitHub username:** nazz-d
-- **GitHub profile:** https://github.com/nazz-d
+- **GitHub username:** masternazz
+- **GitHub profile:** https://github.com/masternazz
 - **Live site:** https://masternazz.com
 - **Email:** NazeemDickey@gmail.com
 - **LinkedIn:** https://www.linkedin.com/in/nazeemdickey/
