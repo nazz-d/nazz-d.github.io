@@ -135,32 +135,11 @@
           </thead>
           <tbody>
             <tr>
-              <td>10</td>
-              <td>Management</td>
-              <td>10.226.10.0/24</td>
-              <td>Admin PC, OPNsense, Proxmox nodes, switches</td>
-              <td>Full access — initiates to all VLANs</td>
-            </tr>
-            <tr>
               <td>2</td>
               <td>Game Servers</td>
               <td>10.226.2.0/24</td>
               <td>Pelican Panel, Wings, Docker, MC server</td>
               <td>Internet yes · Internal blocked</td>
-            </tr>
-            <tr>
-              <td>7</td>
-              <td>DMZ</td>
-              <td>10.226.7.0/24</td>
-              <td>cloudflared, NPMplus</td>
-              <td>cloudflared → NPMplus only · no management access</td>
-            </tr>
-            <tr>
-              <td>6</td>
-              <td>Services</td>
-              <td>10.226.6.0/24</td>
-              <td>Authentik SSO, Jellyfin, Headscale, AI inference</td>
-              <td>Internal services · SSO-gated via Authentik</td>
             </tr>
             <tr>
               <td>3</td>
@@ -170,11 +149,11 @@
               <td>All VLANs push logs in · VLAN 3 cannot reach others</td>
             </tr>
             <tr>
-              <td>20</td>
-              <td>Storage</td>
-              <td>10.226.20.0/24</td>
-              <td>Synology NAS, QNAP, Thecus PBS</td>
-              <td>No internet initiation · VLAN 10 + Proxmox only</td>
+              <td>4</td>
+              <td>Testing</td>
+              <td>10.226.4.0/24</td>
+              <td>Lab VMs, Kali, sandboxed containers</td>
+              <td>Isolated · no production VLAN access</td>
             </tr>
             <tr>
               <td>5</td>
@@ -184,11 +163,18 @@
               <td>Internet only · RFC1918 blocked</td>
             </tr>
             <tr>
-              <td>4</td>
-              <td>Testing</td>
-              <td>10.226.4.0/24</td>
-              <td>Lab VMs, Kali, sandboxed containers</td>
-              <td>Isolated · no production VLAN access</td>
+              <td>6</td>
+              <td>Services</td>
+              <td>10.226.6.0/24</td>
+              <td>Authentik SSO, Jellyfin, Headscale, AI inference</td>
+              <td>Internal services · SSO-gated via Authentik</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>DMZ</td>
+              <td>10.226.7.0/24</td>
+              <td>cloudflared, NPMplus</td>
+              <td>cloudflared → NPMplus only · no management access</td>
             </tr>
             <tr>
               <td>8</td>
@@ -203,6 +189,20 @@
               <td>10.226.9.0/24</td>
               <td>IPMI, iDRAC, IMM2 cards</td>
               <td>VLAN 10 access only · no internet</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>Management</td>
+              <td>10.226.10.0/24</td>
+              <td>Admin PC, OPNsense, Proxmox nodes, switches</td>
+              <td>Full access — initiates to all VLANs</td>
+            </tr>
+            <tr>
+              <td>20</td>
+              <td>Storage</td>
+              <td>10.226.20.0/24</td>
+              <td>Synology NAS, QNAP, Thecus PBS</td>
+              <td>No internet initiation · VLAN 10 + Proxmox only</td>
             </tr>
           </tbody>
         </table>
