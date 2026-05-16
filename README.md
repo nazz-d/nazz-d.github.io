@@ -53,19 +53,6 @@ node tools/check-mobile.js
 - `export-og-card` regenerates the OG social preview card at `assets/diagrams/network-diagram.png`.
 - `check-mobile` takes a mobile-viewport screenshot for quick visual QA.
 
-## AI Assistance Credit
-
-Claude Code (Anthropic) assisted with implementation, tooling, and documentation. The project direction, infrastructure decisions, lab ownership, competition results, and final technical judgment are Nazeem's.
-
-## AI Starter Repos
-
-This portfolio is maintained alongside a small set of official AI CLI repos for workflow research and implementation reference.
-
-- `anthropics/claude-code`
-- `anthropics/claude-code-sdk`
-- `google-gemini/gemini-cli`
-- `openai/codex`
-
 ## Public-Safe Boundary
 
 This site intentionally avoids publishing private configuration exports, secrets, exact firewall rule details, credential material, MAC addresses, and full internal addressing.
